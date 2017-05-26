@@ -15,8 +15,19 @@ Form.Component = class Form extends React.Component {
    }
 
    getStatefulInputs() {
+      // return React.Children.map(this.props.children,
+      //    input => React.cloneElement(input, this.state.inputs[input.key])
+      // );
+      // input => React.cloneElement(input, this.state.inputs[input.key])
       return React.Children.map(this.props.children,
-         input => React.cloneElement(input, this.state.inputs[input.key])
+
+         input => {
+            const data = this.state.inputs[input.key];
+            const Hehe = data.component;
+            console.log(data.component)
+            // return <Hehe {...data} />
+            return React.createElement(data.component, data);
+         }
       );
    }
 

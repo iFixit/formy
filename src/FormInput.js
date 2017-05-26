@@ -43,6 +43,8 @@ FormInput.Dropdown = FormInput.InputFactory({
    customInputOnlyNumbers: false,
 });
 
-FormInput.Component = () => {};
+FormInput.Component = props => (
+   <props.component {...props}/>
+);
 
 export default FormInput;

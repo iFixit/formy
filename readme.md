@@ -14,17 +14,15 @@ let signupForm = {
 // Render the form
 ReactDOM.render(
 
-   // Pass in the form data
+   // Map a Form to a form data object by passing in the object as the "instance" value
+   // Map a Form.Input.Component to a form data by using the same "key" value
+   // Structure the form layout however you want!
+   // Add any extra elements you want!
    <Form.Component instance={signupForm}>
-
-      // Structure the form layout however you want!
-      // Add any extra elements you want!
-      // Map a Form.Input.Component to a form data by using the same "key" value
       <Form.Input.Component key="name"/>
       <Form.Input.Component key="email"/>
       <Form.Input.Component key="password"/>
       <Form.Input.Component key="newsletterSignup"/>
-
    </Form.Component>,
    document.getElementById('root')
 );

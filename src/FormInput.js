@@ -1,9 +1,7 @@
-// import React from 'react';
+import React from 'react';
 import FormInputComponent from './FormInputComponent';
 
 let FormInput = {};
-
-FormInput.Component = FormInputComponent;
 
 FormInput.BASE_DEFAULTS = {
    value: '', // String
@@ -11,7 +9,7 @@ FormInput.BASE_DEFAULTS = {
    required: false,
    disabled: false,
    isValid: () => true,
-   component: FormInput.Component.Default,
+   component: FormInputComponent.Default,
 };
 
 FormInput.InputFactory = typeDefaults => (
@@ -20,7 +18,7 @@ FormInput.InputFactory = typeDefaults => (
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',
-  component: FormInput.Component.Text,
+  component: FormInputComponent.Text,
 });
 
 FormInput.Email = FormInput.InputFactory({ placeHolder: '' });
@@ -45,14 +43,6 @@ FormInput.Dropdown = FormInput.InputFactory({
    customInputOnlyNumbers: false,
 });
 
-// FormInput.Component = props => (
-//    <props.component {...props} />
-// );
-
-// const Test = props => (
-//    <props.component {...props} />
-// );
-
-// FormInput.Component = Test;
+FormInput.Component = () => {};
 
 export default FormInput;

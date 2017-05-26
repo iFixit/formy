@@ -1,4 +1,5 @@
 import React from 'react';
+import FormComponent from './FormComponent';
 
 let FormInput = {};
 
@@ -18,7 +19,10 @@ FormInput.InputFactory = typeDefaults => (
    options => Object.assign({}, FormInput.BASE_DEFAULTS, typeDefaults, options)
 );
 
-FormInput.Text = FormInput.InputFactory({ placeHolder: '' });
+FormInput.Text = FormInput.InputFactory({
+  placeHolder: '',
+  component: FormComponent.Text
+});
 
 FormInput.Email = FormInput.InputFactory({ placeHolder: '' });
 
@@ -42,14 +46,8 @@ FormInput.Dropdown = FormInput.InputFactory({
    customInputOnlyNumbers: false,
 });
 
-FormInput.Component = class Input extends React.Component {
-   render() {
-      // console.log(this.props instanceof FormInput.Text)
-
-      return(
-         <div>{this.props.label}</div>
-      );
-   }
-}
+FormInput.Component = props => (
+  <props.component {...props} />
+);
 
 export default FormInput;

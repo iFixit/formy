@@ -21,15 +21,30 @@ FormInput.Text = FormInput.InputFactory({
   component: FormInputComponent.Text,
 });
 
-FormInput.Email = FormInput.InputFactory({ placeHolder: '' });
+FormInput.Email = FormInput.InputFactory({
+   placeHolder: '' ,
+   component: FormInputComponent.Email,
+});
 
-FormInput.Password = FormInput.InputFactory({ placeHolder: '' });
+FormInput.Password = FormInput.InputFactory({
+   placeHolder: '' ,
+   component: FormInputComponent.Password,
+});
 
-FormInput.Number = FormInput.InputFactory({ placeHolder: '' });
+FormInput.Number = FormInput.InputFactory({
+   placeHolder: '' ,
+   component: FormInputComponent.Number,
+});
 
-FormInput.TextBox = FormInput.InputFactory({ placeHolder: '' });
+FormInput.TextArea = FormInput.InputFactory({
+   placeHolder: '',
+   component: FormInputComponent.TextArea,
+});
 
-FormInput.Checkbox = FormInput.InputFactory({ value: false });
+FormInput.Checkbox = FormInput.InputFactory({
+   value: false,
+   component: FormInputComponent.Checkbox,
+});
 
 FormInput.Radio = FormInput.InputFactory({ value: false });
 

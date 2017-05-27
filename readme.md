@@ -39,7 +39,7 @@ ReactDOM.render(
     - [Component](#forminputcomponent)
     - [ComponentLibrary](#forminputcomponentlibrary)
     - [InputFactory](#forminputinputfactory)
-    - [[Input Types]](#forminputinput-type)
+    - [[Input Types]](#forminputinput-types)
       - [Component](#forminputinput-typescomponent)
 
 ##

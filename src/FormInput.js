@@ -3,15 +3,13 @@ import FormInputTypedComponent from './FormInputTypedComponent.js';
 
 let FormInput = {};
 
-FormInput.TypedComponent = FormInputTypedComponent;
-
 FormInput.BASE_DEFAULTS = {
    value: '', // String
    label: '',
    required: false,
    disabled: false,
    isValid: () => true,
-   component: FormInput.TypedComponent.Default,
+   component: FormInputTypedComponent.Default,
 };
 
 FormInput.InputFactory = typeDefaults => (
@@ -20,32 +18,32 @@ FormInput.InputFactory = typeDefaults => (
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',
-  component: FormInput.TypedComponent.Text,
+  component: FormInputTypedComponent.Text,
 });
 
 FormInput.Email = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInput.TypedComponent.Email,
+   component: FormInputTypedComponent.Email,
 });
 
 FormInput.Password = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInput.TypedComponent.Password,
+   component: FormInputTypedComponent.Password,
 });
 
 FormInput.Number = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInput.TypedComponent.Number,
+   component: FormInputTypedComponent.Number,
 });
 
 FormInput.TextArea = FormInput.InputFactory({
    placeHolder: '',
-   component: FormInput.TypedComponent.TextArea,
+   component: FormInputTypedComponent.TextArea,
 });
 
 FormInput.Checkbox = FormInput.InputFactory({
    value: false,
-   component: FormInput.TypedComponent.Checkbox,
+   component: FormInputTypedComponent.Checkbox,
 });
 
 FormInput.Radio = FormInput.InputFactory({ value: false });

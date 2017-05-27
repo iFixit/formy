@@ -37,11 +37,10 @@ ReactDOM.render(
   - [Component](#formcomponent)
   - [Input](#forminput)
     - [Component](#forminputcomponent)
-    - [TypedComponent](#forminputtypedcomponent)
-      - [[Input Types]](#forminputtypedcomponentinput-types)
     - [BASE_DEFAULTS](#forminputbase_defaults)
     - [InputFactory](#forminputinputfactory)
     - [[Input Types]](#forminputinput-type)
+      - Component
 
 ##
 
@@ -56,6 +55,7 @@ Library wrapper object.
 Top level form element.
 
 Props:
+
 ```
 instance: An object of Form.Input.[input type]s.
 ```
@@ -80,19 +80,20 @@ key: A String that's a key to a value in the Form instance object.
 
 ##
 
-### `Form.Input.TypedComponent`
-
-Typed input element wrapper object.
+### `Form.Input.BASE_DEFAULTS`
 
 ##
 
-### `Form.Input.TypedComponent.[Input Types]`
+### `Form.Input.InputFactory`
 
-Typed input element generated from `Form.Input.Component`.
+##
+
+### `Form.Input.[Input Types]`
 
 Contains:
 
 ```
+Default
 Text
 Email
 Password
@@ -106,12 +107,12 @@ Dropdown
 
 ##
 
-### `Form.Input.BASE_DEFAULTS`
+### `Form.Input.[Input Types].Component`
 
-##
+Typed input element generated from `Form.Input.Component`.
 
-### `Form.Input.InputFactory`
+Props:
 
-##
-
-### `Form.Input.[Input Types]`
+```
+All data from the input type's `Form.Input.[Input Types]`
+```

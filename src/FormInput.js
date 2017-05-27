@@ -1,7 +1,9 @@
 import React from 'react';
-import FormInputComponent from './FormInputComponent';
+import FormInputTypedComponent from './FormInputTypedComponent.js';
 
 let FormInput = {};
+
+FormInput.TypedComponent = FormInputTypedComponent;
 
 FormInput.BASE_DEFAULTS = {
    value: '', // String
@@ -9,7 +11,7 @@ FormInput.BASE_DEFAULTS = {
    required: false,
    disabled: false,
    isValid: () => true,
-   component: FormInputComponent.Default,
+   component: FormInput.TypedComponent.Default,
 };
 
 FormInput.InputFactory = typeDefaults => (
@@ -18,32 +20,32 @@ FormInput.InputFactory = typeDefaults => (
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',
-  component: FormInputComponent.Text,
+  component: FormInput.TypedComponent.Text,
 });
 
 FormInput.Email = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInputComponent.Email,
+   component: FormInput.TypedComponent.Email,
 });
 
 FormInput.Password = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInputComponent.Password,
+   component: FormInput.TypedComponent.Password,
 });
 
 FormInput.Number = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInputComponent.Number,
+   component: FormInput.TypedComponent.Number,
 });
 
 FormInput.TextArea = FormInput.InputFactory({
    placeHolder: '',
-   component: FormInputComponent.TextArea,
+   component: FormInput.TypedComponent.TextArea,
 });
 
 FormInput.Checkbox = FormInput.InputFactory({
    value: false,
-   component: FormInputComponent.Checkbox,
+   component: FormInput.TypedComponent.Checkbox,
 });
 
 FormInput.Radio = FormInput.InputFactory({ value: false });

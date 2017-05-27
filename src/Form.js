@@ -27,7 +27,7 @@ Form.Component = class Form extends React.Component {
 
             {this.getStatefulInputs()}
 
-            <br/> Form Ends
+            <br/><br/> Form Ends
          </form>
       );
    }

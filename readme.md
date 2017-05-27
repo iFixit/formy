@@ -1,5 +1,9 @@
 # Form
 
+`Form` is a form generation library in React that specializes in:
+- Offloading complex HTML markup
+- Separating a form's data from a form's layout
+
 ## Example
 
 ``` jsx
@@ -24,8 +28,18 @@ ReactDOM.render(
       <Form.Input.Component key="password"/>
       <Form.Input.Component key="newsletterSignup"/>
    </Form.Component>,
+
    document.getElementById('root')
 );
 ```
 
 ## API
+
+### `Form`
+#### `Form.Component`
+#### `Form.Input`
+##### `Form.Input.Component`
+##### `Form.Input.TypedComponent`
+##### `Form.Input.BASE_DEFAULTS`
+##### `Form.Input.InputFactory`
+##### `Form.Input.[input type]`

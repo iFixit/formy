@@ -81,7 +81,7 @@ key: A String that's a key to a value in the Form instance object.
 
 ### `Form.Input.InputFactory`
 
-Generator function to create `Form.Input.[Input Types]`, extending the `Form.Input.Default` state.
+Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input.Default` state.
 
 ##
 

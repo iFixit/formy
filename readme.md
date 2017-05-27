@@ -86,6 +86,10 @@ Input component
 
 ##
 
+### `Form.Input.TypedComponent.[Input Types]`
+
+##
+
 ### `Form.Input.BASE_DEFAULTS`
 
 ##

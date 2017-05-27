@@ -33,6 +33,15 @@ ReactDOM.render(
 
 ## API
 
+- [Form](#form-1)
+  - [Component](#formcomponent)
+  - [Input](#forminput)
+    - [Component](#forminputcomponent)
+    - [TypedComponent](#forminputtypedcomponent)
+    - [BASE_DEFAULTS](#forminputbase_defaults)
+    - [InputFactory](#forminputinputfactory)
+    - [[Input Types]](#forminputinput-type)
+
 ### `Form`
 
 Library wrapper object.
@@ -80,4 +89,4 @@ key: A String that's a key to the Form instance object.
 
 ##
 
-### `Form.Input.[input type]`
+### `Form.Input.[Input Types]`

@@ -16,8 +16,8 @@ let signupForm = {
 // Render the form
 ReactDOM.render(
 
-   // Map a Form to a form data object by passing in the object as the "instance" value.
-   // Map a Form.Input.Component to a form data by using the same "key" value.
+   // Map a Form to a form element by passing in the object as the "instance" value.
+   // Map a Form.Input.Component to an input element by using the same "key" value.
    // Structure the form layout however you want!
    // Add any extra elements you want!
    <Form.Component instance={signupForm}>

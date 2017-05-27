@@ -37,10 +37,9 @@ ReactDOM.render(
   - [Component](#formcomponent)
   - [Input](#forminput)
     - [Component](#forminputcomponent)
-    - [BASE_DEFAULTS](#forminputbase_defaults)
     - [InputFactory](#forminputinputfactory)
     - [[Input Types]](#forminputinput-type)
-      - Component
+      - [Component](#forminputinput-typescomponent)
 
 ##
 
@@ -80,22 +79,40 @@ key: A String that's a key to a value in the Form instance object.
 
 ##
 
-### `Form.Input.BASE_DEFAULTS`
-
-##
-
 ### `Form.Input.InputFactory`
+
+Generator function to create `Form.Input.[Input Types]`, extending the `Form.Input.Default` state.
 
 ##
 
 ### `Form.Input.[Input Types]`
 
-Contains:
+Function that returns the state of a typed input.
+
+Parameters:
+```
+state: A state object that extends the type's default state.
+```
+
+[Input Types]:
 
 ```
 Default
+   value: '', // String
+   label: '',
+   required: false,
+   disabled: false,
+   isValid: () => true,
+   component: FormInputTypedComponent.Default,
+
 Text
+   placeHolder: '',
+   component: FormInputTypedComponent.Text,
+
 Email
+   placeHolder: '',
+   component: FormInputTypedComponent.Email,
+
 Password
 Number
 TextArea
@@ -114,5 +131,5 @@ Typed input element generated from `Form.Input.Component`.
 Props:
 
 ```
-All data from the input type's `Form.Input.[Input Types]`
+All state from the input type's `Form.Input.[Input Types]`
 ```

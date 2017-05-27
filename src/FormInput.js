@@ -3,18 +3,18 @@ import FormInputTypedComponent from './FormInputTypedComponent.js';
 
 let FormInput = {};
 
-FormInput.BASE_DEFAULTS = {
+FormInput.InputFactory = typeDefaults => (
+   state => Object.assign({}, FormInput.Default(), typeDefaults, state)
+);
+
+FormInput.Default = () => ({
    value: '', // String
    label: '',
    required: false,
    disabled: false,
    isValid: () => true,
    component: FormInputTypedComponent.Default,
-};
-
-FormInput.InputFactory = typeDefaults => (
-   options => Object.assign({}, FormInput.BASE_DEFAULTS, typeDefaults, options)
-);
+});
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',

@@ -38,6 +38,7 @@ ReactDOM.render(
   - [Input](#forminput)
     - [Component](#forminputcomponent)
     - [InputFactory](#forminputinputfactory)
+    - InputComponentLibrary
     - [[Input Types]](#forminputinput-type)
       - [Component](#forminputinput-typescomponent)
 
@@ -85,6 +86,12 @@ Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input
 
 ##
 
+### `Form.Input.InputComponentLibrary`
+
+Object of default input components assigned as `Form.Input.[Input Types].Component`.
+
+##
+
 ### `Form.Input.[Input Types]`
 
 Function that returns the state of a typed input.
@@ -103,15 +110,15 @@ Default
    required: false,
    disabled: false,
    isValid: () => true,
-   component: FormInputTypedComponent.Default,
+   component: Form.Input.InputComponentLibrary.Default,
 
 Text
    placeHolder: '',
-   component: FormInputTypedComponent.Text,
+   component: Form.Input.InputComponentLibrary.Text,
 
 Email
    placeHolder: '',
-   component: FormInputTypedComponent.Email,
+   component: Form.Input.InputComponentLibrary.Email,
 
 Password
 Number

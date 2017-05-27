@@ -1,49 +1,51 @@
 import React from 'react';
-import FormInputTypedComponent from './FormInputTypedComponent.js';
+import FormInputComponentLibrary from './FormInputComponentLibrary.js';
 
 let FormInput = {};
+
+FormInput.InputComponentLibrary = FormInputComponentLibrary;
 
 FormInput.InputFactory = typeDefaults => (
    state => Object.assign({}, FormInput.Default(), typeDefaults, state)
 );
 
 FormInput.Default = () => ({
-   value: '', // String
+   value: '',
    label: '',
    required: false,
    disabled: false,
    isValid: () => true,
-   component: FormInputTypedComponent.Default,
+   component: FormInput.InputComponentLibrary.Default,
 });
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',
-  component: FormInputTypedComponent.Text,
+  component: FormInput.InputComponentLibrary.Text,
 });
 
 FormInput.Email = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInputTypedComponent.Email,
+   component: FormInput.InputComponentLibrary.Email,
 });
 
 FormInput.Password = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInputTypedComponent.Password,
+   component: FormInput.InputComponentLibrary.Password,
 });
 
 FormInput.Number = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInputTypedComponent.Number,
+   component: FormInput.InputComponentLibrary.Number,
 });
 
 FormInput.TextArea = FormInput.InputFactory({
    placeHolder: '',
-   component: FormInputTypedComponent.TextArea,
+   component: FormInput.InputComponentLibrary.TextArea,
 });
 
 FormInput.Checkbox = FormInput.InputFactory({
    value: false,
-   component: FormInputTypedComponent.Checkbox,
+   component: FormInput.InputComponentLibrary.Checkbox,
 });
 
 FormInput.Radio = FormInput.InputFactory({ value: false });

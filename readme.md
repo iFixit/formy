@@ -75,18 +75,34 @@ High order input element to use in a Form template.
 Props:
 
 ```
-key: A String that's a key to the Form instance object.
+key: A String that's a key to a value in the Form instance object.
 ```
 
 ##
 
 ### `Form.Input.TypedComponent`
 
-Input component
+Typed input element wrapper object.
 
 ##
 
 ### `Form.Input.TypedComponent.[Input Types]`
+
+Typed input element generated from `Form.Input.Component`.
+
+Contains:
+
+```
+Text
+Email
+Password
+Number
+TextArea
+Checkbox
+Radio
+RadioGroup
+Dropdown
+```
 
 ##
 

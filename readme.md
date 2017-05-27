@@ -1,6 +1,6 @@
 # Form
 
-`Form` is a form generation library in React that specializes in offloading complex HTML markup and separating a form's data from a form's layout.
+`Form` is a form generation library in React created to offload complex input HTML markup, separate a form's data from a form's layout, and handle asynchronous validation logic.
 
 ## Example
 
@@ -58,6 +58,11 @@ Props:
 
 ```
 instance: An object of Form.Input.[input type]s.
+```
+
+Functions:
+```
+requestIsValid(): Returns a promise that resolves to a Boolean if all the instance's input values are valid.
 ```
 
 ##

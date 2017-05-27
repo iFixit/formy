@@ -50,4 +50,19 @@ FormInputComponentLibrary.Checkbox = props => (
    </label>
 );
 
+FormInputComponentLibrary.Radio = props => (
+   <label>
+      {props.label}
+      <input type="radio"/>
+   </label>
+);
+
+FormInputComponentLibrary.RadioGroup = props => (
+   <label> {props.label} </label>
+);
+
+FormInputComponentLibrary.Dropdown = props => (
+   <label> {props.label} </label>
+);
+
 export default FormInputComponentLibrary;

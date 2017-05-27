@@ -105,28 +105,52 @@ state: A state object that extends the type's default state.
 
 ```
 Default
-   value: '',
-   label: '',
-   required: false,
-   disabled: false,
-   isValid: () => true,
-   component: Form.Input.InputComponentLibrary.Default,
+   value: ''
+   label: ''
+   required: false
+   disabled: false
+   isValid: () => true
+   component: Form.Input.ComponentLibrary.Default
 
 Text
-   placeHolder: '',
-   component: Form.Input.InputComponentLibrary.Text,
+   placeHolder: ''
+   component: Form.Input.ComponentLibrary.Text
 
 Email
-   placeHolder: '',
-   component: Form.Input.InputComponentLibrary.Email,
+   placeHolder: ''
+   component: Form.Input.ComponentLibrary.Email
 
 Password
+   placeHolder: ''
+   component: FormInput.ComponentLibrary.Password
+
 Number
+   placeHolder: ''
+   component: FormInput.ComponentLibrary.Number
+
 TextArea
+   placeHolder: ''
+   component: FormInput.ComponentLibrary.TextArea
+
 Checkbox
+   value: false
+   component: FormInput.ComponentLibrary.Checkbox
+
 Radio
+   value: false
+   component: FormInput.ComponentLibrary.Radio
+
 RadioGroup
+   radios: {}
+   component: FormInput.ComponentLibrary.RadioGroup
+
 Dropdown
+   options: {}
+   placeholder: false
+   customInput: false
+   customInputMaxLength: false
+   customInputOnlyNumbers: false
+   component: FormInput.ComponentLibrary.Dropdown
 ```
 
 ##

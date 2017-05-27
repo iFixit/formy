@@ -38,7 +38,7 @@ ReactDOM.render(
   - [Input](#forminput)
     - [Component](#forminputcomponent)
     - [TypedComponent](#forminputtypedcomponent)
-      - [[Input Types]](#forminputinput-type)
+      - [[Input Types]](#forminputtypedcomponentinput-types)
     - [BASE_DEFAULTS](#forminputbase_defaults)
     - [InputFactory](#forminputinputfactory)
     - [[Input Types]](#forminputinput-type)

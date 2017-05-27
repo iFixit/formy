@@ -113,44 +113,53 @@ Default
    component: Form.Input.ComponentLibrary.Default
 
 Text
+   (extends Default)
    placeHolder: ''
    component: Form.Input.ComponentLibrary.Text
 
 Email
+   (extends Default)
    placeHolder: ''
    component: Form.Input.ComponentLibrary.Email
 
 Password
+   (extends Default)
    placeHolder: ''
-   component: FormInput.ComponentLibrary.Password
+   component: Form.Input.ComponentLibrary.Password
 
 Number
+   (extends Default)
    placeHolder: ''
-   component: FormInput.ComponentLibrary.Number
+   component: Form.Input.ComponentLibrary.Number
 
 TextArea
+   (extends Default)
    placeHolder: ''
-   component: FormInput.ComponentLibrary.TextArea
+   component: Form.Input.ComponentLibrary.TextArea
 
 Checkbox
+   (extends Default)
    value: false
-   component: FormInput.ComponentLibrary.Checkbox
+   component: Form.Input.ComponentLibrary.Checkbox
 
 Radio
+   (extends Default)
    value: false
-   component: FormInput.ComponentLibrary.Radio
+   component: Form.Input.ComponentLibrary.Radio
 
 RadioGroup
+   (extends Default)
    radios: {}
-   component: FormInput.ComponentLibrary.RadioGroup
+   component: Form.Input.ComponentLibrary.RadioGroup
 
 Dropdown
+   (extends Default)
    options: {}
    placeholder: false
    customInput: false
    customInputMaxLength: false
    customInputOnlyNumbers: false
-   component: FormInput.ComponentLibrary.Dropdown
+   component: Form.Input.ComponentLibrary.Dropdown
 ```
 
 ##

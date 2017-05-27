@@ -38,9 +38,12 @@ ReactDOM.render(
   - [Input](#forminput)
     - [Component](#forminputcomponent)
     - [TypedComponent](#forminputtypedcomponent)
+      - [[Input Types]](#forminputinput-type)
     - [BASE_DEFAULTS](#forminputbase_defaults)
     - [InputFactory](#forminputinputfactory)
     - [[Input Types]](#forminputinput-type)
+
+##
 
 ### `Form`
 
@@ -67,7 +70,7 @@ Input wrapper object.
 
 ### `Form.Input.Component`
 
-Input element in a Form.
+High order input element to use in a Form template.
 
 Props:
 
@@ -78,6 +81,8 @@ key: A String that's a key to the Form instance object.
 ##
 
 ### `Form.Input.TypedComponent`
+
+Input component
 
 ##
 

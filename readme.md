@@ -37,6 +37,8 @@ ReactDOM.render(
 
 Library wrapper object.
 
+##
+
 ### `Form.Component`
 
 Top level form element.
@@ -46,9 +48,13 @@ Props:
 instance: An object of Form.Input.[input type]s.
 ```
 
+##
+
 ### `Form.Input`
 
 Input wrapper object.
+
+##
 
 ### `Form.Input.Component`
 
@@ -60,7 +66,18 @@ Props:
 key: A String that's a key to the Form instance object.
 ```
 
+##
+
 ### `Form.Input.TypedComponent`
+
+##
+
 ### `Form.Input.BASE_DEFAULTS`
+
+##
+
 ### `Form.Input.InputFactory`
+
+##
+
 ### `Form.Input.[input type]`

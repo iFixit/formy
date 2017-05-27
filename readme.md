@@ -38,7 +38,7 @@ ReactDOM.render(
   - [Input](#forminput)
     - [Component](#forminputcomponent)
     - [InputFactory](#forminputinputfactory)
-    - InputComponentLibrary
+    - [InputComponentLibrary](#forminputinputcomponentlibrary)
     - [[Input Types]](#forminputinput-type)
       - [Component](#forminputinput-typescomponent)
 
@@ -88,7 +88,7 @@ Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input
 
 ### `Form.Input.InputComponentLibrary`
 
-Object of default input components assigned as `Form.Input.[Input Types].Component`.
+Object of default input components assigned as [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
 
 ##
 
@@ -133,7 +133,7 @@ Dropdown
 
 ### `Form.Input.[Input Types].Component`
 
-Typed input element generated from `Form.Input.Component`.
+Typed input element generated from [`Form.Input.Component`](#forminputcomponent).
 
 Props:
 

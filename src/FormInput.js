@@ -3,49 +3,51 @@ import FormInputComponentLibrary from './FormInputComponentLibrary.js';
 
 let FormInput = {};
 
-FormInput.InputComponentLibrary = FormInputComponentLibrary;
+FormInput.ComponentLibrary = FormInputComponentLibrary;
 
 FormInput.InputFactory = typeDefaults => (
-   state => Object.assign({}, FormInput.Default(), typeDefaults, state)
+   state => Object.assign({}, FormInput.Default(typeDefaults), state)
 );
 
-FormInput.Default = () => ({
-   value: '',
-   label: '',
-   required: false,
-   disabled: false,
-   isValid: () => true,
-   component: FormInput.InputComponentLibrary.Default,
-});
+FormInput.Default = (typeDefaults) => (
+   Object.assign({}, {
+      value: '',
+      label: '',
+      required: false,
+      disabled: false,
+      isValid: () => true,
+      component: FormInput.ComponentLibrary.Default,
+   }, typeDefaults)
+);
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',
-  component: FormInput.InputComponentLibrary.Text,
+  component: FormInput.ComponentLibrary.Text,
 });
 
 FormInput.Email = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInput.InputComponentLibrary.Email,
+   component: FormInput.ComponentLibrary.Email,
 });
 
 FormInput.Password = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInput.InputComponentLibrary.Password,
+   component: FormInput.ComponentLibrary.Password,
 });
 
 FormInput.Number = FormInput.InputFactory({
    placeHolder: '' ,
-   component: FormInput.InputComponentLibrary.Number,
+   component: FormInput.ComponentLibrary.Number,
 });
 
 FormInput.TextArea = FormInput.InputFactory({
    placeHolder: '',
-   component: FormInput.InputComponentLibrary.TextArea,
+   component: FormInput.ComponentLibrary.TextArea,
 });
 
 FormInput.Checkbox = FormInput.InputFactory({
    value: false,
-   component: FormInput.InputComponentLibrary.Checkbox,
+   component: FormInput.ComponentLibrary.Checkbox,
 });
 
 FormInput.Radio = FormInput.InputFactory({ value: false });

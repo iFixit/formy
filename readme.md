@@ -37,8 +37,8 @@ ReactDOM.render(
   - [Component](#formcomponent)
   - [Input](#forminput)
     - [Component](#forminputcomponent)
+    - [ComponentLibrary](#forminputcomponentlibrary)
     - [InputFactory](#forminputinputfactory)
-    - [InputComponentLibrary](#forminputinputcomponentlibrary)
     - [[Input Types]](#forminputinput-type)
       - [Component](#forminputinput-typescomponent)
 
@@ -86,7 +86,7 @@ Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input
 
 ##
 
-### `Form.Input.InputComponentLibrary`
+### `Form.Input.ComponentLibrary`
 
 Object of default input components assigned as [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
 
@@ -105,7 +105,7 @@ state: A state object that extends the type's default state.
 
 ```
 Default
-   value: '', // String
+   value: '',
    label: '',
    required: false,
    disabled: false,

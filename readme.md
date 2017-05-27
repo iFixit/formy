@@ -80,15 +80,15 @@ key: A String that's a key to a value in the Form instance object.
 
 ##
 
-### `Form.Input.InputFactory`
-
-Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input.Default` state.
-
-##
-
 ### `Form.Input.ComponentLibrary`
 
 Object of default input components assigned as [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
+
+##
+
+### `Form.Input.InputFactory`
+
+Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input.Default` state.
 
 ##
 

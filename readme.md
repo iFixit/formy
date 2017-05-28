@@ -114,7 +114,7 @@ Default
    label: ''
    required: false
    disabled: false
-   isValid: () => true
+   requestIsValid: () => (Promise.resolve())
    component: Form.Input.ComponentLibrary.Default
 
 Text

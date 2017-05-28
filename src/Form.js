@@ -22,7 +22,7 @@ Form.Component = class Form extends React.Component {
 
    requestIsValid() {
       return Promise.all(Object.keys(this.state.inputs).map(
-         input => (this.state.inputs[input].isValid())
+         input => (this.state.inputs[input].requestIsValid())
       )).then(() => (true), () => (false));
    }
 

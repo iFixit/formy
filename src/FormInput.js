@@ -9,16 +9,14 @@ FormInput.InputFactory = typeDefaults => (
    state => Object.assign({}, FormInput.Default(typeDefaults), state)
 );
 
-FormInput.Default = (typeDefaults) => (
-   Object.assign({}, {
-      value: '',
-      label: '',
-      required: false,
-      disabled: false,
-      requestIsValid: () => (Promise.resolve()),
-      component: FormInput.ComponentLibrary.Default,
-   }, typeDefaults)
-);
+FormInput.Default = (typeDefaults) => Object.assign({}, {
+   value: '',
+   label: '',
+   required: false,
+   disabled: false,
+   requestIsValid: () => Promise.resolve(),
+   component: FormInput.ComponentLibrary.Default,
+}, typeDefaults);
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',

@@ -14,9 +14,19 @@ Form.Component = class Form extends React.Component {
       };
    }
 
+   handleOnChange(input) {
+      return (ev) => {
+         let inputs = Object.assign({}, this.state.inputs);
+         inputs[input].value = ev.target.value;
+         this.setState({ inputs: inputs });
+      }
+   }
+
    getStatefulInputs() {
       return React.Children.map(this.props.children,
-         input => React.cloneElement(input, this.state.inputs[input.key])
+         input => React.cloneElement(input, Object.assign(
+            {}, this.state.inputs[input.key], {onChange: this.handleOnChange(input.key)}
+         ))
       );
    }
 

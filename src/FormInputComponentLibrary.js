@@ -11,14 +11,24 @@ FormInputComponentLibrary.Default = props => (
 FormInputComponentLibrary.Text = props => (
    <label>
       {props.label}
-      <input type="text" placeholder={props.placeholder}/>
+      <input
+         type="text"
+         value={props.value}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+      />
    </label>
 );
 
 FormInputComponentLibrary.Email = props => (
    <label>
       {props.label}
-      <input type="email" placeholder={props.placeholder}/>
+      <input
+         type="email"
+         value={props.value}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+      />
    </label>
 );
 

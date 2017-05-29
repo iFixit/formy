@@ -14,7 +14,7 @@ Form.Component = class Form extends React.Component {
       };
    }
 
-   handleOnChange(input) {
+   onChangeFactory(input) {
       return (ev) => {
          let inputs = Object.assign({}, this.state.inputs);
          inputs[input].value = ev.target.value;
@@ -25,7 +25,7 @@ Form.Component = class Form extends React.Component {
    getStatefulInputs() {
       return React.Children.map(this.props.children,
          input => React.cloneElement(input, Object.assign(
-            {}, this.state.inputs[input.key], {onChange: this.handleOnChange(input.key)}
+            {}, this.state.inputs[input.key], {onChange: this.onChangeFactory(input.key)}
          ))
       );
    }

@@ -62,7 +62,11 @@ instance: An object of Form.Input.[input type]s.
 
 Functions:
 ```
-requestIsValid(): Returns a promise that resolves to a Boolean if all the instance's input values are valid.
+onChangeFactory(input): Returns an onChange event handler that maps an input's value to the form's state.
+
+getStatefulInputs(): Returns the form's Form.Input.Component child elements with props matching the form's state.
+
+requestIsValid(): Returns a promise that resolves to a Boolean if all the form's input values are valid.
 ```
 
 ##

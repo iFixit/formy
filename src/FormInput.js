@@ -44,7 +44,8 @@ FormInput.TextArea = FormInput.InputFactory({
 });
 
 FormInput.Checkbox = FormInput.InputFactory({
-   value: false,
+   value: 'on',
+   checked: false,
    component: FormInput.ComponentLibrary.Checkbox,
 });
 

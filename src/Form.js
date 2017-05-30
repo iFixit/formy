@@ -15,14 +15,13 @@ Form.Component = class Form extends React.Component {
       return (ev) => {
          let newInput = Object.assign({}, this.state[input]);
          newInput.value = ev.target.value;
+         newInput.checked = ev.target.checked;
 
          if (this.state[input].value !== newInput.value) {
             newInput.isValid = newInput.requestIsValid();
          }
 
-         this.setState({
-            [input]: newInput,
-         });
+         this.setState({ [input]: newInput });
       }
    }
 
@@ -40,12 +39,9 @@ Form.Component = class Form extends React.Component {
       return Promise.all(Object.keys(this.state).map(input => {
          let newInput = Object.assign({}, this.state[input]);
 
-         if (!this.state[input].isValid) {
+         if (!newInput.isValid) {
             newInput.isValid = this.state[input].requestIsValid();
-
-            this.setState({
-               [input]: newInput,
-            });
+            this.setState({ [input]: newInput });
          }
 
          return newInput.isValid;

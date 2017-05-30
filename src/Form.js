@@ -15,8 +15,10 @@ Form.Component = class FormComponent extends React.Component {
       return (ev) => {
          let newInput = Object.assign({}, this.state[input]);
          newInput.value = ev.target.value;
-         newInput.checked = ev.target.checked;
-         newInput.isValid = newInput.requestIsValid();
+         if (newInput.checked !== undefined) {
+            newInput.checked = ev.target.checked;
+         }
+         newInput.isValid = newInput.requestIsValid(newInput);
 
          this.setState({ [input]: newInput });
       }

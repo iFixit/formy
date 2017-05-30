@@ -83,7 +83,7 @@ Top level form element.
 Props:
 
 ```
-instance: A [`Form.Instance`](#forminstance).
+instance: A Form.Instance.
 ```
 
 Functions:
@@ -137,7 +137,7 @@ Object of default input components used in [`Form.Input.[Input Types].Component`
 
 ### `Form.Input.InputFactory`
 
-Factory function to create `Form.Input.[Input Types]`, extending the `Form.Input.Default` state.
+Factory function to create [`Form.Input.[Input Types]`](#forminputinput-types), extending the `Form.Input.Default` state.
 
 ##
 

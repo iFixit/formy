@@ -38,15 +38,17 @@ Form.Component = class Form extends React.Component {
 
    requestIsValid() {
       return Promise.all(Object.keys(this.state).map(input => {
-         let isValid;
+         let newInput = Object.assign({}, this.state[input]);
 
-         if (this.state[input].isValid) {
-            isValid = this.state[input].isValid;
-         } else {
-            isValid = this.state[input].requestIsValid();
+         if (!this.state[input].isValid) {
+            newInput.isValid = this.state[input].requestIsValid();
+
+            this.setState({
+               [input]: newInput,
+            });
          }
 
-         return isValid;
+         return newInput.isValid;
       }));
    }
 

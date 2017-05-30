@@ -35,28 +35,46 @@ FormInputComponentLibrary.Email = props => (
 FormInputComponentLibrary.Password = props => (
    <label>
       {props.label}
-      <input type="password" placeholder={props.placeholder}/>
+      <input
+         type="password"
+         value={props.value}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+      />
    </label>
 );
 
 FormInputComponentLibrary.Number = props => (
    <label>
       {props.label}
-      <input type="number" placeholder={props.placeholder}/>
+      <input
+         type="number"
+         value={props.value}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+      />
    </label>
 );
 
 FormInputComponentLibrary.TextArea = props => (
    <label>
       {props.label}
-      <textarea placeholder={props.placeholder}></textarea>
+      <textarea
+         value={props.value}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+      ></textarea>
    </label>
 );
 
 FormInputComponentLibrary.Checkbox = props => (
    <label>
       {props.label}
-      <input type="checkbox"/>
+      <input
+         type="checkbox"
+         checked={props.value}
+         onChange={props.onChange}
+      />
    </label>
 );
 

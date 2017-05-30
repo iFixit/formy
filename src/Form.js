@@ -27,10 +27,10 @@ Form.Component = class FormComponent extends React.Component {
 
    getInputsWithProps() {
       return React.Children.map(this.props.children, input => (
-         (input.type === Form.Input.Component) ? React.cloneElement(input,
-            Object.assign({}, this.state[input.key], {
-               onChange: this.onChangeFactory(input.key),
-            })) : input
+         (input.type === Form.Input.Component) ? React.cloneElement(
+          input, Object.assign({}, this.state[input.key], {
+            onChange: this.onChangeFactory(input.key),
+         })) : input
       ));
    }
 

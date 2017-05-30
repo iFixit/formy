@@ -31,6 +31,31 @@ ReactDOM.render(
 );
 ```
 
+This renders:
+``` HTML
+<form>
+   <label>
+      Name
+      <input type="text" value="" name="name" placeholder="Doc Brown">
+   </label>
+
+   <label>
+      Email
+      <input type="email" value="" name="email">
+   </label>
+
+   <label>
+      Password
+      <input type="password" value="" name="password">
+   </label>
+
+   <label>
+      Signup for our newletter?
+      <input type="checkbox" value="on" name="newsletterSignup">
+   </label>
+</form>
+```
+
 ## API
 
 - [Form](#form-1)
@@ -115,6 +140,7 @@ state: A state object that extends the type's default state.
 ```
 Default
    value: ''
+   name: The form object key a Form.Input.[Input Types] is defined as (can be overridden).
    label: ''
    required: false
    disabled: false

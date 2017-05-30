@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Form from './Form';
 
 let form = Form.Instance('signupForm', {
-   name: Form.Input.Text({ label: 'Name', placeholder: 'Doc Brown'}),
+   name: Form.Input.Text({ label: 'Name', placeholder: 'Doc Brown' }),
    email: Form.Input.Email({ label: 'Email' }),
    password: Form.Input.Password({ label: 'Password' }),
    newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),

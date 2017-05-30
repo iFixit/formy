@@ -16,6 +16,7 @@ FormInputComponentLibrary.Text = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
       />
@@ -30,6 +31,7 @@ FormInputComponentLibrary.Email = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
       />
@@ -44,6 +46,7 @@ FormInputComponentLibrary.Password = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
       />
@@ -58,6 +61,7 @@ FormInputComponentLibrary.Number = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
       />
@@ -71,6 +75,7 @@ FormInputComponentLibrary.TextArea = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
       ></textarea>
@@ -86,6 +91,7 @@ FormInputComponentLibrary.Checkbox = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          onChange={props.onChange}
       />
    </label>
@@ -100,6 +106,7 @@ FormInputComponentLibrary.Radio = props => (
          value={props.value}
          name={props.name}
          disabled={props.disabled}
+         required={props.required}
          onChange={props.onChange}
       />
    </label>

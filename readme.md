@@ -6,12 +6,12 @@
 
 ``` jsx
 // Create an object of your form's initial state.
-let signupForm = {
+let form = Form.Instance('signupForm', {
    name: Form.Input.Text(),
    email: Form.Input.Email(),
    password: Form.Input.Password(),
    newsletterSignup: Form.Input.Checkbox(),
-};
+});
 
 // Render the form
 ReactDOM.render(
@@ -20,7 +20,7 @@ ReactDOM.render(
    // Map a Form.Input.Component to a form object property by using the same "key" value.
    // Structure the form layout however you want!
    // Add any extra elements you want!
-   <Form.Component instance={signupForm}>
+   <Form.Component instance={form}>
       <Form.Input.Component key="name"/>
       <Form.Input.Component key="email"/>
       <Form.Input.Component key="password"/>
@@ -33,7 +33,7 @@ ReactDOM.render(
 
 This renders:
 ``` HTML
-<form>
+<form name="signupForm">
    <label>
       Name
       <input type="text" value="" name="name" placeholder="Doc Brown">

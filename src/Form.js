@@ -5,10 +5,12 @@ let Form = {};
 
 Form.Input = FormInput;
 
+Form.Instance = (name, state) => ({ name, state });
+
 Form.Component = class FormComponent extends React.Component {
    constructor(props) {
       super(props);
-      this.state = Object.assign({}, props.instance);
+      this.state = Object.assign({}, props.instance.state);
    }
 
    onChangeFactory(input) {
@@ -49,7 +51,7 @@ Form.Component = class FormComponent extends React.Component {
 
    render() {
       return(
-         <form>
+         <form name={this.props.instance.name}>
             {this.getInputsWithProps()}
          </form>
       );

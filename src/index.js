@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from './Form';
 
-let signupForm = {
+let form = Form.Instance('signupForm', {
    name: Form.Input.Text({ label: 'Name', placeholder: 'Doc Brown'}),
    email: Form.Input.Email({ label: 'Email' }),
    password: Form.Input.Password({ label: 'Password' }),
    newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),
-};
+});
 
 ReactDOM.render(
 
-   <Form.Component instance={signupForm}>
+   <Form.Component instance={form}>
       <Form.Input.Component key="name"/>
       <Form.Input.Component key="email"/>
       <Form.Input.Component key="password"/>

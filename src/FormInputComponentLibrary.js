@@ -14,6 +14,7 @@ FormInputComponentLibrary.Text = props => (
       <input
          type="text"
          value={props.value}
+         name={props.name}
          disabled={props.disabled}
          placeholder={props.placeholder}
          onChange={props.onChange}
@@ -27,6 +28,7 @@ FormInputComponentLibrary.Email = props => (
       <input
          type="email"
          value={props.value}
+         name={props.name}
          disabled={props.disabled}
          placeholder={props.placeholder}
          onChange={props.onChange}
@@ -40,6 +42,7 @@ FormInputComponentLibrary.Password = props => (
       <input
          type="password"
          value={props.value}
+         name={props.name}
          disabled={props.disabled}
          placeholder={props.placeholder}
          onChange={props.onChange}
@@ -53,6 +56,7 @@ FormInputComponentLibrary.Number = props => (
       <input
          type="number"
          value={props.value}
+         name={props.name}
          disabled={props.disabled}
          placeholder={props.placeholder}
          onChange={props.onChange}
@@ -65,6 +69,7 @@ FormInputComponentLibrary.TextArea = props => (
       {props.label}
       <textarea
          value={props.value}
+         name={props.name}
          disabled={props.disabled}
          placeholder={props.placeholder}
          onChange={props.onChange}
@@ -79,6 +84,7 @@ FormInputComponentLibrary.Checkbox = props => (
          type="checkbox"
          checked={props.checked}
          value={props.value}
+         name={props.name}
          disabled={props.disabled}
          onChange={props.onChange}
       />
@@ -88,12 +94,15 @@ FormInputComponentLibrary.Checkbox = props => (
 FormInputComponentLibrary.Radio = props => (
    <label>
       {props.label}
-      <input type="radio"/>
+      <input
+         type="radio"
+         checked={props.checked}
+         value={props.value}
+         name={props.name}
+         disabled={props.disabled}
+         onChange={props.onChange}
+      />
    </label>
-);
-
-FormInputComponentLibrary.RadioGroup = props => (
-   <label> {props.label} </label>
 );
 
 FormInputComponentLibrary.Dropdown = props => (

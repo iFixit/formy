@@ -49,9 +49,11 @@ FormInput.Checkbox = FormInput.InputFactory({
    component: FormInput.ComponentLibrary.Checkbox,
 });
 
-FormInput.Radio = FormInput.InputFactory({ value: false });
-
-FormInput.RadioGroup = FormInput.InputFactory({ radios: {} });
+FormInput.Radio = FormInput.InputFactory({
+   value: 'on',
+   checked: false,
+   component: FormInput.ComponentLibrary.Radio,
+});
 
 FormInput.Dropdown = FormInput.InputFactory({
    options: {},

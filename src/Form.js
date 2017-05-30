@@ -27,6 +27,7 @@ Form.Component = class FormComponent extends React.Component {
          (input.type === Form.Input.Component) ? React.cloneElement(
           input, Object.assign({}, this.state[input.key], {
             onChange: this.onChangeFactory(input.key),
+            name: input.key,
          })) : input
       ));
    }

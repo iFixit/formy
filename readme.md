@@ -64,9 +64,9 @@ Functions:
 ```
 onChangeFactory(input): Returns an onChange event handler that maps an input's value to the form's state.
 
-getStatefulInputs(): Returns the form's Form.Input.Component child elements with props matching the form's state.
+getInputsWithProps(): Returns the form's Form.Input.Component child elements with props matching the form's state.
 
-requestIsValid(): Returns a promise that resolves to a Boolean if all the form's input values are valid.
+requestIsValid(): Returns a promise that resolves every input's requestIsValid promise.
 ```
 
 ##
@@ -148,18 +148,15 @@ TextArea
 
 Checkbox
    (extends Default)
-   value: false
+   value: 'on' // This is a checkbox's native default value
+   checked: false
    component: Form.Input.ComponentLibrary.Checkbox
 
 Radio
    (extends Default)
-   value: false
+   value: 'on' // This is a radio's native default value
+   checked: false
    component: Form.Input.ComponentLibrary.Radio
-
-RadioGroup
-   (extends Default)
-   radios: {}
-   component: Form.Input.ComponentLibrary.RadioGroup
 
 Dropdown
    (extends Default)

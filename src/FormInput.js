@@ -1,5 +1,5 @@
 import React from 'react';
-import FormInputComponentLibrary from './FormInputComponentLibrary.js';
+import FormInputComponentLibrary from './FormInputComponentLibrary';
 
 let FormInput = {};
 

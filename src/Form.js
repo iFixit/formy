@@ -5,7 +5,7 @@ let Form = {};
 
 Form.Input = FormInput;
 
-Form.Component = class Form extends React.Component {
+Form.Component = class FormComponent extends React.Component {
    constructor(props) {
       super(props);
       this.state = Object.assign({}, props.instance);
@@ -26,13 +26,12 @@ Form.Component = class Form extends React.Component {
    }
 
    getInputsWithProps() {
-      return React.Children.map(this.props.children,
-         input => React.cloneElement(input, Object.assign(
-            {}, this.state[input.key], {
+      return React.Children.map(this.props.children, input => (
+         (input.type === Form.Input.Component) ? React.cloneElement(input,
+            Object.assign({}, this.state[input.key], {
                onChange: this.onChangeFactory(input.key),
-            }
-         ))
-      );
+            })) : input
+      ));
    }
 
    requestIsValid() {

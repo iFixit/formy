@@ -36,7 +36,7 @@ This renders:
 <form name="signupForm">
    <label>
       Name
-      <input type="text" value="" name="name" placeholder="Doc Brown">
+      <input type="text" value="" name="name">
    </label>
 
    <label>

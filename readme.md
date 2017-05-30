@@ -16,8 +16,8 @@ let form = Form.Instance('signupForm', {
 // Render the form
 ReactDOM.render(
 
-   // Map a Form.Component to a form object by passing in an object as the "instance" value.
-   // Map a Form.Input.Component to a form object property by using the same "key" value.
+   // Map a Form.Component to a Form.Instance by assigning it as an "instance" value.
+   // Map a Form.Input.Component to a Form.Instance state property by using the same "key" value.
    // Structure the form layout however you want!
    // Add any extra elements you want!
    <Form.Component instance={form}>
@@ -60,6 +60,7 @@ This renders:
 
 - [Form](#form-1)
   - [Component](#formcomponent)
+  - [Instance](#forminstance)
   - [Input](#forminput)
     - [Component](#forminputcomponent)
     - [ComponentLibrary](#forminputcomponentlibrary)
@@ -82,7 +83,7 @@ Top level form element.
 Props:
 
 ```
-instance: An object of Form.Input.[input type]s.
+instance: A [`Form.Instance`](#forminstance).
 ```
 
 Functions:
@@ -92,6 +93,20 @@ onChangeFactory(input): Returns an onChange event handler that maps an input's v
 getInputsWithProps(): Returns the form's Form.Input.Component child elements with props matching the form's state.
 
 requestIsValid(): Returns a promise that resolves every input's requestIsValid promise.
+```
+
+##
+
+### `Form.Instance`
+
+Function that returns a form instance object.
+
+Parameters:
+
+```
+name: A string that's assigned as the form's name.
+
+state: The initial state of the form.
 ```
 
 ##
@@ -109,14 +124,14 @@ High order input element to use in a Form template.
 Props:
 
 ```
-key: A String that's a key to a value in the Form instance object.
+key: A String that's a key to the form's state.
 ```
 
 ##
 
 ### `Form.Input.ComponentLibrary`
 
-Object of default input components assigned as [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
+Object of default input components used in [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
 
 ##
 
@@ -140,7 +155,7 @@ state: A state object that extends the type's default state.
 ```
 Default
    value: ''
-   name: The form object key a Form.Input.[Input Types] is defined as (can be overridden).
+   name: The state's key a Form.Input.[Input Types] is defined as (can be overridden).
    label: ''
    required: false
    disabled: false

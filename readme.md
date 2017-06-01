@@ -86,6 +86,12 @@ Props:
 instance: A Form.Instance.
 ```
 
+Variables:
+
+```
+inputRefs: Object of references to an input's native input element.
+```
+
 Functions:
 ```
 onChangeFactory(input): Returns an onChange event handler that maps an input's value to the form's state.

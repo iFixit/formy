@@ -32,7 +32,7 @@ Form.Component = class FormComponent extends React.Component {
           input, Object.assign({}, this.state[input.key], {
             name: input.key,
             onChange: this.onChangeFactory(input.key),
-            inputRef: inputElement => this.inputRefs[input.key] = inputElement,
+            inputRef: inputRef => this.inputRefs[input.key] = inputRef,
          })) : input
       ));
    }

@@ -11,16 +11,16 @@ Form.Component = class FormComponent extends React.Component {
    constructor(props) {
       super(props);
       this.state = Object.assign({}, props.instance.state);
+      this.inputRefs = {}; // Populated in getInputsWithProps()
    }
 
    onChangeFactory(input) {
-      return (ev) => {
+      return () => {
          let newInput = Object.assign({}, this.state[input]);
-         newInput.value = ev.target.value;
+         newInput.value = this.inputRefs[input].value;
          if (newInput.checked !== undefined) {
-            newInput.checked = ev.target.checked;
+            newInput.checked = this.inputRefs[input].checked;
          }
-         newInput.isValid = newInput.requestIsValid(newInput);
 
          this.setState({ [input]: newInput });
       }
@@ -30,8 +30,9 @@ Form.Component = class FormComponent extends React.Component {
       return React.Children.map(this.props.children, input => (
          (input.type === Form.Input.Component) ? React.cloneElement(
           input, Object.assign({}, this.state[input.key], {
-            onChange: this.onChangeFactory(input.key),
             name: input.key,
+            onChange: this.onChangeFactory(input.key),
+            inputRef: inputElement => this.inputRefs[input.key] = inputElement,
          })) : input
       ));
    }

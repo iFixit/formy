@@ -14,7 +14,6 @@ FormInput.Default = (typeDefaults) => Object.assign({}, {
    label: '',
    required: false,
    disabled: false,
-   requestIsValid: () => Promise.resolve(),
    component: FormInput.ComponentLibrary.Default,
 }, typeDefaults);
 

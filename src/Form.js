@@ -26,14 +26,27 @@ Form.Component = class FormComponent extends React.Component {
       }
    }
 
+   getComputedInputState(input) {
+      let computedState = Object.assign({}, this.state[input.key]);
+
+      Object.keys(computedState).map(prop => {
+         if (prop !== 'component' && typeof this.state[input.key][prop] === 'function') {
+            computedState[prop] = computedState[prop](this.state)
+         }
+      });
+
+      computedState.name = input.key;
+      computedState.onChange = this.onChangeFactory(input.key);
+      computedState.inputRef = inputRef => this.inputRefs[input.key] = inputRef;
+
+      return computedState;
+   }
+
    getInputsWithProps() {
-      return React.Children.map(this.props.children, input => (
-         (input.type === Form.Input.Component) ? React.cloneElement(
-          input, Object.assign({}, this.state[input.key], {
-            name: input.key,
-            onChange: this.onChangeFactory(input.key),
-            inputRef: inputRef => this.inputRefs[input.key] = inputRef,
-         })) : input
+      return React.Children.map(this.props.children, child => (
+         child.type === Form.Input.Component ? React.cloneElement(
+            child, this.getComputedInputState(child)
+         ) : child
       ));
    }
 

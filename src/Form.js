@@ -30,7 +30,7 @@ Form.Component = class FormComponent extends React.Component {
       let computedState = Object.assign({}, this.state[input.key]);
 
       Object.keys(computedState)
-       .filter(prop => prop !== 'component' && typeof computedState[prop] === 'function')
+       .filter(prop => prop !== 'component' && computedState[prop] instanceof Function)
        .forEach(prop => { computedState[prop] = computedState[prop](this.state) });
 
       computedState.name = input.key;

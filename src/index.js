@@ -10,7 +10,7 @@ let form = Form.Instance('signupForm', {
    address: Form.Input.Text({
       label: 'Enter your address',
       disabled: state => state.newsletterSignup.checked !== true,
-   })
+   }),
 });
 
 ReactDOM.render(

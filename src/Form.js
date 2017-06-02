@@ -14,19 +14,23 @@ Form.Component = class FormComponent extends React.Component {
       this.inputRefs = {}; // Populated in getInputsWithProps()
    }
 
-   onChangeFactory(input) {
+   onChangeFactory(inputKey) {
       return () => {
-         let newInput = Object.assign({}, this.state[input]);
-         newInput.value = this.inputRefs[input].value;
+         let newInput = Object.assign({}, this.state[inputKey]);
+         newInput.value = this.inputRefs[inputKey].value;
          if (newInput.checked !== undefined) {
-            newInput.checked = this.inputRefs[input].checked;
+            newInput.checked = this.inputRefs[inputKey].checked;
          }
 
-         this.setState({ [input]: newInput });
+         this.setState({ [inputKey]: newInput });
       }
    }
 
-   getComputedInputState(input) {
+   onBlurFactory(inputKey) {
+      return() => {}
+   }
+
+   getComputedInputProps(input) {
       let computedState = Object.assign({}, this.state[input.key]);
 
       Object.keys(computedState)
@@ -35,6 +39,7 @@ Form.Component = class FormComponent extends React.Component {
 
       computedState.name = input.key;
       computedState.onChange = this.onChangeFactory(input.key);
+      computedState.onBlur = this.onBlurFactory(input.key);
       computedState.inputRef = inputRef => this.inputRefs[input.key] = inputRef;
 
       return computedState;
@@ -43,7 +48,7 @@ Form.Component = class FormComponent extends React.Component {
    getInputsWithProps() {
       return React.Children.map(this.props.children, child => (
          child.type === Form.Input.Component ? React.cloneElement(
-            child, this.getComputedInputState(child)
+            child, this.getComputedInputProps(child)
          ) : child
       ));
    }

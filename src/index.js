@@ -9,7 +9,7 @@ let form = Form.Instance('signupForm', {
    newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),
    address: Form.Input.Text({
       label: 'Enter your address',
-      disabled: state => state.newsletterSignup.checked !== true,
+      disabled: state => !state.newsletterSignup.checked,
    }),
 });
 

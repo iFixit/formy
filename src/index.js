@@ -17,7 +17,13 @@ ReactDOM.render(
 
    <Form.Component instance={form}>
       <h1>Form</h1>
-      <Form.Input.Component key="name"/>
+      <div id="wrapper">
+        <div>
+          <div>
+            <Form.Input.Component key="name"/>
+          </div>
+        </div>
+      </div>
       <Form.Input.Component key="email"/>
       <Form.Input.Component key="password"/>
       <Form.Input.Component key="newsletterSignup"/>

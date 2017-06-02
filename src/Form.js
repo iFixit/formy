@@ -31,6 +31,11 @@ Form.Component = class FormComponent extends React.Component {
    }
 
    getComputedInputProps(input) {
+      // only compute state of elements with type Form.Input.Component
+      if (input.type !== Form.Input.Component) {
+         return input.props;
+      }
+
       let computedState = Object.assign({}, this.state[input.key]);
 
       Object.keys(computedState)
@@ -45,12 +50,24 @@ Form.Component = class FormComponent extends React.Component {
       return computedState;
    }
 
-   getInputsWithProps() {
-      return React.Children.map(this.props.children, child => (
-         child.type === Form.Input.Component ? React.cloneElement(
-            child, this.getComputedInputProps(child)
-         ) : child
-      ));
+   getInputsWithProps(children) {
+      return React.Children.map(children, child => {
+         // handle leaves that are not valid react elements (e.g. text nodes)
+         // note: valid react elements can be html tags (e.g. `h1`, `div`, etc.) in addition to React components
+         if (!React.isValidElement(child)) return child;
+
+         // handle parent nodes
+         if (child.props.children) {
+            children = this.getInputsWithProps(child.props.children)
+            return React.cloneElement(
+               child,
+               Object.assign({}, this.getComputedInputProps(child), {children})
+            );
+         }
+
+         // handle leaves that are valid react elements
+         return React.cloneElement(child, this.getComputedInputProps(child));
+      });
    }
 
    requestIsValid() {
@@ -69,7 +86,7 @@ Form.Component = class FormComponent extends React.Component {
    render() {
       return(
          <form name={this.props.instance.name}>
-            {this.getInputsWithProps()}
+            {this.getInputsWithProps(this.props.children)}
          </form>
       );
    }

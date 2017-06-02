@@ -29,11 +29,9 @@ Form.Component = class FormComponent extends React.Component {
    getComputedInputState(input) {
       let computedState = Object.assign({}, this.state[input.key]);
 
-      Object.keys(computedState).map(prop => {
-         if (prop !== 'component' && typeof this.state[input.key][prop] === 'function') {
-            computedState[prop] = computedState[prop](this.state)
-         }
-      });
+      Object.keys(computedState)
+       .filter(prop => prop !== 'component' && typeof computedState[prop] === 'function')
+       .forEach(prop => { computedState[prop] = computedState[prop](this.state) });
 
       computedState.name = input.key;
       computedState.onChange = this.onChangeFactory(input.key);

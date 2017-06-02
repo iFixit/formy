@@ -54,15 +54,14 @@ Form.Component = class FormComponent extends React.Component {
       return React.Children.map(children, child => {
          // handle leaves that are not valid react elements (e.g. text nodes)
          // note: valid react elements can be html tags (e.g. `h1`, `div`, etc.) in addition to React components
-         if (!React.isValidElement(child)) return child;
+         if (!React.isValidElement(child)) {
+            return child;
+         }
 
          // handle parent nodes
          if (child.props.children) {
             children = this.getInputsWithProps(child.props.children)
-            return React.cloneElement(
-               child,
-               Object.assign({}, this.getComputedInputProps(child), {children})
-            );
+            return React.cloneElement(child, {children});
          }
 
          // handle leaves that are valid react elements

@@ -3,13 +3,17 @@
 `Formy` is a form generation library in React. Create your form as a JS object and render it however you want.
 
 ## Benefits
-⛓ **Total separation of a form's data and layout.**<br>
+
+### ⛓ Total separation of a form's data and layout.
+
 We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. An email input: `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
 
-☑️ **Native HTML5 validation.**<br>
+### ☑️ Native HTML5 validation.
+
 We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and any standard validation option (`required`, `pattern`, etc).
 
-⏱ **Async validation.**<br>
+### ⏱ Async validation.
+
 Backend validation is handled as smoothly as frontend by handling everything as promises. A `resolve`
  means things are good and a `reject` means things are bad.
 

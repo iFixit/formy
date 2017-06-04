@@ -1,6 +1,6 @@
 # Form
 
-`Form` is a form generation library in React created to offload complex input HTML markup, separate a form's data from a form's layout, and handle asynchronous validation logic.
+`Form` is a form generation library in React created to simplify HTML markup, separate a form's data from its layout, and handle asynchronous validation logic.
 
 ## Contents
 
@@ -221,6 +221,24 @@ All state from the input type's `Form.Input.[Input Types]`
 ## Harder Examples
 
 ### Computed State
+
+In Formy you can define input state as relative values to other properties in a form.
+
+``` jsx
+let form = Form.Instance('signupForm', {
+   newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),
+   address: Form.Input.Email({
+      label: 'Enter your email address',
+      disabled: state => !state.newsletterSignup.checked,
+   }),
+});
+```
+
+In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. This is problematic though, since you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
+
+Formy combines computed state and static state all in the same initial `Form.Instance` function, keeping your data contained and easy to understand.
+
+To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `state` object. This allows you to return a rendered value relative to all available data in the form.
 
 ### Radio Controls
 

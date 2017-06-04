@@ -2,7 +2,16 @@
 
 `Form` is a form generation library in React created to offload complex input HTML markup, separate a form's data from a form's layout, and handle asynchronous validation logic.
 
-## Example
+## Contents
+
+- Simple Example
+- API
+- Harder Examples
+  - Computed State
+  - Radio Controls
+  - Custom Components
+
+## Simple Example
 
 ``` jsx
 // Create an object of your form's initial state.
@@ -208,3 +217,11 @@ Props:
 ```
 All state from the input type's `Form.Input.[Input Types]`
 ```
+
+## Harder Examples
+
+### Computed State
+
+### Radio Controls
+
+### Custom Components

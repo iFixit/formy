@@ -4,12 +4,12 @@
 
 ## Contents
 
-- Simple Example
-- API
-- Harder Examples
-  - Computed State
-  - Radio Controls
-  - Custom Components
+- [Simple Example](#simple-example)
+- [API](#api)
+- [Harder Examples](#harder-examples)
+  - [Computed State](#computed-state)
+  - [Radio Controls](#radio-controls)
+  - [Custom Components](#custom-components)
 
 ## Simple Example
 

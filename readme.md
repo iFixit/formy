@@ -68,13 +68,9 @@ This renders:
     - [[Input Types]](#forminputinput-types)
       - [Component](#forminputinput-typescomponent)
 
-##
-
 ### `Form`
 
 Library wrapper object.
-
-##
 
 ### `Form.Component`
 
@@ -101,8 +97,6 @@ getInputsWithProps(): Returns the form's Form.Input.Component child elements wit
 requestIsValid(): Returns a promise that resolves every input's requestIsValid promise.
 ```
 
-##
-
 ### `Form.Instance`
 
 Function that returns a form instance object.
@@ -115,13 +109,9 @@ name: A string that's assigned as the form's name.
 state: The initial state of the form.
 ```
 
-##
-
 ### `Form.Input`
 
 Input wrapper object.
-
-##
 
 ### `Form.Input.Component`
 
@@ -133,19 +123,13 @@ Props:
 key: A String that's a key to the form's state.
 ```
 
-##
-
 ### `Form.Input.ComponentLibrary`
 
 Object of default input components used in [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
 
-##
-
 ### `Form.Input.InputFactory`
 
 Factory function to create [`Form.Input.[Input Types]`](#forminputinput-types), extending the `Form.Input.Default` state.
-
-##
 
 ### `Form.Input.[Input Types]`
 
@@ -214,8 +198,6 @@ Dropdown
    customInputOnlyNumbers: false
    component: Form.Input.ComponentLibrary.Dropdown
 ```
-
-##
 
 ### `Form.Input.[Input Types].Component`
 

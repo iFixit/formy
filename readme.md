@@ -8,11 +8,11 @@
 
 We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. An email input: `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
 
-### ☑️ Native HTML5 validation.
+### ✅ Native HTML5 validation.
 
 We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and any standard validation option (`required`, `pattern`, etc). Plus, all modern browsers support custom validation natively with the [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods) function.
 
-### ⏱ Async validation.
+### ⏰ Async validation.
 
 Backend validation is as easy as frontend by handling everything as a promise. `resolve` === good and `reject` === bad.
 

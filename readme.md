@@ -14,7 +14,7 @@ We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any 
 
 ### ⏱ Async validation.
 
-Backend validation is handled as smoothly as frontend by handling everything as a promise. `resolve` === good and `reject` === bad.
+Backend validation is as easy as frontend by handling everything as a promise. `resolve` === good and `reject` === bad.
 
 ## Contents
 

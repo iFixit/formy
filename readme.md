@@ -4,26 +4,17 @@
 
 ## Benefits
 
-### ⛓ Total separation of a form's data and layout.
+### ⛓ Total separation of data and layout
 
 We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. An email input: `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
 
-### ✅ Native HTML5 validation.
+### ✅ Native HTML5 validation
 
-We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and any standard validation option (`required`, `pattern`, etc). Plus, all modern browsers support custom validation natively with the [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods) function.
+We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and standard validation option (`required`, `pattern`, etc). Plus, all modern browsers support custom validation natively with the [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods) function.
 
-### ⏰ Async validation.
+### ⏰ Async validation
 
-Backend validation is as easy as frontend by handling everything as a promise. `resolve` === good and `reject` === bad.
-
-## Contents
-
-- [Simple Example](#simple-example)
-- [API](#api)
-- [Harder Examples](#harder-examples)
-  - [Computed State](#computed-state)
-  - [Radio Controls](#radio-controls)
-  - [Custom Components](#custom-components)
+Backend validation is as easy as frontend by handling everything as a Promise. `resolve` === good and `reject` === bad.
 
 ## Simple Example
 
@@ -78,6 +69,32 @@ This renders:
    </label>
 </form>
 ```
+
+## Harder Examples
+
+### Computed State
+
+In Formy you can define input state as relative values to other properties in a form.
+
+``` jsx
+let form = Form.Instance('signupForm', {
+   newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),
+   address: Form.Input.Email({
+      label: 'Enter your email address',
+      disabled: state => !state.newsletterSignup.checked,
+   }),
+});
+```
+
+In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. This is problematic though, since you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
+
+Formy combines computed state and static state all in the same initial `Form.Instance` function, keeping your data contained and easy to understand.
+
+To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `state` object. This allows you to return a rendered value relative to all available data in the form.
+
+### Radio Controls
+
+### Custom Components
 
 ## API
 
@@ -231,29 +248,3 @@ Props:
 ```
 All state from the input type's `Form.Input.[Input Types]`
 ```
-
-## Harder Examples
-
-### Computed State
-
-In Formy you can define input state as relative values to other properties in a form.
-
-``` jsx
-let form = Form.Instance('signupForm', {
-   newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),
-   address: Form.Input.Email({
-      label: 'Enter your email address',
-      disabled: state => !state.newsletterSignup.checked,
-   }),
-});
-```
-
-In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. This is problematic though, since you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
-
-Formy combines computed state and static state all in the same initial `Form.Instance` function, keeping your data contained and easy to understand.
-
-To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `state` object. This allows you to return a rendered value relative to all available data in the form.
-
-### Radio Controls
-
-### Custom Components

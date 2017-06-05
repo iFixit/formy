@@ -10,12 +10,11 @@ We were tired of input attributes getting mixed in with the HTML markup of a for
 
 ### ☑️ Native HTML5 validation.
 
-We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and any standard validation option (`required`, `pattern`, etc).
+We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and any standard validation option (`required`, `pattern`, etc). Plus, all modern browsers support custom validation natively with the [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Methods) function.
 
 ### ⏱ Async validation.
 
-Backend validation is handled as smoothly as frontend by handling everything as promises. A `resolve`
- means things are good and a `reject` means things are bad.
+Backend validation is handled as smoothly as frontend by handling everything as a promise. `resolve` === good and `reject` === bad.
 
 ## Contents
 

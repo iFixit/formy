@@ -20,29 +20,6 @@ class App extends React.Component {
    constructor(props) {
       super(props);
 
-      // const form = Form.Instance({
-      //    name: Form.Input.Text({
-      //       name: 'OtherName',
-      //       label: 'Name',
-      //       placeholder: 'Doc Brown',
-      //    }),
-      //    email: Form.Input.Email({
-      //       label: 'Email',
-      //    }),
-      //    password: Form.Input.Password({
-      //       label: 'Password',
-      //    }),
-      //    newsletterSignup: Form.Input.Checkbox({
-      //       label: 'Signup for our newletter?',
-      //    }),
-      //    address: Form.Input.Text({
-      //       label: 'Enter your address',
-      //       disabled: form => !form.newsletterSignup.checked,
-      //    }),
-      // }, {
-      //    onChange: Form.onChange(form => this.updateForm(form)),
-      // });
-
       const form = Form.Instance({
          name: 'signupForm',
          onChange: Form.onChange(form => this.updateForm(form)),
@@ -68,20 +45,16 @@ class App extends React.Component {
          },
       });
 
-      this.state = {
-         signupForm: form,
-      };
+      this.state = { form };
    }
 
    updateForm(form) {
-      this.setState({
-         signupForm: form,
-      });
+      this.setState({ form });
    }
 
    render() {
       return(
-         <SignupForm {...this.state.signupForm}/>
+         <SignupForm {...this.state.form}/>
       );
    }
 }

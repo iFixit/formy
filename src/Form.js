@@ -5,19 +5,6 @@ let Form = {};
 
 Form.Input = FormInput;
 
-// Form.Instance = (form, events) => {
-//    let computedForm = {};
-//
-//    Object.keys(form).forEach(inputKey => {
-//       const addedProps = { name: inputKey };
-//       const props = { ...events, ...addedProps, ...form[inputKey] };
-//
-//       computedForm[inputKey] = props;
-//    });
-//
-//    return computedForm;
-// };
-
 Form.Instance = form => {
    let computedForm = {};
    computedForm.input = {};

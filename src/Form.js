@@ -8,10 +8,10 @@ Form.Input = FormInput;
 Form.Instance = (form, events) => {
    let computedForm = {};
 
-   Object.keys(form).forEach(input => {
-      const addedProps = { name: input };
-      const props = { ...events, ...addedProps, ...form[input] };
-      computedForm[input] = props;
+   Object.keys(form).forEach(inputKey => {
+      const addedProps = { name: inputKey };
+      const props = { ...events, ...addedProps, ...form[inputKey] };
+      computedForm[inputKey] = props;
    });
 
    return computedForm;
@@ -31,15 +31,15 @@ Form.onChange = fn => (form, inputKey) => ev => {
 Form.getProps = form => {
    let computedForm = {};
 
-   Object.keys(form).forEach(input => {
-      const props = { ...form[input] };
+   Object.keys(form).forEach(inputKey => {
+      const props = { ...form[inputKey] };
 
       Object.keys(props)
        .filter(prop => props[prop] instanceof Function)
        .filter(prop => !Form.Input.NON_COMPUTED_PROPERTIES.includes(prop))
-       .forEach(prop => { props[prop] = props[prop](form, input) });
+       .forEach(prop => { props[prop] = props[prop](form, inputKey) });
 
-      computedForm[input] = props;
+      computedForm[inputKey] = props;
    });
 
    return computedForm;

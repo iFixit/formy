@@ -6,16 +6,16 @@ let FormInput = {};
 FormInput.ComponentLibrary = FormInputComponentLibrary;
 
 FormInput.InputFactory = typeDefaults => (
-   state => Object.assign({}, FormInput.Default(typeDefaults), state)
+   state => ({ ...FormInput.Default(typeDefaults), ...state })
 );
 
-FormInput.Default = (typeDefaults) => Object.assign({}, {
+FormInput.Default = (typeDefaults) => ({ ...{
    value: '',
    label: '',
    required: false,
    disabled: false,
    component: FormInput.ComponentLibrary.Default,
-}, typeDefaults);
+}, ...typeDefaults});
 
 FormInput.Text = FormInput.InputFactory({
   placeHolder: '',
@@ -65,5 +65,7 @@ FormInput.Dropdown = FormInput.InputFactory({
 FormInput.Component = props => (
    <props.component {...props}/>
 );
+
+FormInput.NON_COMPUTED_PROPERTIES = ['component']
 
 export default FormInput;

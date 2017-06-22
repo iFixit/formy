@@ -19,8 +19,6 @@ FormInputComponentLibrary.Text = props => (
          required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       />
    </label>
 );

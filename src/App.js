@@ -36,7 +36,7 @@ class App extends React.Component {
             disabled: form => !form.newsletterSignup.checked,
          }),
       }, {
-         onChange: Form.onChange(form => {this.updateForm(form)}),
+         onChange: Form.onChange(form => this.updateForm(form)),
       });
 
       this.state = {

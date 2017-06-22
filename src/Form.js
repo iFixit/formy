@@ -5,17 +5,32 @@ let Form = {};
 
 Form.Input = FormInput;
 
-Form.Instance = (form, events) => {
-   let computedForm = {};
+// Form.Instance = (form, events) => {
+//    let computedForm = {};
+//
+//    Object.keys(form).forEach(inputKey => {
+//       const addedProps = { name: inputKey };
+//       const props = { ...events, ...addedProps, ...form[inputKey] };
+//
+//       computedForm[inputKey] = props;
+//    });
+//
+//    return computedForm;
+// };
 
-   Object.keys(form).forEach(inputKey => {
-      const addedProps = { name: inputKey };
-      const props = { ...events, ...addedProps, ...form[inputKey] };
-      computedForm[inputKey] = props;
+Form.Instance = form => {
+   let computedForm = {};
+   computedForm.input = {};
+
+   Object.keys(form.input).forEach(inputKey => {
+      const addedProps = { name: inputKey, onChange: form.onChange };
+      const props = { ...form.input[inputKey], ...addedProps };
+
+      computedForm.input[inputKey] = props;
    });
 
-   return computedForm;
-};
+   return {...form, ...computedForm };
+}
 
 Form.onChange = fn => (form, inputKey) => ev => {
    const updatedProps = {
@@ -46,7 +61,7 @@ Form.getProps = form => {
 };
 
 Form.Component = props => (
-   <form {...props}>
+   <form>
       {props.children}
    </form>
 );

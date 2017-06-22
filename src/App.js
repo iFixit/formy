@@ -8,6 +8,10 @@ const SignupForm = props => {
       <Form.Component>
          <h1>Form</h1>
          <Form.Input.Component {...form.name}/>
+         <Form.Input.Component {...form.email}/>
+         <Form.Input.Component {...form.password}/>
+         <Form.Input.Component {...form.newsletterSignup}/>
+         <Form.Input.Component {...form.address}/>
       </Form.Component>
    );
 }

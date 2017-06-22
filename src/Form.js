@@ -17,8 +17,12 @@ Form.Instance = (form, events) => {
    return computedForm;
 };
 
-Form.onChange = (fn) => (form, inputKey) => (ev) => {
-   const updatedInput = { ...form[inputKey], ...{value: ev.target.value} };
+Form.onChange = fn => (form, inputKey) => ev => {
+   const updatedProps = {
+      value: ev.target.value,
+      checked: form[inputKey].checked === undefined ? undefined : ev.target.checked,
+   };
+   const updatedInput = { ...form[inputKey], ...updatedProps };
    const updatedForm = { ...form, ...{[inputKey]: updatedInput} };
 
    fn(updatedForm);

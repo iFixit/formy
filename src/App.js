@@ -36,9 +36,7 @@ class App extends React.Component {
             disabled: form => !form.newsletterSignup.checked,
          }),
       }, {
-         onChange: Form.onChange(updatedForm => {
-            this.updateForm(updatedForm);
-         }),
+         onChange: Form.onChange(form => {this.updateForm(form)}),
       });
 
       this.state = {
@@ -46,22 +44,10 @@ class App extends React.Component {
       };
    }
 
-   updateForm(updatedForm) {
+   updateForm(form) {
       this.setState({
-         signupForm: updatedForm,
+         signupForm: form,
       });
-   }
-
-   onChangeFactory(inputKey) {
-      return ev => {
-         console.log(inputKey)
-         const form = this.state.signupForm;
-         const input = form[inputKey];
-         const updatedInput = { ...input, ...{value: ev.target.value} };
-         const updatedForm = { ...form, ...{[inputKey]: updatedInput} };
-
-         this.setState({ signupForm: updatedForm });
-      };
    }
 
    render() {

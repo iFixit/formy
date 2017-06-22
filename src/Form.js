@@ -5,11 +5,12 @@ let Form = {};
 
 Form.Input = FormInput;
 
-Form.Instance = (form, options) => {
+Form.Instance = (form, defaults) => {
    let computedForm = {};
 
    Object.keys(form).forEach(input => {
-      const props = { ...form[input], ...options };
+      const addedProps = { name: input };
+      const props = { ...form[input], ...defaults, ...addedProps };
       computedForm[input] = props;
    });
 
@@ -27,11 +28,7 @@ Form.getProps = form => {
    let computedForm = {};
 
    Object.keys(form).forEach(input => {
-      const addedProps = {
-         name: input,
-         key: input,
-      };
-      const props = { ...addedProps, ...form[input] };
+      const props = { ...form[input] };
 
       Object.keys(props)
        .filter(prop => props[prop] instanceof Function)

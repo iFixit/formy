@@ -23,7 +23,10 @@ class App extends React.Component {
 
       const form = {
          name: 'signupForm',
+         onSubmit: Form.onSubmit(values => this.submitForm(values)),
          inputs: Form.Inputs({
+           onChange: Form.onChange(form => this.updateForm(form)),
+         }, {
             name: Form.Input.Text({
                name: 'OtherName',
                label: 'Name',
@@ -42,8 +45,6 @@ class App extends React.Component {
                label: 'Enter your address',
                disabled: form => !form.inputs.newsletterSignup.checked,
             }),
-         }, {
-            onChange: Form.onChange(form => this.updateForm(form)),
          }),
       };
 
@@ -52,6 +53,10 @@ class App extends React.Component {
 
    updateForm(form) {
       this.setState({ form });
+   }
+
+   submitForm(values) {
+      console.log(values)
    }
 
    render() {

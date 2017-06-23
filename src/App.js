@@ -7,11 +7,12 @@ const SignupForm = props => {
    return(
       <Form.Component {...form}>
          <h1>Form</h1>
-         <Form.Input.Component {...form.input.name}/>
-         <Form.Input.Component {...form.input.email}/>
-         <Form.Input.Component {...form.input.password}/>
-         <Form.Input.Component {...form.input.newsletterSignup}/>
-         <Form.Input.Component {...form.input.address}/>
+         <Form.Input.Component {...form.inputs.name}/>
+         <Form.Input.Component {...form.inputs.email}/>
+         <Form.Input.Component {...form.inputs.password}/>
+         <Form.Input.Component {...form.inputs.newsletterSignup}/>
+         <Form.Input.Component {...form.inputs.address}/>
+         <button type="submit">Submit</button>
       </Form.Component>
    );
 }
@@ -20,10 +21,9 @@ class App extends React.Component {
    constructor(props) {
       super(props);
 
-      const form = Form.Instance({
+      const form = {
          name: 'signupForm',
-         onChange: Form.onChange(form => this.updateForm(form)),
-         input: {
+         inputs: Form.Inputs({
             name: Form.Input.Text({
                name: 'OtherName',
                label: 'Name',
@@ -40,10 +40,12 @@ class App extends React.Component {
             }),
             address: Form.Input.Text({
                label: 'Enter your address',
-               disabled: form => !form.newsletterSignup.checked,
+               disabled: form => !form.inputs.newsletterSignup.checked,
             }),
-         },
-      });
+         }, {
+            onChange: Form.onChange(form => this.updateForm(form)),
+         }),
+      };
 
       this.state = { form };
    }

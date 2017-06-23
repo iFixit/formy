@@ -5,50 +5,50 @@ let Form = {};
 
 Form.Input = FormInput;
 
-Form.Instance = form => {
-   let computedForm = {};
-   computedForm.input = {};
+Form.Inputs = (inputs, defaults = {}) => {
+   let computedInputs = {};
 
-   Object.keys(form.input).forEach(inputKey => {
-      const addedProps = { name: inputKey, onChange: form.onChange };
-      const props = { ...form.input[inputKey], ...addedProps };
-
-      computedForm.input[inputKey] = props;
+   Object.keys(inputs).forEach(inputKey => {
+      computedInputs[inputKey] = { ...inputs[inputKey], ...defaults };
    });
 
-   return {...form, ...computedForm };
+   return computedInputs;
 }
 
 Form.onChange = fn => (form, inputKey) => ev => {
    const updatedProps = {
       value: ev.target.value,
-      checked: form[inputKey].checked === undefined ? undefined : ev.target.checked,
+      checked: form.inputs[inputKey].checked === undefined ? undefined : ev.target.checked,
    };
-   const updatedInput = { ...form[inputKey], ...updatedProps };
-   const updatedForm = { ...form, ...{[inputKey]: updatedInput} };
+   const updatedInputProps = { ...form.inputs[inputKey], ...updatedProps };
+   const updatedInput = { ...form.inputs, ...{[inputKey]: updatedInputProps} };
+   const updatedForm = { ...form, ...{inputs: updatedInput} };
 
    fn(updatedForm);
 };
 
 Form.getProps = form => {
-   let computedForm = {};
+   let computedForm = { inputs: {} };
 
-   Object.keys(form).forEach(inputKey => {
-      const props = { ...form[inputKey] };
+   Object.keys(form.inputs).forEach(inputKey => {
+      const input = { ...form.inputs[inputKey] };
 
-      Object.keys(props)
-       .filter(prop => props[prop] instanceof Function)
+      Object.keys(input)
+       .filter(prop => input[prop] instanceof Function)
        .filter(prop => !Form.Input.NON_COMPUTED_PROPERTIES.includes(prop))
-       .forEach(prop => { props[prop] = props[prop](form, inputKey) });
+       .forEach(prop => { input[prop] = input[prop](form, inputKey) });
 
-      computedForm[inputKey] = props;
+      computedForm.inputs[inputKey] = input;
    });
 
-   return computedForm;
+   return {...form, ...computedForm };
 };
 
 Form.Component = props => (
-   <form>
+   <form
+      name={props.name}
+      onSubmit={props.onSubmit}
+   >
       {props.children}
    </form>
 );

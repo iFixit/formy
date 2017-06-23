@@ -53,7 +53,7 @@ Form.getProps = form => {
 
 
    Object.keys(form.inputs).forEach(inputKey => {
-      const input = { ...form.inputs[inputKey] };
+      let input = { ...form.inputs[inputKey] };
 
       Object.keys(input)
        .filter(prop => input[prop] instanceof Function)

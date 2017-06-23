@@ -9,7 +9,11 @@ Form.Inputs = (inputs, defaults = {}) => {
    let computedInputs = {};
 
    Object.keys(inputs).forEach(inputKey => {
-      computedInputs[inputKey] = { ...inputs[inputKey], ...defaults };
+      computedInputs[inputKey] = {
+         ...defaults,
+         ...{name: inputKey},
+         ...inputs[inputKey],
+      };
    });
 
    return computedInputs;

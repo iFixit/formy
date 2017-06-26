@@ -19,7 +19,7 @@ FormInputComponentLibrary.InputElement = props => (
       placeholder={props.placeholder}
       onChange={props.onChange}
    />
-)
+);
 
 FormInputComponentLibrary.Text = props => (
    <label>
@@ -49,20 +49,6 @@ FormInputComponentLibrary.Number = props => (
    </label>
 );
 
-FormInputComponentLibrary.TextArea = props => (
-   <label>
-      {props.label}
-      <textarea
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         placeholder={props.placeholder}
-         onChange={props.onChange}
-      ></textarea>
-   </label>
-);
-
 FormInputComponentLibrary.Checkbox = props => (
    <label>
       {props.label}
@@ -74,6 +60,20 @@ FormInputComponentLibrary.Radio = props => (
    <label>
       {props.label}
       <FormInputComponentLibrary.InputElement {...props} type="radio"/>
+   </label>
+);
+
+FormInputComponentLibrary.TextArea = props => (
+   <label>
+      {props.label}
+      <textarea
+         value={props.value}
+         name={props.name}
+         disabled={props.disabled}
+         required={props.required}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+      ></textarea>
    </label>
 );
 

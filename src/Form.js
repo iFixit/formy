@@ -15,7 +15,7 @@ Form.Inputs = (defaults = {}, inputs) => {
    });
 
    return computedInputs;
-}
+};
 
 Form.onChange = fn => (form, inputKey) => ev => {
    const updatedProps = {
@@ -32,7 +32,7 @@ Form.onChange = fn => (form, inputKey) => ev => {
 // https://www.w3.org/TR/html5/forms.html#constructing-form-data-set
 // https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-the-form-data-set
 Form.onSubmit = fn => form => ev => {
-   ev.preventDefault();
+   // ev.preventDefault();
    let values = {};
 
    Object.keys(form.inputs)

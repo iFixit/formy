@@ -5,9 +5,10 @@ let FormInput = {};
 
 FormInput.ComponentLibrary = FormInputComponentLibrary;
 
-FormInput.InputFactory = typeDefaults => (
-   state => ({ ...FormInput.Default(typeDefaults), ...state })
-);
+FormInput.InputFactory = typeDefaults => appDefaults => ({
+   ...FormInput.Default(typeDefaults),
+   ...appDefaults
+});
 
 FormInput.Default = (typeDefaults) => ({ ...{
    value: '',
@@ -64,6 +65,7 @@ FormInput.Dropdown = FormInput.InputFactory({
 
 FormInput.RadioGroup = FormInput.InputFactory({
    radios: [],
+   required: null,
    component: FormInput.ComponentLibrary.RadioGroup,
 });
 

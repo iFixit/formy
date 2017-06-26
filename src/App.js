@@ -16,7 +16,7 @@ const SignupForm = props => {
          <button type="submit">Submit</button>
       </Form.Component>
    );
-}
+};
 
 class App extends React.Component {
    constructor(props) {
@@ -72,6 +72,6 @@ class App extends React.Component {
          <SignupForm {...this.state.form}/>
       );
    }
-}
+};
 
 export default App;

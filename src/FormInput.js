@@ -63,25 +63,8 @@ FormInput.Dropdown = FormInput.InputFactory({
 });
 
 FormInput.RadioGroup = FormInput.InputFactory({
-   radios: {},
-   component: class RadioGroup extends React.Component {
-      render() {
-         console.log(window.test = this.props.onChange)
-
-         return(
-            <div>
-               {this.props.radios.map(radio => (
-                  FormInput.Component({...radio, ...{
-                     key: radio.value,
-                     name: this.props.name,
-                     onChange: ev => console.log('here'),
-                     checked: this.props.value === radio.value,
-                  }})
-               ))}
-            </div>
-         )
-      }
-   },
+   radios: [],
+   component: FormInput.ComponentLibrary.RadioGroup,
 });
 
 FormInput.Component = props => (

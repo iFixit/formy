@@ -124,6 +124,17 @@ FormInputComponentLibrary.Radio = props => (
    </label>
 );
 
+FormInputComponentLibrary.RadioGroup = props => (
+   <fieldSet disabled={props.disabled}>
+      {props.radios.map(radio => <radio.component {... {...radio, ...{
+         key: radio.value,
+         name: props.name,
+         onChange: props.onChange,
+         checked: props.value === radio.value,
+      }}}/>)}
+   </fieldSet>
+);
+
 FormInputComponentLibrary.Dropdown = props => (
    <label> {props.label} </label>
 );

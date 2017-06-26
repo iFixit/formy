@@ -34,8 +34,6 @@ FormInputComponentLibrary.Email = props => (
          required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       />
    </label>
 );
@@ -51,8 +49,6 @@ FormInputComponentLibrary.Password = props => (
          required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       />
    </label>
 );
@@ -68,8 +64,6 @@ FormInputComponentLibrary.Number = props => (
          required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       />
    </label>
 );
@@ -84,8 +78,6 @@ FormInputComponentLibrary.TextArea = props => (
          required={props.required}
          placeholder={props.placeholder}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       ></textarea>
    </label>
 );
@@ -101,8 +93,6 @@ FormInputComponentLibrary.Checkbox = props => (
          disabled={props.disabled}
          required={props.required}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       />
    </label>
 );
@@ -118,8 +108,6 @@ FormInputComponentLibrary.Radio = props => (
          disabled={props.disabled}
          required={props.required}
          onChange={props.onChange}
-         onBlur={props.onBlur}
-         ref={props.inputRef}
       />
    </label>
 );
@@ -133,10 +121,6 @@ FormInputComponentLibrary.RadioGroup = props => (
          checked: props.value === radio.value,
       }}}/>)}
    </fieldSet>
-);
-
-FormInputComponentLibrary.Dropdown = props => (
-   <label> {props.label} </label>
 );
 
 export default FormInputComponentLibrary;

@@ -12,6 +12,7 @@ const SignupForm = props => {
          <Form.Input.Component {...form.inputs.password}/>
          <Form.Input.Component {...form.inputs.newsletterSignup}/>
          <Form.Input.Component {...form.inputs.address}/>
+         <Form.Input.Component {...form.inputs.faveFood}/>
          <button type="submit">Submit</button>
       </Form.Component>
    );
@@ -25,7 +26,7 @@ class App extends React.Component {
          name: 'signupForm',
          onSubmit: Form.onSubmit(values => this.submitForm(values)),
          inputs: Form.Inputs({
-           onChange: Form.onChange(form => this.updateForm(form)),
+            onChange: Form.onChange(form => this.updateForm(form)),
          }, {
             name: Form.Input.Text({
                name: 'OtherName',
@@ -44,6 +45,13 @@ class App extends React.Component {
             address: Form.Input.Text({
                label: 'Enter your address',
                disabled: form => !form.inputs.newsletterSignup.checked,
+            }),
+            faveFood: Form.Input.RadioGroup({
+               value: 'burrito',
+               radios: [
+                  Form.Input.Radio({ label: 'Burrito', value: 'burrito' }),
+                  Form.Input.Radio({ label: 'Pasta', value: 'pasta' }),
+               ],
             }),
          }),
       };

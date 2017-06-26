@@ -51,16 +51,15 @@ Form.getProps = form => {
     .filter(prop => !Form.Input.NON_COMPUTED_PROPERTIES.includes(prop))
     .forEach(prop => computedForm[prop] = form[prop](form));
 
-
    Object.keys(form.inputs).forEach(inputKey => {
-      let input = { ...form.inputs[inputKey] };
+      let computedInput = { ...form.inputs[inputKey] };
 
-      Object.keys(input)
-       .filter(prop => input[prop] instanceof Function)
+      Object.keys(computedInput)
+       .filter(prop => computedInput[prop] instanceof Function)
        .filter(prop => !Form.Input.NON_COMPUTED_PROPERTIES.includes(prop))
-       .forEach(prop => input[prop] = input[prop](form, inputKey));
+       .forEach(prop => computedInput[prop] = computedInput[prop](form, inputKey));
 
-      computedForm.inputs[inputKey] = input;
+      computedForm.inputs[inputKey] = computedInput;
    });
 
    return {...form, ...computedForm };

@@ -8,63 +8,44 @@ FormInputComponentLibrary.Default = props => (
    </label>
 );
 
+FormInputComponentLibrary.InputElement = props => (
+   <input
+      type={props.type}
+      checked={props.checked}
+      value={props.value}
+      name={props.name}
+      disabled={props.disabled}
+      required={props.required}
+      placeholder={props.placeholder}
+      onChange={props.onChange}
+   />
+)
+
 FormInputComponentLibrary.Text = props => (
    <label>
       {props.label}
-      <input
-         type="text"
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         placeholder={props.placeholder}
-         onChange={props.onChange}
-      />
+      <FormInputComponentLibrary.InputElement {...props} type="text"/>
    </label>
 );
 
 FormInputComponentLibrary.Email = props => (
    <label>
       {props.label}
-      <input
-         type="email"
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         placeholder={props.placeholder}
-         onChange={props.onChange}
-      />
+      <FormInputComponentLibrary.InputElement {...props} type="email"/>
    </label>
 );
 
 FormInputComponentLibrary.Password = props => (
    <label>
       {props.label}
-      <input
-         type="password"
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         placeholder={props.placeholder}
-         onChange={props.onChange}
-      />
+      <FormInputComponentLibrary.InputElement {...props} type="password"/>
    </label>
 );
 
 FormInputComponentLibrary.Number = props => (
    <label>
       {props.label}
-      <input
-         type="number"
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         placeholder={props.placeholder}
-         onChange={props.onChange}
-      />
+      <FormInputComponentLibrary.InputElement {...props} type="number"/>
    </label>
 );
 
@@ -85,30 +66,14 @@ FormInputComponentLibrary.TextArea = props => (
 FormInputComponentLibrary.Checkbox = props => (
    <label>
       {props.label}
-      <input
-         type="checkbox"
-         checked={props.checked}
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         onChange={props.onChange}
-      />
+      <FormInputComponentLibrary.InputElement {...props} type="checkbox"/>
    </label>
 );
 
 FormInputComponentLibrary.Radio = props => (
    <label>
       {props.label}
-      <input
-         type="radio"
-         checked={props.checked}
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         onChange={props.onChange}
-      />
+      <FormInputComponentLibrary.InputElement {...props} type="radio"/>
    </label>
 );
 

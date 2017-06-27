@@ -299,7 +299,7 @@ Dropdown
 
 Typed input element generated from [`Form.Input.Component`](#forminputcomponent).
 
-Props:
+#### Props
 
 ```
 All state from the input type's `Form.Input.[Input Types]`

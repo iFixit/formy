@@ -289,19 +289,19 @@ High order input element to structure a form.
 
 #### Props
 
-A `fields` property of a [`Form.getProps`](#formgetprops) return value.
+A `field` object of a [`Form.getProps`](#formgetprops) return value.
 
 ##
 
-### `Form.Input.ComponentLibrary`
+### `Form.Field.ComponentLibrary`
 
-Object of default input components used in [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
+Object of default field components assigned as [`Form.Field.[Field Types].Component`](#forminputinput-typescomponent).
 
 ##
 
-### `Form.Input.InputFactory`
+### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Input.[Input Types]`](#forminputinput-types), extending the `Form.Input.Default` state.
+Factory function to create [`Form.Field.[Field Types]`](#forminputinput-types), extending the `Form.Field.Default` state.
 
 ##
 

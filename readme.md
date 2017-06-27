@@ -180,6 +180,7 @@ Factory function to hook into an input's onChange event.
 
 | Name | Type | Description |
 | - | - | - |
+| callbackFn | Function | Function to call in an `onChange` event. When called, it passes in the new form state object as a parameter.
 
 ### `Form.Component`
 

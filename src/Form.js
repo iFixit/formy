@@ -31,6 +31,10 @@ Form.onChange = fn => (form, fieldKey) => ev => {
 
 Form.onSubmit = fn => form => ev => {
    ev.preventDefault();
+   fn(Form.getData(form));
+};
+
+Form.getData = form => {
    let data = {};
 
    Object.keys(form.fields)
@@ -38,8 +42,8 @@ Form.onSubmit = fn => form => ev => {
     .filter(fieldKey => form.fields[fieldKey].checked !== false)
     .forEach(fieldKey => data[fieldKey] = form.fields[fieldKey].value);
 
-   fn(data);
-};
+   return data;
+}
 
 Form.getProps = form => {
    let computedForm = { fields: {} };

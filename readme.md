@@ -291,6 +291,12 @@ High order field element to structure a form.
 
 A `field` object of a [`Form.getProps`](#formgetprops) return value.
 
+#### Returns
+
+``` jsx
+<props.component {...props}/>
+```
+
 ##
 
 ### `Form.Field.ComponentLibrary`

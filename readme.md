@@ -218,7 +218,7 @@ Top level form element.
 
 #### Props
 
-The `Form.getProps(...)` return value
+A [`Form.getProps`](#formgetprops) return value.
 
 ### `Form.Field`
 
@@ -226,13 +226,11 @@ Field wrapper object.
 
 ### `Form.Field.Component`
 
-High order input element to use in a Form template.
+High order input element to structure a form.
 
 #### Props
 
-```
-key: A String that's a key to the form's state.
-```
+A `fields` property of a [`Form.getProps`](#formgetprops) return value.
 
 ### `Form.Input.ComponentLibrary`
 

@@ -222,11 +222,13 @@ Function to get a form's data.
 
 Function to get a form state's props for rendering.
 
-#### Parameters
+<details>
+   #### Parameters
 
-| Name | Type | Description |
-| - | - | - |
-| form | Object | Form state
+   | Name | Type | Description |
+   | - | - | - |
+   | form | Object | Form state
+</details>
 
 ##
 
@@ -234,20 +236,22 @@ Function to get a form state's props for rendering.
 
 Top level form component.
 
-#### Props
+<details>
+   #### Props
 
-A [`Form.getProps`](#formgetprops) return value.
+   A [`Form.getProps`](#formgetprops) return value.
 
-#### Returns
+   #### Returns
 
-```jsx
-<form
-   name={props.name}
-   onSubmit={props.onSubmit}
->
-   {props.children}
-</form>
-```
+   ```jsx
+   <form
+      name={props.name}
+      onSubmit={props.onSubmit}
+   >
+      {props.children}
+   </form>
+   ```
+</details>
 
 ##
 
@@ -255,43 +259,45 @@ A [`Form.getProps`](#formgetprops) return value.
 
 Helper function to generate an object of fields.
 
-#### Parameters
+<details>
+   #### Parameters
 
-| Name | Type | Description |
-| - | - | - |
-| defaults | Object | Object of values to assign to every field
-| fields | Object | Object of fields
+   | Name | Type | Description |
+   | - | - | - |
+   | defaults | Object | Object of values to assign to every field
+   | fields | Object | Object of fields
 
-#### Returns
+   #### Returns
 
-| Name | Type | Description |
-| - | - | - |
-| fields | Object | The fields object, with every field now containing all the `default` values as well a `name` property with the value being the field object's key.
+   | Name | Type | Description |
+   | - | - | - |
+   | fields | Object | The fields object, with every field now containing all the `default` values as well a `name` property with the value being the field object's key.
 
-#### Example
+   #### Example
 
-``` jsx
-Form.Fields({
-   onChange: event => {},
-}, {
-   phone: {},
-   email: {},
-})
-
-/*
-{
-   phone: {
-      name: phone,
+   ``` jsx
+   Form.Fields({
       onChange: event => {},
-   },
+   }, {
+      phone: {},
+      email: {},
+   })
 
-   email: {
-      name: email,
-      onChange: event => {},
+   /*
+   {
+      phone: {
+         name: phone,
+         onChange: event => {},
+      },
+
+      email: {
+         name: email,
+         onChange: event => {},
+      }
    }
-}
-*/
-```
+   */
+   ```
+</details>
 
 ##
 

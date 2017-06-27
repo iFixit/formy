@@ -192,6 +192,26 @@ Factory function to hook into a form's `submit` event. Cancels the native submit
 | - | - | - |
 | callbackFn | Function | Function to call in a `submit` event. When called, it passes in the form's data object as a parameter.
 
+### `Form.getData`
+
+Function to get a form's data.
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| form | Object | Form props
+
+### `Form.getProps`
+
+Function to get a form state's props for rendering.
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| form | Object | Form state
+
 ### `Form.Component`
 
 Top level form element.

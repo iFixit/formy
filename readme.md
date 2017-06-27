@@ -76,7 +76,7 @@ HTML output:
 ## Harder examples
 
 <details>
-   <summary>Computed state</summary>
+   <summary>**Computed state**</summary>
 
    In Formy you can define input state as relative values to other properties in a form.
 

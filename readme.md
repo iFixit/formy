@@ -130,7 +130,7 @@ HTML output:
    );
    ```
 
-   This groups the radio buttons in a `fieldset` element, rendering the radio buttons the order they're declared in the initial `radios` array.
+   This groups the radio buttons in a `fieldset` element, rendering the radio buttons in the order they're declared in the initial `radios` array.
    ``` HTML
    <form name="signupForm">
       <fieldset>
@@ -172,7 +172,7 @@ Library wrapper object.
 
 Top level form element.
 
-Props:
+#### Props:
 
 ```
 instance: A Form.Instance.

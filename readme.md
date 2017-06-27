@@ -184,7 +184,7 @@ instance: A Form.Instance.
 inputRefs: Object of references to an input's native input element.
 ```
 
-Functions:
+#### Functions
 ```
 onChangeFactory(input): Returns an onChange event handler that maps an input's value to the form's state.
 
@@ -193,7 +193,7 @@ getInputsWithProps(): Returns the form's Form.Input.Component child elements wit
 requestIsValid(): Returns a promise that resolves every input's requestIsValid promise.
 ```
 
-### Form.Instance
+### `Form.Instance`
 
 Function that returns a form instance object.
 

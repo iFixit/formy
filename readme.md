@@ -168,9 +168,13 @@ HTML output:
     - [`[Field Types]`](#forminputinput-types)
       - [`Component`](#forminputinput-typescomponent)
 
+##
+
 ### `Form`
 
 Library wrapper object.
+
+##
 
 ### `Form.onChange`
 
@@ -182,6 +186,8 @@ Factory function to hook into an input's `onChange` event.
 | - | - | - |
 | callbackFn | Function | Function to call in an `onChange` event. When called, it passes in the new form state object as a parameter.
 
+##
+
 ### `Form.onSubmit`
 
 Factory function to hook into a form's `submit` event. Cancels the native submit event.
@@ -191,6 +197,8 @@ Factory function to hook into a form's `submit` event. Cancels the native submit
 | Name | Type | Description |
 | - | - | - |
 | callbackFn | Function | Function to call in a `submit` event. When called, it passes in the form's data object as a parameter.
+
+##
 
 ### `Form.getData`
 
@@ -202,6 +210,8 @@ Function to get a form's data.
 | - | - | - |
 | form | Object | Form props
 
+##
+
 ### `Form.getProps`
 
 Function to get a form state's props for rendering.
@@ -212,6 +222,8 @@ Function to get a form state's props for rendering.
 | - | - | - |
 | form | Object | Form state
 
+##
+
 ### `Form.Component`
 
 Top level form element.
@@ -220,9 +232,13 @@ Top level form element.
 
 A [`Form.getProps`](#formgetprops) return value.
 
+##
+
 ### `Form.Field`
 
 Field wrapper object.
+
+##
 
 ### `Form.Field.Component`
 
@@ -232,13 +248,19 @@ High order input element to structure a form.
 
 A `fields` property of a [`Form.getProps`](#formgetprops) return value.
 
+##
+
 ### `Form.Input.ComponentLibrary`
 
 Object of default input components used in [`Form.Input.[Input Types].Component`](#forminputinput-typescomponent).
 
+##
+
 ### `Form.Input.InputFactory`
 
 Factory function to create [`Form.Input.[Input Types]`](#forminputinput-types), extending the `Form.Input.Default` state.
+
+##
 
 ### `Form.Input.[Input Types]`
 
@@ -307,6 +329,8 @@ Dropdown
    customInputOnlyNumbers: false
    component: Form.Input.ComponentLibrary.Dropdown
 ```
+
+##
 
 ### `Form.Input.[Input Types].Component`
 

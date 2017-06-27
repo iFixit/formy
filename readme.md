@@ -31,7 +31,7 @@ const form = {
       name: Form.Field.Text(label: 'Name'),
       email: Form.Field.Email(label: 'Email'),
       password: Form.Field.Password(label: 'Password'),
-      newsletterSignup: Form.Field.Checkbox(label: 'Signup for our newsletter?'),
+      newsletterSignup: Form.Field.Checkbox({label: 'Signup for our newsletter?'}),
    }),
 };
 
@@ -53,7 +53,7 @@ return(
 );
 ```
 
-This renders:
+HTML output:
 ``` HTML
 <form name="signupForm">
    <label>
@@ -85,20 +85,25 @@ This renders:
 In Formy you can define input state as relative values to other properties in a form.
 
 ``` jsx
-let form = Form.Instance('signupForm', {
-   newsletterSignup: Form.Input.Checkbox({ label: 'Signup for our newletter?' }),
-   address: Form.Input.Email({
-      label: 'Enter your email address',
-      disabled: state => !state.newsletterSignup.checked,
+const form = {
+   name: 'signupForm',
+   fields: Form.Fields({
+      onChange: Form.onChange(form => this.updateForm(form)),
+   }, {
+      newsletterSignup: Form.Field.Checkbox({label: 'Signup for our newsletter?'}),
+      email: Form.Field.Text({
+         label: 'Email',
+         disabled: form => !form.newsletterSignup.checked,
+      }),
    }),
-});
+};
 ```
 
 In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. This is problematic though, since you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
 
-Formy combines computed state and static state all in the same initial `Form.Instance` function, keeping your data contained and easy to understand.
+Formy combines computed state and static state all in the same initial `form` object, keeping your data contained and easy to understand.
 
-To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `state` object. This allows you to return a rendered value relative to all available data in the form.
+To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string. This allows you to return a rendered value relative to all available data in the form.
 
 ### Radio Controls
 

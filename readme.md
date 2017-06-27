@@ -2,11 +2,13 @@
 
 `Formy` is a form generation library in React. Create your form as a JS object and render it however you want.
 
+Comes with helper functions for `onChange` and `onSubmit` events to maintain internal state.
+
 ## Benefits
 
 ### ⛓ Total separation of data and layout
 
-We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. An email input: `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
+We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
 
 ### ✅ Native HTML5 validation
 
@@ -18,30 +20,36 @@ Backend validation is as easy as frontend by handling everything as a Promise. `
 
 ## Simple Example
 
+Create an object of your form's initial state.
 ``` jsx
-// Create an object of your form's initial state.
-let form = Form.Instance('signupForm', {
-   name: Form.Input.Text(),
-   email: Form.Input.Email(),
-   password: Form.Input.Password(),
-   newsletterSignup: Form.Input.Checkbox(),
-});
+const form = {
+   name: 'signupForm',
+   fields: Form.Fields({
+      // Hook input onChange events to your own state control function.
+      onChange: Form.onChange(form => this.updateForm(form)),
+   }, {
+      name: Form.Field.Text(label: 'Name'),
+      email: Form.Field.Email(label: 'Email'),
+      password: Form.Field.Password(label: 'Password'),
+      newsletterSignup: Form.Field.Checkbox(label: 'Signup for our newsletter?'),
+   }),
+};
 
-// Render the form
-ReactDOM.render(
+this.state = { form };
+```
 
-   // Map a Form.Component to a Form.Instance by assigning it as an "instance" value.
-   // Map a Form.Input.Component to a Form.Instance state property by using the same "key" value.
-   // Structure the form layout however you want!
-   // Add any extra elements you want!
-   <Form.Component instance={form}>
-      <Form.Input.Component key="name"/>
-      <Form.Input.Component key="email"/>
-      <Form.Input.Component key="password"/>
-      <Form.Input.Component key="newsletterSignup"/>
-   </Form.Component>,
+Render the form.
+``` jsx
+const form = Form.getProps(this.state.form);
 
-   document.getElementById('root')
+return(
+   <Form.Component {...form}>
+      <h1>Form</h1>
+      <Form.Field.Component {...form.fields.name}/>
+      <Form.Field.Component {...form.fields.email}/>
+      <Form.Field.Component {...form.fields.password}/>
+      <Form.Field.Component {...form.fields.newsletterSignup}/>
+   </Form.Component>
 );
 ```
 
@@ -64,7 +72,7 @@ This renders:
    </label>
 
    <label>
-      Signup for our newletter?
+      Signup for our newsletter?
       <input type="checkbox" value="on" name="newsletterSignup">
    </label>
 </form>

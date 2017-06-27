@@ -40,7 +40,7 @@ class App extends React.Component {
                label: 'Password',
             }),
             newsletterSignup: Form.Field.Checkbox({
-               label: 'Signup for our newletter?',
+               label: 'Signup for our newsletter?',
             }),
             address: Form.Field.Text({
                label: 'Enter your address',

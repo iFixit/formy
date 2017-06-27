@@ -340,7 +340,7 @@ Object of default field components assigned as [`Form.Field.[Field types].Compon
 
 ### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending the `Form.Field.Default` object.
+Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending [`Form.Field.Default`](#formfielddefault).
 
 <details>
 

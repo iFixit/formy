@@ -285,7 +285,7 @@ Field wrapper object.
 
 ### `Form.Field.Component`
 
-High order input element to structure a form.
+High order field element to structure a form.
 
 #### Props
 
@@ -301,13 +301,17 @@ Object of default field components assigned as [`Form.Field.[Field Types].Compon
 
 ### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Field.[Field Types]`](#forminputinput-types), extending the `Form.Field.Default` state.
+Factory function to create [`Form.Field.[Field Types]`](#forminputinput-types), extending the `Form.Field.Default` object.
+
+| Name | Type | Description |
+| - | - | - |
+| typeDefaults | Object | Object to extend `Form.Field.Default` with.
 
 ##
 
 ### `Form.Input.[Input Types]`
 
-Function that returns the state of a typed input.
+Function that returns a field object.
 
 #### Parameters
 ```

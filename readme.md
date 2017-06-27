@@ -8,7 +8,11 @@ Comes with helper functions for input events to maintain internal state.
 
 ### ⛓ Total separation of data and layout
 
-We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
+We were tired of input attributes getting mixed in with the HTML markup of a form.
+
+Declare an input's state as simple JS object and free up your HTML for what it's best for: layout.
+
+A dropdown with a million options is now `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
 
 ## Simple example
 

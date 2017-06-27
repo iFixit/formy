@@ -311,15 +311,17 @@ Field wrapper object.
 
 High order field element to structure a form.
 
-#### Props
+<details>
+   #### Props
 
-A `field` object of a [`Form.getProps`](#formgetprops) return value.
+   A `field` object of a [`Form.getProps`](#formgetprops) return value.
 
-#### Returns
+   #### Returns
 
-``` jsx
-<props.component {...props}/>
-```
+   ``` jsx
+   <props.component {...props}/>
+   ```
+</details>
 
 ##
 
@@ -333,11 +335,13 @@ Object of default field components assigned as [`Form.Field.[Field types].Compon
 
 Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending the `Form.Field.Default` object.
 
-#### Parameters
+<details>
+   #### Parameters
 
-| Name | Type | Description |
-| - | - | - |
-| typeDefaults | Object | Object to extend `Form.Field.Default` with
+   | Name | Type | Description |
+   | - | - | - |
+   | typeDefaults | Object | Object to extend `Form.Field.Default` with
+</details>
 
 ##
 
@@ -345,14 +349,16 @@ Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), 
 
 Default field object.
 
-``` jsx
-{
-   value: '',
-   label: '',
-   disabled: false,
-   component: FormField.ComponentLibrary.Default,
-}
-```
+<details>
+   ``` jsx
+   {
+      value: '',
+      label: '',
+      disabled: false,
+      component: FormField.ComponentLibrary.Default,
+   }
+   ```
+</details>
 
 ##
 
@@ -360,91 +366,93 @@ Default field object.
 
 Function that returns a field object.
 
-#### Parameters
+<details>
+   #### Parameters
 
-| Name | Type | Description |
-| - | - | - |
-| instanceDefaults | Object | Instance defaults to extend the type's default values with
+   | Name | Type | Description |
+   | - | - | - |
+   | instanceDefaults | Object | Instance defaults to extend the type's default values with
 
-#### Field types
+   #### Field types
 
-``` jsx
-FormField.Text = FormField.FieldFactory({
-  placeHolder: '',
-  required: false,
-  component: FormField.ComponentLibrary.Text,
-});
+   ``` jsx
+   FormField.Text = FormField.FieldFactory({
+     placeHolder: '',
+     required: false,
+     component: FormField.ComponentLibrary.Text,
+   });
 
-FormField.Email = FormField.FieldFactory({
-   placeHolder: '',
-   required: false,
-   component: FormField.ComponentLibrary.Email,
-});
+   FormField.Email = FormField.FieldFactory({
+      placeHolder: '',
+      required: false,
+      component: FormField.ComponentLibrary.Email,
+   });
 
-FormField.Password = FormField.FieldFactory({
-   placeHolder: '',
-   required: false,
-   component: FormField.ComponentLibrary.Password,
-});
+   FormField.Password = FormField.FieldFactory({
+      placeHolder: '',
+      required: false,
+      component: FormField.ComponentLibrary.Password,
+   });
 
-FormField.Number = FormField.FieldFactory({
-   placeHolder: '' ,
-   required: false,
-   component: FormField.ComponentLibrary.Number,
-});
+   FormField.Number = FormField.FieldFactory({
+      placeHolder: '' ,
+      required: false,
+      component: FormField.ComponentLibrary.Number,
+   });
 
-FormField.TextArea = FormField.FieldFactory({
-   placeHolder: '',
-   required: false,
-   component: FormField.ComponentLibrary.TextArea,
-});
+   FormField.TextArea = FormField.FieldFactory({
+      placeHolder: '',
+      required: false,
+      component: FormField.ComponentLibrary.TextArea,
+   });
 
-FormField.Checkbox = FormField.FieldFactory({
-   value: 'on',
-   checked: false,
-   required: false,
-   component: FormField.ComponentLibrary.Checkbox,
-});
+   FormField.Checkbox = FormField.FieldFactory({
+      value: 'on',
+      checked: false,
+      required: false,
+      component: FormField.ComponentLibrary.Checkbox,
+   });
 
-FormField.Radio = FormField.FieldFactory({
-   value: 'on',
-   checked: false,
-   required: false,
-   component: FormField.ComponentLibrary.Radio,
-});
+   FormField.Radio = FormField.FieldFactory({
+      value: 'on',
+      checked: false,
+      required: false,
+      component: FormField.ComponentLibrary.Radio,
+   });
 
-FormField.RadioGroup = FormField.FieldFactory({
-   radios: [],
-   component: FormField.ComponentLibrary.RadioGroup,
-});
-```
+   FormField.RadioGroup = FormField.FieldFactory({
+      radios: [],
+      component: FormField.ComponentLibrary.RadioGroup,
+   });
+   ```
 
-#### Example
+   #### Example
 
-``` jsx
-Form.Field.Text()
+   ``` jsx
+   Form.Field.Text()
 
-/*
-{
-   value: '',
-   label: '',
-   disabled: false,
-   placeHolder: '',
-   required: false,
-   component: FormField.ComponentLibrary.Text,
-}
-*/
+   /*
+   {
+      value: '',
+      label: '',
+      disabled: false,
+      placeHolder: '',
+      required: false,
+      component: FormField.ComponentLibrary.Text,
+   }
+   */
 
-Form.Field.Text({ label: 'First name' })
+   Form.Field.Text({ label: 'First name' })
 
-/*
-{
-   value: '',
-   label: 'First name',
-   disabled: false,
-   placeHolder: '',
-   required: false,
-   component: FormField.ComponentLibrary.Text,
-}
-*/
-```
+   /*
+   {
+      value: '',
+      label: 'First name',
+      disabled: false,
+      placeHolder: '',
+      required: false,
+      component: FormField.ComponentLibrary.Text,
+   }
+   */
+   ```
+</details>

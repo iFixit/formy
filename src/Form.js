@@ -32,11 +32,11 @@ Form.onChange = fn => (form, fieldKey) => ev => {
 // https://www.w3.org/TR/html5/forms.html#constructing-form-data-set
 // https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-the-form-data-set
 Form.onSubmit = fn => form => ev => {
-   // ev.preventDefault();
+   ev.preventDefault();
    let values = {};
 
    Object.keys(form.fields)
-    .filter(fieldKey => form.fields[fieldKey].disabled !== 'true')
+    .filter(fieldKey => form.fields[fieldKey].disabled !== true)
     .filter(fieldKey => form.fields[fieldKey].checked !== false)
     .forEach(fieldKey => values[fieldKey] = form.fields[fieldKey].value);
 

@@ -193,7 +193,7 @@ getInputsWithProps(): Returns the form's Form.Input.Component child elements wit
 requestIsValid(): Returns a promise that resolves every input's requestIsValid promise.
 ```
 
-### `Form.Instance`
+### Form.Instance
 
 Function that returns a form instance object.
 

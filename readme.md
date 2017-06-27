@@ -76,7 +76,7 @@ HTML output:
 ## Harder examples
 
 <details>
-   <summary>**Computed state**</summary>
+   <summary><strong>Computed state</strong></summary>
 
    In Formy you can define input state as relative values to other properties in a form.
 
@@ -103,7 +103,7 @@ HTML output:
 </details>
 
 <details>
-   <summary>Radio buttons</summary>
+   <summary><strong>Radio buttons</strong></summary>
 
    Group radio buttons as an array in the `radios` property of a `RadioGroup` object. In this example, `'burrito'` is the default selected value.
    ``` jsx

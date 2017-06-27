@@ -226,7 +226,7 @@ Function to get a form state's props for rendering.
 
 ### `Form.Component`
 
-Top level form element.
+Top level form component.
 
 #### Props
 
@@ -236,20 +236,45 @@ A [`Form.getProps`](#formgetprops) return value.
 
 ### `Form.Fields`
 
-Helper function to generate an object of field objects.
+Helper function to generate an object of fields.
 
 #### Parameters
 
 | Name | Type | Description |
 | - | - | - |
-| defaults | Object | Object of values to assign to every field object
-| fields | Object | Object of field data
+| defaults | Object | Object of values to assign to every field
+| fields | Object | Object of fields
 
 #### Returns
 
 | Name | Type | Description |
 | - | - | - |
 | fields | Object | The fields object, with every field now containing all the `default` values as well a `name` property with the value being the field object's key.
+
+#### Example
+
+``` jsx
+const fields: Form.Fields({
+   onChange: event => {},
+}, {
+   phone: {},
+   email: {},
+});
+
+console.log(fields);
+/*
+{
+   phone: {
+      name: phone,
+      onChange: event => {},
+   },
+
+   email: {
+      name: email,
+      onChange: event => {},
+   }
+}
+```
 
 ##
 

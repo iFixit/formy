@@ -254,14 +254,13 @@ Helper function to generate an object of fields.
 #### Example
 
 ``` jsx
-const fields: Form.Fields({
+Form.Fields({
    onChange: event => {},
 }, {
    phone: {},
    email: {},
-});
+})
 
-console.log(fields);
 /*
 {
    phone: {

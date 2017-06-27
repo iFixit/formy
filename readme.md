@@ -1,8 +1,8 @@
 # Formy
 
-`Formy` is a form generation library in React. Create your form as a JS object and render it however you want.
+Formy is a form generation library in React. Create your form as a JS object and render it however you want.
 
-Comes with helper functions for `onChange` and `onSubmit` events to maintain internal state.
+Comes with helper functions for input events to maintain internal state.
 
 ## Benefits
 
@@ -10,7 +10,7 @@ Comes with helper functions for `onChange` and `onSubmit` events to maintain int
 
 We were tired of input attributes getting mixed in with the HTML markup of a form. Declare an input's state as simple JS object and free up your HTML for what it's best for: layout. A dropdown with a million options is now `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
 
-## Simple Example
+## Simple example
 
 Create an object of your form's initial state.
 ``` jsx
@@ -69,7 +69,7 @@ HTML output:
 </form>
 ```
 
-## Harder Examples
+## Harder examples
 
 <details>
    <summary>Computed state</summary>
@@ -119,7 +119,7 @@ HTML output:
    };
    ```
 
-   Render the RadioGroup as a single component.
+   Render the `RadioGroup` as a single component.
    ``` jsx
    const form = Form.getProps(this.state.form);
 

@@ -218,42 +218,13 @@ Top level form element.
 
 #### Props
 
-```
-instance: A Form.Instance.
-```
+The `Form.getProps(...)` return value
 
-#### Variables
+### `Form.Field`
 
-```
-inputRefs: Object of references to an input's native input element.
-```
+Field wrapper object.
 
-#### Functions
-```
-onChangeFactory(input): Returns an onChange event handler that maps an input's value to the form's state.
-
-getInputsWithProps(): Returns the form's Form.Input.Component child elements with props matching the form's state.
-
-requestIsValid(): Returns a promise that resolves every input's requestIsValid promise.
-```
-
-### `Form.Instance`
-
-Function that returns a form instance object.
-
-#### Parameters
-
-```
-name: A string that's assigned as the form's name.
-
-state: The initial state of the form.
-```
-
-### `Form.Input`
-
-Input wrapper object.
-
-### `Form.Input.Component`
+### `Form.Field.Component`
 
 High order input element to use in a Form template.
 

@@ -79,7 +79,8 @@ HTML output:
 
 ## Harder Examples
 
-### Computed State
+<details>
+   <summary>### Computed State</summary>
 
 In Formy you can define input state as relative values to other properties in a form.
 
@@ -103,6 +104,7 @@ In this example, the email address input is disabled _only_ if the checkbox isn'
 Formy combines computed state and static state all in the same initial `form` object, keeping your data contained and easy to understand.
 
 To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string. This allows you to return a rendered value relative to all available data in the form.
+</details>
 
 ### Radio buttons
 

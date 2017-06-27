@@ -167,7 +167,6 @@ HTML output:
     - [`FieldFactory`](#forminputinputfactory)
     - [`Default`](#forminputinputfactory)
     - [`[Field Types]`](#forminputinput-types)
-      - [`Component`](#forminputinput-typescomponent)
 
 ##
 
@@ -417,16 +416,4 @@ Form.Field.Text({ label: 'First name' })
    component: FormField.ComponentLibrary.Text,
 }
 */
-```
-
-##
-
-### `Form.Input.[Input Types].Component`
-
-Typed input element generated from [`Form.Input.Component`](#forminputcomponent).
-
-#### Props
-
-```
-All state from the input type's `Form.Input.[Input Types]`
 ```

@@ -304,6 +304,8 @@ Object of default field components assigned as [`Form.Field.[Field Types].Compon
 
 Factory function to create [`Form.Field.[Field Types]`](#forminputinput-types), extending the `Form.Field.Default` object.
 
+#### Parameters
+
 | Name | Type | Description |
 | - | - | - |
 | typeDefaults | Object | Object to extend `Form.Field.Default` with
@@ -323,7 +325,6 @@ Default field object.
 }
 ```
 
-
 ##
 
 ### `Form.Input.[Input Types]`
@@ -331,8 +332,38 @@ Default field object.
 Function that returns a field object.
 
 #### Parameters
-```
-state: A state object that extends the type's default state.
+
+| Name | Type | Description |
+| - | - | - |
+| instanceDefaults | Object | Instance defaults to extend the type's default values with
+
+#### Example
+
+``` jsx
+Form.Field.Text()
+
+/*
+{
+   value: '',
+   label: '',
+   disabled: false,
+   placeHolder: '',
+   required: false,
+   component: FormField.ComponentLibrary.Text,
+}
+*/
+
+Form.Field.Text({ label: 'First name' })
+/*
+{
+   value: '',
+   label: 'First name',
+   disabled: false,
+   placeHolder: '',
+   required: false,
+   component: FormField.ComponentLibrary.Text,
+}
+*/
 ```
 
 #### [Input Types]

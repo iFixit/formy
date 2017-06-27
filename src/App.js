@@ -24,7 +24,7 @@ class App extends React.Component {
 
       const form = {
          name: 'signupForm',
-         onSubmit: Form.onSubmit(values => this.submitForm(values)),
+         onSubmit: Form.onSubmit(data => this.submitForm(data)),
          fields: Form.Fields({
             onChange: Form.onChange(form => this.updateForm(form)),
          }, {
@@ -63,8 +63,8 @@ class App extends React.Component {
       this.setState({ form });
    }
 
-   submitForm(values) {
-      console.log(values)
+   submitForm(data) {
+      console.log(data)
    }
 
    render() {

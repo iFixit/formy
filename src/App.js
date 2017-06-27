@@ -7,12 +7,12 @@ const SignupForm = props => {
    return(
       <Form.Component {...form}>
          <h1>Form</h1>
-         <Form.Input.Component {...form.inputs.name}/>
-         <Form.Input.Component {...form.inputs.email}/>
-         <Form.Input.Component {...form.inputs.password}/>
-         <Form.Input.Component {...form.inputs.newsletterSignup}/>
-         <Form.Input.Component {...form.inputs.address}/>
-         <Form.Input.Component {...form.inputs.faveFood}/>
+         <Form.Field.Component {...form.fields.name}/>
+         <Form.Field.Component {...form.fields.email}/>
+         <Form.Field.Component {...form.fields.password}/>
+         <Form.Field.Component {...form.fields.newsletterSignup}/>
+         <Form.Field.Component {...form.fields.address}/>
+         <Form.Field.Component {...form.fields.faveFood}/>
          <button type="submit">Submit</button>
       </Form.Component>
    );
@@ -25,32 +25,32 @@ class App extends React.Component {
       const form = {
          name: 'signupForm',
          onSubmit: Form.onSubmit(values => this.submitForm(values)),
-         inputs: Form.Inputs({
+         fields: Form.Fields({
             onChange: Form.onChange(form => this.updateForm(form)),
          }, {
-            name: Form.Input.Text({
+            name: Form.Field.Text({
                name: 'OtherName',
                label: 'Name',
                placeholder: 'Doc Brown',
             }),
-            email: Form.Input.Email({
+            email: Form.Field.Email({
                label: 'Email',
             }),
-            password: Form.Input.Password({
+            password: Form.Field.Password({
                label: 'Password',
             }),
-            newsletterSignup: Form.Input.Checkbox({
+            newsletterSignup: Form.Field.Checkbox({
                label: 'Signup for our newletter?',
             }),
-            address: Form.Input.Text({
+            address: Form.Field.Text({
                label: 'Enter your address',
-               disabled: form => !form.inputs.newsletterSignup.checked,
+               disabled: form => !form.fields.newsletterSignup.checked,
             }),
-            faveFood: Form.Input.RadioGroup({
+            faveFood: Form.Field.RadioGroup({
                value: 'burrito',
                radios: [
-                  Form.Input.Radio({ label: 'Burrito', value: 'burrito' }),
-                  Form.Input.Radio({ label: 'Pasta', value: 'pasta' }),
+                  Form.Field.Radio({ label: 'Burrito', value: 'burrito' }),
+                  Form.Field.Radio({ label: 'Pasta', value: 'pasta' }),
                ],
             }),
          }),

@@ -1,14 +1,14 @@
 import React from 'react';
 
-let FormInputComponentLibrary = {};
+let FormFieldComponentLibrary = {};
 
-FormInputComponentLibrary.Default = props => (
+FormFieldComponentLibrary.Default = props => (
    <label>
       {props.label}
    </label>
 );
 
-FormInputComponentLibrary.InputElement = props => (
+FormFieldComponentLibrary.InputElement = props => (
    <input
       type={props.type}
       checked={props.checked}
@@ -21,49 +21,49 @@ FormInputComponentLibrary.InputElement = props => (
    />
 );
 
-FormInputComponentLibrary.Text = props => (
+FormFieldComponentLibrary.Text = props => (
    <label>
       {props.label}
-      <FormInputComponentLibrary.InputElement {...props} type="text"/>
+      <FormFieldComponentLibrary.InputElement {...props} type="text"/>
    </label>
 );
 
-FormInputComponentLibrary.Email = props => (
+FormFieldComponentLibrary.Email = props => (
    <label>
       {props.label}
-      <FormInputComponentLibrary.InputElement {...props} type="email"/>
+      <FormFieldComponentLibrary.InputElement {...props} type="email"/>
    </label>
 );
 
-FormInputComponentLibrary.Password = props => (
+FormFieldComponentLibrary.Password = props => (
    <label>
       {props.label}
-      <FormInputComponentLibrary.InputElement {...props} type="password"/>
+      <FormFieldComponentLibrary.InputElement {...props} type="password"/>
    </label>
 );
 
-FormInputComponentLibrary.Number = props => (
+FormFieldComponentLibrary.Number = props => (
    <label>
       {props.label}
-      <FormInputComponentLibrary.InputElement {...props} type="number"/>
+      <FormFieldComponentLibrary.InputElement {...props} type="number"/>
    </label>
 );
 
-FormInputComponentLibrary.Checkbox = props => (
+FormFieldComponentLibrary.Checkbox = props => (
    <label>
       {props.label}
-      <FormInputComponentLibrary.InputElement {...props} type="checkbox"/>
+      <FormFieldComponentLibrary.InputElement {...props} type="checkbox"/>
    </label>
 );
 
-FormInputComponentLibrary.Radio = props => (
+FormFieldComponentLibrary.Radio = props => (
    <label>
       {props.label}
-      <FormInputComponentLibrary.InputElement {...props} type="radio"/>
+      <FormFieldComponentLibrary.InputElement {...props} type="radio"/>
    </label>
 );
 
-FormInputComponentLibrary.TextArea = props => (
+FormFieldComponentLibrary.TextArea = props => (
    <label>
       {props.label}
       <textarea
@@ -77,7 +77,7 @@ FormInputComponentLibrary.TextArea = props => (
    </label>
 );
 
-FormInputComponentLibrary.RadioGroup = props => (
+FormFieldComponentLibrary.RadioGroup = props => (
    <fieldSet disabled={props.disabled}>
       {props.radios.map(radio => <radio.component {...radio}
          key={radio.value}
@@ -88,4 +88,4 @@ FormInputComponentLibrary.RadioGroup = props => (
    </fieldSet>
 );
 
-export default FormInputComponentLibrary;
+export default FormFieldComponentLibrary;

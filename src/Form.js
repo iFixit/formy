@@ -1,30 +1,30 @@
 import React from 'react';
-import FormInput from './FormInput';
+import FormField from './FormField';
 
 let Form = {};
 
-Form.Input = FormInput;
+Form.Field = FormField;
 
-Form.Inputs = (defaults = {}, inputs) => {
-   let computedInputs = {};
+Form.Fields = (defaults = {}, fields) => {
+   let computedFields = {};
 
-   Object.keys(inputs).forEach(inputKey => computedInputs[inputKey] = {
+   Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
       ...defaults,
-      ...{name: inputKey},
-      ...inputs[inputKey],
+      ...{name: fieldKey},
+      ...fields[fieldKey],
    });
 
-   return computedInputs;
+   return computedFields;
 };
 
-Form.onChange = fn => (form, inputKey) => ev => {
+Form.onChange = fn => (form, fieldKey) => ev => {
    const updatedProps = {
       value: ev.target.value,
-      checked: form.inputs[inputKey].checked === undefined ? undefined : ev.target.checked,
+      checked: form.fields[fieldKey].checked === undefined ? undefined : ev.target.checked,
    };
-   const updatedInputProps = { ...form.inputs[inputKey], ...updatedProps };
-   const updatedInput = { ...form.inputs, ...{[inputKey]: updatedInputProps} };
-   const updatedForm = { ...form, ...{inputs: updatedInput} };
+   const updatedFieldProps = { ...form.fields[fieldKey], ...updatedProps };
+   const updatedField = { ...form.fields, ...{[fieldKey]: updatedFieldProps} };
+   const updatedForm = { ...form, ...{fields: updatedField} };
 
    fn(updatedForm);
 };
@@ -35,31 +35,31 @@ Form.onSubmit = fn => form => ev => {
    // ev.preventDefault();
    let values = {};
 
-   Object.keys(form.inputs)
-    .filter(inputKey => form.inputs[inputKey].disabled !== 'true')
-    .filter(inputKey => form.inputs[inputKey].checked !== false)
-    .forEach(inputKey => values[inputKey] = form.inputs[inputKey].value);
+   Object.keys(form.fields)
+    .filter(fieldKey => form.fields[fieldKey].disabled !== 'true')
+    .filter(fieldKey => form.fields[fieldKey].checked !== false)
+    .forEach(fieldKey => values[fieldKey] = form.fields[fieldKey].value);
 
    fn(values)
 };
 
 Form.getProps = form => {
-   let computedForm = { inputs: {} };
+   let computedForm = { fields: {} };
 
    Object.keys(form)
     .filter(prop => form[prop] instanceof Function)
-    .filter(prop => !Form.Input.NON_COMPUTED_PROPERTIES.includes(prop))
+    .filter(prop => !Form.Field.NON_COMPUTED_PROPERTIES.includes(prop))
     .forEach(prop => computedForm[prop] = form[prop](form));
 
-   Object.keys(form.inputs).forEach(inputKey => {
-      let computedInput = { ...form.inputs[inputKey] };
+   Object.keys(form.fields).forEach(fieldKey => {
+      let computedField = { ...form.fields[fieldKey] };
 
-      Object.keys(computedInput)
-       .filter(prop => computedInput[prop] instanceof Function)
-       .filter(prop => !Form.Input.NON_COMPUTED_PROPERTIES.includes(prop))
-       .forEach(prop => computedInput[prop] = computedInput[prop](form, inputKey));
+      Object.keys(computedField)
+       .filter(prop => computedField[prop] instanceof Function)
+       .filter(prop => !Form.Field.NON_COMPUTED_PROPERTIES.includes(prop))
+       .forEach(prop => computedField[prop] = computedField[prop](form, fieldKey));
 
-      computedForm.inputs[inputKey] = computedInput;
+      computedForm.fields[fieldKey] = computedField;
    });
 
    return {...form, ...computedForm };

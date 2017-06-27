@@ -327,7 +327,7 @@ Default field object.
 
 ##
 
-### `Form.Input.[Input Types]`
+### `Form.Field.[Field types]`
 
 Function that returns a field object.
 
@@ -336,6 +336,59 @@ Function that returns a field object.
 | Name | Type | Description |
 | - | - | - |
 | instanceDefaults | Object | Instance defaults to extend the type's default values with
+
+#### Field types
+
+``` jsx
+FormField.Text = FormField.FieldFactory({
+  placeHolder: '',
+  required: false,
+  component: FormField.ComponentLibrary.Text,
+});
+
+FormField.Email = FormField.FieldFactory({
+   placeHolder: '',
+   required: false,
+   component: FormField.ComponentLibrary.Email,
+});
+
+FormField.Password = FormField.FieldFactory({
+   placeHolder: '',
+   required: false,
+   component: FormField.ComponentLibrary.Password,
+});
+
+FormField.Number = FormField.FieldFactory({
+   placeHolder: '' ,
+   required: false,
+   component: FormField.ComponentLibrary.Number,
+});
+
+FormField.TextArea = FormField.FieldFactory({
+   placeHolder: '',
+   required: false,
+   component: FormField.ComponentLibrary.TextArea,
+});
+
+FormField.Checkbox = FormField.FieldFactory({
+   value: 'on',
+   checked: false,
+   required: false,
+   component: FormField.ComponentLibrary.Checkbox,
+});
+
+FormField.Radio = FormField.FieldFactory({
+   value: 'on',
+   checked: false,
+   required: false,
+   component: FormField.ComponentLibrary.Radio,
+});
+
+FormField.RadioGroup = FormField.FieldFactory({
+   radios: [],
+   component: FormField.ComponentLibrary.RadioGroup,
+});
+```
 
 #### Example
 
@@ -364,65 +417,6 @@ Form.Field.Text({ label: 'First name' })
    component: FormField.ComponentLibrary.Text,
 }
 */
-```
-
-#### [Input Types]
-
-```
-Default
-   value: ''
-   name: The state's key a Form.Input.[Input Types] is defined as (can be overridden).
-   label: ''
-   required: false
-   disabled: false
-   requestIsValid: () => Promise.resolve()
-   component: Form.Input.ComponentLibrary.Default
-
-Text
-   (extends Default)
-   placeHolder: ''
-   component: Form.Input.ComponentLibrary.Text
-
-Email
-   (extends Default)
-   placeHolder: ''
-   component: Form.Input.ComponentLibrary.Email
-
-Password
-   (extends Default)
-   placeHolder: ''
-   component: Form.Input.ComponentLibrary.Password
-
-Number
-   (extends Default)
-   placeHolder: ''
-   component: Form.Input.ComponentLibrary.Number
-
-TextArea
-   (extends Default)
-   placeHolder: ''
-   component: Form.Input.ComponentLibrary.TextArea
-
-Checkbox
-   (extends Default)
-   value: 'on' // This is a checkbox's native default value
-   checked: false
-   component: Form.Input.ComponentLibrary.Checkbox
-
-Radio
-   (extends Default)
-   value: 'on' // This is a radio's native default value
-   checked: false
-   component: Form.Input.ComponentLibrary.Radio
-
-Dropdown
-   (extends Default)
-   options: {}
-   placeholder: false
-   customInput: false
-   customInputMaxLength: false
-   customInputOnlyNumbers: false
-   component: Form.Input.ComponentLibrary.Dropdown
 ```
 
 ##

@@ -320,8 +320,9 @@ Default field object.
    label: '',
    disabled: false,
    component: FormField.ComponentLibrary.Default,
-```
 }
+```
+
 
 ##
 

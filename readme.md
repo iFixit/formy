@@ -172,6 +172,15 @@ HTML output:
 
 Library wrapper object.
 
+### `Form.onChange`
+
+Factory function to hook into an input's onChange event.
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+
 ### `Form.Component`
 
 Top level form element.

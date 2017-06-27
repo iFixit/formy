@@ -174,13 +174,23 @@ Library wrapper object.
 
 ### `Form.onChange`
 
-Factory function to hook into an input's onChange event.
+Factory function to hook into an input's `onChange` event.
 
 #### Parameters
 
 | Name | Type | Description |
 | - | - | - |
 | callbackFn | Function | Function to call in an `onChange` event. When called, it passes in the new form state object as a parameter.
+
+### `Form.onSubmit`
+
+Factory function to hook into a form's `submit` event.
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| callbackFn | Function | Function to call in a `submit` event. When called, it passes in the form's data object as a parameter.
 
 ### `Form.Component`
 

@@ -38,7 +38,7 @@ Form.onSubmit = fn => form => ev => {
     .filter(fieldKey => form.fields[fieldKey].checked !== false)
     .forEach(fieldKey => data[fieldKey] = form.fields[fieldKey].value);
 
-   fn(data)
+   fn(data);
 };
 
 Form.getProps = form => {

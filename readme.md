@@ -234,6 +234,25 @@ A [`Form.getProps`](#formgetprops) return value.
 
 ##
 
+### `Form.Fields`
+
+Helper function to generate an object of field objects.
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| defaults | Object | Object of values to assign to every field object
+| fields | Object | Object of field data
+
+#### Returns
+
+| Name | Type | Description |
+| - | - | - |
+| fields | Object | The fields object, with every field now containing all the `default` values as well a `name` property with the value being the field object's key.
+
+##
+
 ### `Form.Field`
 
 Field wrapper object.

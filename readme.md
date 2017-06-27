@@ -232,6 +232,17 @@ Top level form component.
 
 A [`Form.getProps`](#formgetprops) return value.
 
+#### Returns
+
+```jsx
+<form
+   name={props.name}
+   onSubmit={props.onSubmit}
+>
+   {props.children}
+</form>
+```
+
 ##
 
 ### `Form.Fields`

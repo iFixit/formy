@@ -154,15 +154,19 @@ This groups the radio buttons in a `fieldset` element, rendering the radio butto
 
 ## API
 
-- [Form](#form-1)
-  - [Component](#formcomponent)
-  - [Instance](#forminstance)
-  - [Input](#forminput)
-    - [Component](#forminputcomponent)
-    - [ComponentLibrary](#forminputcomponentlibrary)
-    - [InputFactory](#forminputinputfactory)
-    - [[Input Types]](#forminputinput-types)
-      - [Component](#forminputinput-typescomponent)
+- [`Form`](#form-1)
+  - [`onChange`](#)
+  - [`onSubmit`](#)
+  - [`getData`](#)
+  - [`getProps`](#)
+  - [`Component`](#formcomponent)
+  - [`Fields`](#forminstance)
+  - [`Field`](#forminput)
+    - [`Component`](#forminputcomponent)
+    - [`ComponentLibrary`](#forminputcomponentlibrary)
+    - [`FieldFactory`](#forminputinputfactory)
+    - [`[Field Types]`](#forminputinput-types)
+      - [`Component`](#forminputinput-typescomponent)
 
 ### `Form`
 

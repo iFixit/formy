@@ -165,6 +165,7 @@ HTML output:
     - [`Component`](#forminputcomponent)
     - [`ComponentLibrary`](#forminputcomponentlibrary)
     - [`FieldFactory`](#forminputinputfactory)
+    - [`Default`](#forminputinputfactory)
     - [`[Field Types]`](#forminputinput-types)
       - [`Component`](#forminputinput-typescomponent)
 
@@ -305,7 +306,22 @@ Factory function to create [`Form.Field.[Field Types]`](#forminputinput-types), 
 
 | Name | Type | Description |
 | - | - | - |
-| typeDefaults | Object | Object to extend `Form.Field.Default` with.
+| typeDefaults | Object | Object to extend `Form.Field.Default` with
+
+##
+
+### `Form.Field.Default`
+
+Default field object.
+
+``` jsx
+{
+   value: '',
+   label: '',
+   disabled: false,
+   component: FormField.ComponentLibrary.Default,
+```
+}
 
 ##
 

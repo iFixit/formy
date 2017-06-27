@@ -107,7 +107,7 @@ HTML output:
 </details>
 
 <details>
-   <summary><a href="#">Radio buttons</a></summary>
+   <summary><a>Radio buttons</a></summary>
 
    Group radio buttons as an array in the `radios` property of a `RadioGroup` object. In this example, `'burrito'` is the default selected value.
    ``` jsx

@@ -172,13 +172,13 @@ Library wrapper object.
 
 Top level form element.
 
-#### Props:
+#### Props
 
 ```
 instance: A Form.Instance.
 ```
 
-Variables:
+#### Variables
 
 ```
 inputRefs: Object of references to an input's native input element.
@@ -197,7 +197,7 @@ requestIsValid(): Returns a promise that resolves every input's requestIsValid p
 
 Function that returns a form instance object.
 
-Parameters:
+#### Parameters
 
 ```
 name: A string that's assigned as the form's name.
@@ -213,7 +213,7 @@ Input wrapper object.
 
 High order input element to use in a Form template.
 
-Props:
+#### Props
 
 ```
 key: A String that's a key to the form's state.
@@ -231,12 +231,12 @@ Factory function to create [`Form.Input.[Input Types]`](#forminputinput-types), 
 
 Function that returns the state of a typed input.
 
-Parameters:
+#### Parameters
 ```
 state: A state object that extends the type's default state.
 ```
 
-[Input Types]:
+#### [Input Types]
 
 ```
 Default

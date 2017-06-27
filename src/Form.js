@@ -29,8 +29,6 @@ Form.onChange = fn => (form, fieldKey) => ev => {
    fn(updatedForm);
 };
 
-// https://www.w3.org/TR/html5/forms.html#constructing-form-data-set
-// https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-the-form-data-set
 Form.onSubmit = fn => form => ev => {
    ev.preventDefault();
    let values = {};

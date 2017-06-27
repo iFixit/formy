@@ -155,18 +155,18 @@ HTML output:
 ## API
 
 - [`Form`](#form-1)
-  - [`onChange`](#)
-  - [`onSubmit`](#)
-  - [`getData`](#)
-  - [`getProps`](#)
+  - [`onChange`](#formonchange)
+  - [`onSubmit`](#formonsubmit)
+  - [`getData`](#formgetdata)
+  - [`getProps`](#formgetprops)
   - [`Component`](#formcomponent)
-  - [`Fields`](#forminstance)
-  - [`Field`](#forminput)
-    - [`Component`](#forminputcomponent)
-    - [`ComponentLibrary`](#forminputcomponentlibrary)
-    - [`FieldFactory`](#forminputinputfactory)
-    - [`Default`](#forminputinputfactory)
-    - [`[Field types]`](#forminputinput-types)
+  - [`Fields`](#formfields)
+  - [`Field`](#formfield)
+    - [`Component`](#formfieldcomponent)
+    - [`ComponentLibrary`](#formfieldcomponentlibrary)
+    - [`FieldFactory`](#formfieldfieldfactory)
+    - [`Default`](#formfielddefault)
+    - [`[Field types]`](#formfieldfield-types)
 
 ##
 

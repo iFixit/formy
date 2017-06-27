@@ -12,7 +12,7 @@ We were tired of input attributes getting mixed in with the HTML markup of a for
 
 Declare an input's state as simple JS object and free up your HTML for what it's best for: layout.
 
-A dropdown with a million options is now `<Form.Input.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Input.Component/>`.
+A dropdown with a million options is now `<Form.Field.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Field.Component/>`.
 
 ## Simple example
 
@@ -312,13 +312,13 @@ A `field` object of a [`Form.getProps`](#formgetprops) return value.
 
 ### `Form.Field.ComponentLibrary`
 
-Object of default field components assigned as [`Form.Field.[Field types].Component`](#forminputinput-typescomponent).
+Object of default field components assigned as [`Form.Field.[Field types].Component`](#formfieldfield-types).
 
 ##
 
 ### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Field.[Field types]`](#forminputinput-types), extending the `Form.Field.Default` object.
+Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending the `Form.Field.Default` object.
 
 #### Parameters
 

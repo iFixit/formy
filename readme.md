@@ -44,7 +44,6 @@ const form = Form.getProps(this.state.form);
 
 return(
    <Form.Component {...form}>
-      <h1>Form</h1>
       <Form.Field.Component {...form.fields.name}/>
       <Form.Field.Component {...form.fields.email}/>
       <Form.Field.Component {...form.fields.password}/>
@@ -105,9 +104,53 @@ Formy combines computed state and static state all in the same initial `form` ob
 
 To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string. This allows you to return a rendered value relative to all available data in the form.
 
-### Radio Controls
+### Radio buttons
 
-### Custom Components
+Group radio buttons as an array in the `radios` property of a `RadioGroup` object. In this example, `'burrito'` is the default selected value.
+``` jsx
+const form = {
+   name: 'thingsYouLike',
+   fields: Form.Fields({
+      onChange: Form.onChange(form => this.updateForm(form)),
+   }, {
+      faveFood: Form.Field.RadioGroup({
+         value: 'burrito',
+         radios: [
+            Form.Field.Radio({ label: 'Burrito', value: 'burrito' }),
+            Form.Field.Radio({ label: 'Pasta', value: 'pasta' }),
+         ],
+      }),
+   }),
+};
+```
+
+Render the RadioGroup as a single component.
+``` jsx
+const form = Form.getProps(this.state.form);
+
+return(
+   <Form.Component {...form}>
+      <Form.Field.Component {...form.fields.faveFood}/>
+   </Form.Component>
+);
+```
+
+This groups the radio buttons in a `fieldset` element, rendering the radio buttons the order they're declared in the initial `radios` array.
+``` HTML
+<form name="signupForm">
+   <fieldset>
+      <label>
+         Burrito
+         <input type="radio" value="burrito" name="faveFood">
+      </label>
+
+      <label>
+         Pasta
+         <input type="radio" value="pasta" name="faveFood">
+      </label>
+   </fieldset>
+</form>
+```
 
 ## API
 

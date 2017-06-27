@@ -184,7 +184,7 @@ Factory function to hook into an input's `onChange` event.
 
 ### `Form.onSubmit`
 
-Factory function to hook into a form's `submit` event.
+Factory function to hook into a form's `submit` event. Cancels the native submit event.
 
 #### Parameters
 

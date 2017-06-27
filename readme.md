@@ -166,7 +166,7 @@ HTML output:
     - [`ComponentLibrary`](#forminputcomponentlibrary)
     - [`FieldFactory`](#forminputinputfactory)
     - [`Default`](#forminputinputfactory)
-    - [`[Field Types]`](#forminputinput-types)
+    - [`[Field types]`](#forminputinput-types)
 
 ##
 
@@ -295,13 +295,13 @@ A `field` object of a [`Form.getProps`](#formgetprops) return value.
 
 ### `Form.Field.ComponentLibrary`
 
-Object of default field components assigned as [`Form.Field.[Field Types].Component`](#forminputinput-typescomponent).
+Object of default field components assigned as [`Form.Field.[Field types].Component`](#forminputinput-typescomponent).
 
 ##
 
 ### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Field.[Field Types]`](#forminputinput-types), extending the `Form.Field.Default` object.
+Factory function to create [`Form.Field.[Field types]`](#forminputinput-types), extending the `Form.Field.Default` object.
 
 #### Parameters
 

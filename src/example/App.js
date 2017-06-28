@@ -1,5 +1,6 @@
 import React from 'react';
 import ExampleForm from './ExampleForm';
+import ExampleComputedForm from './ExampleComputedForm';
 import Form from '../Formy/Formy';
 
 class App extends React.Component {
@@ -31,24 +32,30 @@ class App extends React.Component {
 
       return(
          <section>
-            {Object.keys(exampleFields).map(Field => {
-               return(
-                  <section key={Field}>
-                     <h1>{Field}</h1>
-                     <ExampleForm {...exampleFields[Field]}/>
+            {Object.keys(exampleFields).map(Field => (
+               <section key={Field}>
+                  <h1>{Field}</h1>
+                  <ExampleForm {...exampleFields[Field]}/>
 
-                     {Object.keys(exampleFields[Field]).filter(prop => !['component', 'radios'].includes(prop)).map(prop => {
-                        return(
-                           <section key={`${Field}${prop}`}>
-                              <br/>
-                              <span>{prop}</span>
-                              <ExampleForm {...exampleFields[Field]} {...{[prop]: exampleProps[prop]}}/>
-                           </section>
-                        );
-                     })}
-                  </section>
-               );
-            })}
+                  {Object.keys(exampleFields[Field])
+                   .filter(prop => !['component', 'radios'].includes(prop))
+                   .map(prop => (
+                     <section key={`${Field}${prop}`}>
+                        <br/>
+                        <span>{prop}</span>
+                        <ExampleForm
+                           {...exampleFields[Field]}
+                           {...{[prop]: exampleProps[prop]}}
+                        />
+                     </section>
+                  ))}
+               </section>
+            ))}
+
+            <section>
+               <h1>Computed Form</h1>
+               <ExampleComputedForm/>
+            </section>
          </section>
       );
    }

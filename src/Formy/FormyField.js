@@ -1,5 +1,5 @@
 import React from 'react';
-import FormFieldComponentLibrary from './FormFieldComponentLibrary';
+import FormFieldComponentLibrary from './FormyFieldComponentLibrary';
 
 let FormField = {};
 

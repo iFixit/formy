@@ -19,31 +19,31 @@ FormField.Default = {
 };
 
 FormField.Text = FormField.FieldFactory({
-  placeHolder: '',
+  placeholder: '',
   required: false,
   component: FormField.ComponentLibrary.Text,
 });
 
 FormField.Email = FormField.FieldFactory({
-   placeHolder: '',
+   placeholder: '',
    required: false,
    component: FormField.ComponentLibrary.Email,
 });
 
 FormField.Password = FormField.FieldFactory({
-   placeHolder: '',
+   placeholder: '',
    required: false,
    component: FormField.ComponentLibrary.Password,
 });
 
 FormField.Number = FormField.FieldFactory({
-   placeHolder: '' ,
+   placeholder: '' ,
    required: false,
    component: FormField.ComponentLibrary.Number,
 });
 
 FormField.TextArea = FormField.FieldFactory({
-   placeHolder: '',
+   placeholder: '',
    required: false,
    component: FormField.ComponentLibrary.TextArea,
 });

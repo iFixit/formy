@@ -16,7 +16,7 @@ FormFieldComponentLibrary.InputElement = props => (
       name={props.name}
       disabled={props.disabled}
       required={props.required}
-      placeholder={props.placeHolder}
+      placeholder={props.placeholder}
       onChange={props.onChange}
    />
 );

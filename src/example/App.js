@@ -25,7 +25,7 @@ class App extends React.Component {
          value: 'value',
          label: 'label',
          disabled: true,
-         placeHolder: 'placeHolder',
+         placeholder: 'placeholder',
          required: true,
          checked: true,
       };

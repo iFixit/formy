@@ -32,19 +32,19 @@ class App extends React.Component {
 
       return(
          <section>
-            {Object.keys(exampleFields).map(Field => (
-               <section key={Field}>
-                  <h1>{Field}</h1>
-                  <ExampleForm {...exampleFields[Field]}/>
+            {Object.keys(exampleFields).map(field => (
+               <section key={field}>
+                  <h1>{field}</h1>
+                  <ExampleForm {...exampleFields[field]}/>
 
-                  {Object.keys(exampleFields[Field])
+                  {Object.keys(exampleFields[field])
                    .filter(prop => !['component', 'radios'].includes(prop))
                    .map(prop => (
-                     <section key={`${Field}${prop}`}>
+                     <section key={`${field}${prop}`}>
                         <br/>
                         <span>{prop}</span>
                         <ExampleForm
-                           {...exampleFields[Field]}
+                           {...exampleFields[field]}
                            {...{[prop]: exampleProps[prop]}}
                         />
                      </section>

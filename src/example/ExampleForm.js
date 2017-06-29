@@ -9,17 +9,13 @@ class ExampleForm extends React.Component {
          name: 'text',
          onSubmit: Form.onSubmit(data => this.submitForm(data)),
          fields: Form.Fields({
-            onChange: Form.onChange(form => this.updateForm(form)),
+            onChange: Form.onChange(form => this.setState({ form })),
          }, {
             exampleField: props,
          }),
       };
 
       this.state = { form };
-   }
-
-   updateForm(form) {
-      this.setState({ form });
    }
 
    submitForm(data) {

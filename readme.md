@@ -22,7 +22,7 @@ const form = {
    name: 'signupForm',
    fields: Form.Fields({
       // Hook input onChange events to your own state control function.
-      onChange: Form.onChange(form => this.updateForm(form)),
+      onChange: Form.onChange(form => this.setState({ form })),
    }, {
       name: Form.Field.Text({ label: 'Name' }),
       email: Form.Field.Email({ label: 'Email' }),

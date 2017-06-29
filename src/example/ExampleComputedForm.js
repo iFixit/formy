@@ -9,7 +9,7 @@ class ExampleComputedForm extends React.Component {
          name: 'text',
          onSubmit: Form.onSubmit(data => this.submitForm(data)),
          fields: Form.Fields({
-            onChange: Form.onChange(form => this.updateForm(form)),
+            onChange: Form.onChange(form => this.setState({ form })),
          }, {
             disable: Form.Field.Checkbox({ label: 'Disable Text Input?' }),
             textInput: Form.Field.Text({ disabled: form => form.fields.disable.checked }),
@@ -17,10 +17,6 @@ class ExampleComputedForm extends React.Component {
       };
 
       this.state = { form };
-   }
-
-   updateForm(form) {
-      this.setState({ form });
    }
 
    submitForm(data) {

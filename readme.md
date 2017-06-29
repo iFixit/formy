@@ -24,10 +24,10 @@ const form = {
       // Hook input onChange events to your own state control function.
       onChange: Form.onChange(form => this.updateForm(form)),
    }, {
-      name: Form.Field.Text(label: 'Name'),
-      email: Form.Field.Email(label: 'Email'),
-      password: Form.Field.Password(label: 'Password'),
-      newsletterSignup: Form.Field.Checkbox({label: 'Signup for our newsletter?'}),
+      name: Form.Field.Text({ label: 'Name' }),
+      email: Form.Field.Email({ label: 'Email' }),
+      password: Form.Field.Password({ label: 'Password' }),
+      newsletterSignup: Form.Field.Checkbox({ label: 'Signup for our newsletter?' }),
    }),
 };
 

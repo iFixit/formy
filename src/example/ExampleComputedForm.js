@@ -7,9 +7,9 @@ class ExampleComputedForm extends React.Component {
 
       const form = {
          name: 'text',
-         onSubmit: Form.onSubmit(data => this.submitForm(data)),
+         onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
          fields: Form.Fields({
-            onChange: Form.onChange(form => this.setState({ form })),
+            onChange: Form.onChangeFactory(form => this.setState({ form })),
          }, {
             disable: Form.Field.Checkbox({ label: 'Disable Text Input?' }),
             textInput: Form.Field.Text({ disabled: form => form.fields.disable.checked }),

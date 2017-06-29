@@ -26,7 +26,7 @@ Form.Fields = (defaults = {}, fields) => {
    return computedFields;
 };
 
-Form.onChange = fn => (form, fieldKey) => ev => {
+Form.onChangeFactory = fn => (form, fieldKey) => ev => {
    const updatedProps = {
       value: ev.target.value,
       checked: form.fields[fieldKey].checked === undefined ? undefined : ev.target.checked,
@@ -38,7 +38,7 @@ Form.onChange = fn => (form, fieldKey) => ev => {
    fn(updatedForm);
 };
 
-Form.onSubmit = fn => form => ev => {
+Form.onSubmitFactory = fn => form => ev => {
    ev.preventDefault();
    fn(Form.getData(form));
 };

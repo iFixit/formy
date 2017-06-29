@@ -22,7 +22,7 @@ const form = {
    name: 'signupForm',
    fields: Form.Fields({
       // Hook input onChange events to your own state control function.
-      onChange: Form.onChange(form => this.setState({ form })),
+      onChange: Form.onChangeFactory(form => this.setState({ form })),
    }, {
       name: Form.Field.Text({ label: 'Name' }),
       email: Form.Field.Email({ label: 'Email' }),
@@ -84,7 +84,7 @@ HTML output:
    const form = {
       name: 'signupForm',
       fields: Form.Fields({
-         onChange: Form.onChange(form => this.updateForm(form)),
+         onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
          newsletterSignup: Form.Field.Checkbox({label: 'Signup for our newsletter?'}),
          email: Form.Field.Text({
@@ -110,7 +110,7 @@ HTML output:
    const form = {
       name: 'thingsYouLike',
       fields: Form.Fields({
-         onChange: Form.onChange(form => this.updateForm(form)),
+         onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
          faveFood: Form.Field.RadioGroup({
             value: 'burrito',
@@ -155,8 +155,8 @@ HTML output:
 ## API
 
 - [`Form`](#form)
-  - [`onChange`](#formonchange)
-  - [`onSubmit`](#formonsubmit)
+  - [`onChange`](#formonchangefactory)
+  - [`onSubmit`](#formonsubmitfactory)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
   - [`Component`](#formcomponent)
@@ -176,7 +176,7 @@ Library wrapper object.
 
 ##
 
-### `Form.onChange`
+### `Form.onChangeFactory`
 
 Factory function to hook into an input's `onChange` event.
 
@@ -191,7 +191,7 @@ Factory function to hook into an input's `onChange` event.
 
 ##
 
-### `Form.onSubmit`
+### `Form.onSubmitFactory`
 
 Factory function to hook into a form's `submit` event. Cancels the native submit event.
 

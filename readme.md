@@ -154,7 +154,7 @@ HTML output:
 
 ## API
 
-- [`Form`](#form-1)
+- [`Form`](#form)
   - [`onChange`](#formonchange)
   - [`onSubmit`](#formonsubmit)
   - [`getData`](#formgetdata)

@@ -155,8 +155,8 @@ HTML output:
 ## API
 
 - [`Form`](#form)
-  - [`onChange`](#formonchangefactory)
-  - [`onSubmit`](#formonsubmitfactory)
+  - [`onChangeFactory`](#formonchangefactory)
+  - [`onSubmitFactory`](#formonsubmitfactory)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
   - [`Component`](#formcomponent)

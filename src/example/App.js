@@ -15,8 +15,8 @@ class App extends React.Component {
          Radio: Form.Field.Radio(),
          RadioGroup: Form.Field.RadioGroup({
             radios: [
-               Form.Field.Radio({value: 'value'}),
-               Form.Field.Radio({value: 'otherValue'}),
+               Form.Field.Radio({ value: 'value' }),
+               Form.Field.Radio({ value: 'otherValue' }),
             ],
          }),
       };
@@ -45,7 +45,7 @@ class App extends React.Component {
                         <span>{prop}</span>
                         <ExampleForm
                            {...exampleFields[field]}
-                           {...{[prop]: exampleProps[prop]}}
+                           {...{ [prop]: exampleProps[prop] }}
                         />
                      </section>
                   ))}

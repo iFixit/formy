@@ -19,7 +19,7 @@ Form.Fields = (defaults = {}, fields) => {
 
    Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
       ...defaults,
-      ...{name: fieldKey},
+      ...{ name: fieldKey },
       ...fields[fieldKey],
    });
 
@@ -32,8 +32,8 @@ Form.onChange = fn => (form, fieldKey) => ev => {
       checked: form.fields[fieldKey].checked === undefined ? undefined : ev.target.checked,
    };
    const updatedFieldProps = { ...form.fields[fieldKey], ...updatedProps };
-   const updatedField = { ...form.fields, ...{[fieldKey]: updatedFieldProps} };
-   const updatedForm = { ...form, ...{fields: updatedField} };
+   const updatedField = { ...form.fields, ...{ [fieldKey]: updatedFieldProps } };
+   const updatedForm = { ...form, ...{ fields: updatedField } };
 
    fn(updatedForm);
 };
@@ -73,7 +73,7 @@ Form.getProps = form => {
       computedForm.fields[fieldKey] = computedField;
    });
 
-   return {...form, ...computedForm };
+   return { ...form, ...computedForm };
 };
 
 export default Form;

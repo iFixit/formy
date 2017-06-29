@@ -3,6 +3,29 @@ import FormField from './FormyField';
 
 let Form = {};
 
+Form.Field = FormField;
+
+Form.Component = props => (
+   <form
+      name={props.name}
+      onSubmit={props.onSubmit}
+   >
+      {props.children}
+   </form>
+);
+
+Form.Fields = (defaults = {}, fields) => {
+   let computedFields = {};
+
+   Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
+      ...defaults,
+      ...{name: fieldKey},
+      ...fields[fieldKey],
+   });
+
+   return computedFields;
+};
+
 Form.onChange = fn => (form, fieldKey) => ev => {
    const updatedProps = {
       value: ev.target.value,
@@ -52,28 +75,5 @@ Form.getProps = form => {
 
    return {...form, ...computedForm };
 };
-
-Form.Component = props => (
-   <form
-      name={props.name}
-      onSubmit={props.onSubmit}
-   >
-      {props.children}
-   </form>
-);
-
-Form.Fields = (defaults = {}, fields) => {
-   let computedFields = {};
-
-   Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
-      ...defaults,
-      ...{name: fieldKey},
-      ...fields[fieldKey],
-   });
-
-   return computedFields;
-};
-
-Form.Field = FormField;
 
 export default Form;

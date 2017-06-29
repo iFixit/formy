@@ -15,8 +15,8 @@ class App extends React.Component {
          Radio: Form.Field.Radio(),
          RadioGroup: Form.Field.RadioGroup({
             radios: [
-               Form.Field.Radio({value: 'foo'}),
-               Form.Field.Radio({value: 'bar'}),
+               Form.Field.Radio({value: 'value'}),
+               Form.Field.Radio({value: 'otherValue'}),
             ],
          }),
       };

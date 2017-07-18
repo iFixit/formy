@@ -16,36 +16,42 @@ FormField.Default = {
    label: '',
    disabled: false,
    component: FormField.ComponentLibrary.Default,
+   type: 'default',
 };
 
 FormField.Text = FormField.FieldFactory({
   placeholder: '',
   required: false,
   component: FormField.ComponentLibrary.Text,
+  type: 'text',
 });
 
 FormField.Email = FormField.FieldFactory({
    placeholder: '',
    required: false,
    component: FormField.ComponentLibrary.Email,
+   type: 'email',
 });
 
 FormField.Password = FormField.FieldFactory({
    placeholder: '',
    required: false,
    component: FormField.ComponentLibrary.Password,
+   type: 'password',
 });
 
 FormField.Number = FormField.FieldFactory({
    placeholder: '' ,
    required: false,
    component: FormField.ComponentLibrary.Number,
+   type: 'number',
 });
 
 FormField.TextArea = FormField.FieldFactory({
    placeholder: '',
    required: false,
    component: FormField.ComponentLibrary.TextArea,
+   type: 'textarea',
 });
 
 FormField.Checkbox = FormField.FieldFactory({
@@ -53,6 +59,7 @@ FormField.Checkbox = FormField.FieldFactory({
    checked: false,
    required: false,
    component: FormField.ComponentLibrary.Checkbox,
+   type: 'checkbox',
 });
 
 FormField.Radio = FormField.FieldFactory({
@@ -60,11 +67,13 @@ FormField.Radio = FormField.FieldFactory({
    checked: false,
    required: false,
    component: FormField.ComponentLibrary.Radio,
+   type: 'radio',
 });
 
 FormField.RadioGroup = FormField.FieldFactory({
    radios: [],
    component: FormField.ComponentLibrary.RadioGroup,
+   type: 'radiogroup',
 });
 
 FormField.Component = props => (

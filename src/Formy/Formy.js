@@ -8,7 +8,7 @@ Form.Field = FormField;
 
 Form.DefaultComponentLibrary = FormDefaultComponentLibrary;
 
-Form.Component = ({ name, onSubmit, children } = {}) => (
+Form.Component = ({ name, onSubmit, children }) => (
    <form
       name={name}
       onSubmit={onSubmit}

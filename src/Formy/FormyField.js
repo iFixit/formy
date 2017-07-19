@@ -1,9 +1,6 @@
 import React from 'react';
-import FormFieldComponentLibrary from './FormyFieldComponentLibrary';
 
 let FormField = {};
-
-FormField.ComponentLibrary = FormFieldComponentLibrary;
 
 FormField.FieldFactory = typeDefaults => instanceDefaults => ({
    ...FormField.Default,

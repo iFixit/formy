@@ -1,6 +1,6 @@
 import React from 'react';
-import FormField from './FormyField';
-import FormDefaultComponentLibrary from './FormyFieldComponentLibrary';
+import FormField from './FormField';
+import FormDefaultComponentLibrary from './FormDefaultComponentLibrary';
 
 let Form = {};
 

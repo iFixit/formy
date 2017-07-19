@@ -1,7 +1,7 @@
 import React from 'react';
 import ExampleForm from './ExampleForm';
 import ExampleComputedForm from './ExampleComputedForm';
-import Form from '../Formy/Formy';
+import Form from '../Formy/Form';
 
 class App extends React.Component {
    render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../Formy/Formy';
+import Form from '../Formy/Form';
 
 class ExampleComputedForm extends React.Component {
    constructor(props) {

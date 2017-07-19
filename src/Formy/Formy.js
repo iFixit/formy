@@ -1,9 +1,12 @@
 import React from 'react';
 import FormField from './FormyField';
+import FormDefaultComponentLibrary from './FormyFieldComponentLibrary';
 
 let Form = {};
 
 Form.Field = FormField;
+
+Form.DefaultComponentLibrary = FormDefaultComponentLibrary;
 
 Form.Component = props => (
    <form
@@ -18,8 +21,8 @@ Form.Fields = (defaults = {}, fields) => {
    let computedFields = {};
 
    Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
+      ...{ name: fieldKey, componentLibrary: Form.DefaultComponentLibrary },
       ...defaults,
-      ...{ name: fieldKey },
       ...fields[fieldKey],
    });
 

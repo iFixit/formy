@@ -8,12 +8,12 @@ Form.Field = FormField;
 
 Form.DefaultComponentLibrary = FormDefaultComponentLibrary;
 
-Form.Component = props => (
+Form.Component = ({ name, onSubmit, children } = {}) => (
    <form
-      name={props.name}
-      onSubmit={props.onSubmit}
+      name={name}
+      onSubmit={onSubmit}
    >
-      {props.children}
+      {children}
    </form>
 );
 

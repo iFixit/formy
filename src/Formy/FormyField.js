@@ -15,70 +15,65 @@ FormField.Default = {
    value: '',
    label: '',
    disabled: false,
-   component: FormField.ComponentLibrary.Default,
-   type: 'default',
+   type: 'Default',
 };
 
 FormField.Text = FormField.FieldFactory({
   placeholder: '',
   required: false,
-  component: FormField.ComponentLibrary.Text,
-  type: 'text',
+  type: 'Text',
 });
 
 FormField.Email = FormField.FieldFactory({
    placeholder: '',
    required: false,
-   component: FormField.ComponentLibrary.Email,
-   type: 'email',
+   type: 'Email',
 });
 
 FormField.Password = FormField.FieldFactory({
    placeholder: '',
    required: false,
-   component: FormField.ComponentLibrary.Password,
-   type: 'password',
+   type: 'Password',
 });
 
 FormField.Number = FormField.FieldFactory({
    placeholder: '' ,
    required: false,
-   component: FormField.ComponentLibrary.Number,
-   type: 'number',
+   type: 'Number',
 });
 
 FormField.TextArea = FormField.FieldFactory({
    placeholder: '',
    required: false,
-   component: FormField.ComponentLibrary.TextArea,
-   type: 'textarea',
+   type: 'TextArea',
 });
 
 FormField.Checkbox = FormField.FieldFactory({
    value: 'on',
    checked: false,
    required: false,
-   component: FormField.ComponentLibrary.Checkbox,
-   type: 'checkbox',
+   type: 'Checkbox',
 });
 
 FormField.Radio = FormField.FieldFactory({
    value: 'on',
    checked: false,
    required: false,
-   component: FormField.ComponentLibrary.Radio,
-   type: 'radio',
+   type: 'Radio',
 });
 
 FormField.RadioGroup = FormField.FieldFactory({
    radios: [],
-   component: FormField.ComponentLibrary.RadioGroup,
-   type: 'radiogroup',
+   type: 'RadioGroup',
 });
 
-FormField.Component = props => (
-   <props.component {...props}/>
-);
+FormField.Component = ({ type, ...props }) => {
+   const Component = props.componentLibrary[type];
+
+   return (
+      <Component {...props}/>
+   );
+}
 
 FormField.NON_COMPUTED_PROPERTIES = ['component']
 

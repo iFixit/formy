@@ -38,7 +38,7 @@ class App extends React.Component {
                   <ExampleForm {...exampleFields[field]}/>
 
                   {Object.keys(exampleFields[field])
-                   .filter(prop => !['component', 'radios'].includes(prop))
+                   .filter(prop => !['componentLibrary', 'type', 'radios'].includes(prop))
                    .map(prop => (
                      <section key={`${field}${prop}`}>
                         <br/>

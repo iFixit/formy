@@ -2,13 +2,7 @@ import React from 'react';
 
 let FormFieldComponentLibrary = {};
 
-FormFieldComponentLibrary.Default = props => (
-   <label>
-      {props.label}
-   </label>
-);
-
-FormFieldComponentLibrary.InputElement = props => (
+const InputElement = props => (
    <input
       type={props.type}
       checked={props.checked}
@@ -21,45 +15,51 @@ FormFieldComponentLibrary.InputElement = props => (
    />
 );
 
+FormFieldComponentLibrary.Default = props => (
+   <label>
+      {props.label}
+   </label>
+);
+
 FormFieldComponentLibrary.Text = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="text"/>
+      <InputElement {...props} type="text"/>
    </label>
 );
 
 FormFieldComponentLibrary.Email = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="email"/>
+      <InputElement {...props} type="email"/>
    </label>
 );
 
 FormFieldComponentLibrary.Password = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="password"/>
+      <InputElement {...props} type="password"/>
    </label>
 );
 
 FormFieldComponentLibrary.Number = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="number"/>
+      <InputElement {...props} type="number"/>
    </label>
 );
 
 FormFieldComponentLibrary.Checkbox = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="checkbox"/>
+      <InputElement {...props} type="checkbox"/>
    </label>
 );
 
 FormFieldComponentLibrary.Radio = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="radio"/>
+      <InputElement {...props} type="radio"/>
    </label>
 );
 

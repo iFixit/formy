@@ -25,24 +25,28 @@ FormField.DEFAULT = {
 
 FormField.Text = FormField.FieldFactory({
   placeholder: '',
+  autocomplete: '',
   required: false,
   type: 'Text',
 });
 
 FormField.Email = FormField.FieldFactory({
    placeholder: '',
+   autocomplete: 'email',
    required: false,
    type: 'Email',
 });
 
 FormField.Password = FormField.FieldFactory({
    placeholder: '',
+   autocomplete: '',
    required: false,
    type: 'Password',
 });
 
 FormField.Number = FormField.FieldFactory({
    placeholder: '' ,
+   autocomplete: '',
    required: false,
    type: 'Number',
 });

@@ -11,6 +11,7 @@ const InputElement = props => (
       disabled={props.disabled}
       required={props.required}
       placeholder={props.placeholder}
+      autoComplete={props.autocomplete}
       onChange={props.onChange}
    />
 );

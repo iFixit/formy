@@ -73,8 +73,8 @@ FormField.Component = ({ type, ...props }) => {
    return (
       <Component {...props}/>
    );
-}
+};
 
-FormField.NON_COMPUTED_PROPERTIES = ['component']
+FormField.NON_COMPUTED_PROPERTIES = ['component'];
 
 export default FormField;

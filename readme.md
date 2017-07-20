@@ -165,7 +165,7 @@ HTML output:
   - [`Field`](#formfield)
     - [`Component`](#formfieldcomponent)
     - [`FieldFactory`](#formfieldfieldfactory)
-    - [`Default`](#formfielddefault)
+    - [`DEFAULT`](#formfielddefault)
     - [`[Field types]`](#formfieldfield-types)
 
 ##
@@ -364,7 +364,7 @@ Default field object.
       value: '',
       label: '',
       disabled: false,
-      component: FormField.ComponentLibrary.Default,
+      type: 'Default',
    }
    ```
 </details>
@@ -389,50 +389,50 @@ Function that returns a field object.
    FormField.Text = FormField.FieldFactory({
      placeHolder: '',
      required: false,
-     component: FormField.ComponentLibrary.Text,
+     type: 'Text',
    });
 
    FormField.Email = FormField.FieldFactory({
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Email,
+      type: 'Email',
    });
 
    FormField.Password = FormField.FieldFactory({
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Password,
+      type: 'Password',
    });
 
    FormField.Number = FormField.FieldFactory({
       placeHolder: '' ,
       required: false,
-      component: FormField.ComponentLibrary.Number,
+      type: 'Number',
    });
 
    FormField.TextArea = FormField.FieldFactory({
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.TextArea,
+      type: 'TextArea',
    });
 
    FormField.Checkbox = FormField.FieldFactory({
       value: 'on',
       checked: false,
       required: false,
-      component: FormField.ComponentLibrary.Checkbox,
+      type: 'Checkbox',
    });
 
    FormField.Radio = FormField.FieldFactory({
       value: 'on',
       checked: false,
       required: false,
-      component: FormField.ComponentLibrary.Radio,
+      type: 'Radio',
    });
 
-   FormField.RadioGroup = FormField.FieldFactory({
+   FormField.Radiogroup = FormField.FieldFactory({
       radios: [],
-      component: FormField.ComponentLibrary.RadioGroup,
+      type: 'Radiogroup',
    });
    ```
 
@@ -448,7 +448,7 @@ Function that returns a field object.
       disabled: false,
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Text,
+      type: 'Text',
    }
    */
 
@@ -461,7 +461,7 @@ Function that returns a field object.
       disabled: false,
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Text,
+      type: 'Text',
    }
    */
    ```

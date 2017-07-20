@@ -11,12 +11,12 @@ FormField.Component = ({ type, ...props }) => {
 };
 
 FormField.FieldFactory = typeDefaults => instanceDefaults => ({
-   ...FormField.default,
+   ...FormField.DEFAULT,
    ...typeDefaults,
    ...instanceDefaults,
 });
 
-FormField.default = {
+FormField.DEFAULT = {
    value: '',
    label: '',
    disabled: false,

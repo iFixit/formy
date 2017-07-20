@@ -10,64 +10,64 @@ FormField.Component = ({ type, ...props }) => {
    );
 };
 
-FormField.fieldFactory = typeDefaults => instanceDefaults => ({
+FormField.FieldFactory = typeDefaults => instanceDefaults => ({
    ...FormField.default,
    ...typeDefaults,
    ...instanceDefaults,
 });
 
-FormField.default = {
+FormField.Default = {
    value: '',
    label: '',
    disabled: false,
    type: 'Default',
 };
 
-FormField.text = FormField.fieldFactory({
+FormField.Text = FormField.FieldFactory({
   placeholder: '',
   required: false,
   type: 'Text',
 });
 
-FormField.email = FormField.fieldFactory({
+FormField.Email = FormField.FieldFactory({
    placeholder: '',
    required: false,
    type: 'Email',
 });
 
-FormField.password = FormField.fieldFactory({
+FormField.Password = FormField.FieldFactory({
    placeholder: '',
    required: false,
    type: 'Password',
 });
 
-FormField.number = FormField.fieldFactory({
+FormField.Number = FormField.FieldFactory({
    placeholder: '' ,
    required: false,
    type: 'Number',
 });
 
-FormField.textarea = FormField.fieldFactory({
+FormField.Textarea = FormField.FieldFactory({
    placeholder: '',
    required: false,
    type: 'TextArea',
 });
 
-FormField.checkbox = FormField.fieldFactory({
+FormField.Checkbox = FormField.FieldFactory({
    value: 'on',
    checked: false,
    required: false,
    type: 'Checkbox',
 });
 
-FormField.radio = FormField.fieldFactory({
+FormField.Radio = FormField.FieldFactory({
    value: 'on',
    checked: false,
    required: false,
    type: 'Radio',
 });
 
-FormField.radiogroup = FormField.fieldFactory({
+FormField.Radiogroup = FormField.FieldFactory({
    radios: [],
    type: 'RadioGroup',
 });

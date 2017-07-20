@@ -7,17 +7,17 @@ import Form from '../Formy/Form';
 class App extends React.Component {
    render() {
       const exampleFields = {
-         text: Form.Field.text(),
-         email: Form.Field.email(),
-         password: Form.Field.password(),
-         number: Form.Field.number(),
-         textarea: Form.Field.textarea(),
-         checkbox: Form.Field.checkbox(),
-         radio: Form.Field.radio(),
-         radiogroup: Form.Field.radiogroup({
+         text: Form.Field.Text(),
+         email: Form.Field.Email(),
+         password: Form.Field.Password(),
+         number: Form.Field.Number(),
+         textarea: Form.Field.Textarea(),
+         checkbox: Form.Field.Checkbox(),
+         radio: Form.Field.Radio(),
+         radiogroup: Form.Field.Radiogroup({
             radios: [
-               Form.Field.radio({ value: 'value' }),
-               Form.Field.radio({ value: 'otherValue' }),
+               Form.Field.Radio({ value: 'value' }),
+               Form.Field.Radio({ value: 'otherValue' }),
             ],
          }),
       };

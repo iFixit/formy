@@ -8,7 +8,7 @@ class App extends React.Component {
       return(
          <div>
             <section>
-               <h1>Computed Form</h1>
+               <h1>Setting Form Properties</h1>
                <ExampleFormProperties/>
             </section>
 

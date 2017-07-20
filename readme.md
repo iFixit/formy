@@ -161,7 +161,7 @@ HTML output:
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
   - [`fields`](#formfields)
-  - [`defaultComponentLibrary`](#)
+  - [`defaultComponentLibrary`](#formdefaultcomponentlibrary)
   - [`Field`](#formfield)
     - [`Component`](#formfieldcomponent)
     - [`FieldFactory`](#formfieldfieldfactory)

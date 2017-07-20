@@ -381,7 +381,7 @@ Helper function to generate an object of fields.
 
 ### `Form.defaultComponentLibrary`
 
-Object of default field components assigned as [`Form.Field.[Field types].Component`](#formfieldfield-types).
+Object of default field components.
 
 ##
 
@@ -404,7 +404,7 @@ High order field element to structure a form.
    #### Returns
 
    ``` jsx
-   <props.component {...props}/>
+      <props.componentLibrary[props.type] {...props}/>
    ```
 </details>
 

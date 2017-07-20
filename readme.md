@@ -417,7 +417,7 @@ High order field element to structure a form.
 
 ### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending [`Form.Field.Default`](#formfielddefault).
+Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending [`Form.Field.DEFAULT`](#formfielddefault).
 
 <details>
 
@@ -425,7 +425,7 @@ Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), 
 
    | Name | Type | Description |
    | - | - | - |
-   | typeDefaults | Object | Object to extend `Form.Field.Default` with
+   | typeDefaults | Object | Object to extend `Form.Field.DEFAULT` with
 </details>
 
 ##

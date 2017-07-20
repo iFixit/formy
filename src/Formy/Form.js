@@ -6,7 +6,7 @@ let Form = {};
 
 Form.Field = FormField;
 
-Form.DefaultComponentLibrary = FormDefaultComponentLibrary;
+Form.defaultComponentLibrary = FormDefaultComponentLibrary;
 
 Form.Component = ({ name, onSubmit, children }) => (
    <form
@@ -17,11 +17,11 @@ Form.Component = ({ name, onSubmit, children }) => (
    </form>
 );
 
-Form.Fields = (defaults = {}, fields) => {
+Form.fields = (defaults = {}, fields) => {
    let computedFields = {};
 
    Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
-      ...{ name: fieldKey, componentLibrary: Form.DefaultComponentLibrary },
+      ...{ name: fieldKey, componentLibrary: Form.defaultComponentLibrary },
       ...defaults,
       ...fields[fieldKey],
    });

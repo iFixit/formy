@@ -8,7 +8,7 @@ class ExampleForm extends React.Component {
       const form = {
          name: 'text',
          onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
-         fields: Form.Fields({
+         fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
          }, {
             exampleField: props,

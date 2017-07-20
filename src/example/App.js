@@ -2,7 +2,6 @@ import React from 'react';
 import ExampleFormProperties from './ExampleFormProperties';
 import ExampleComputedForm from './ExampleComputedForm';
 import ExampleCustomComponentLibrary from './ExampleCustomComponentLibrary';
-import Form from '../Formy/Form';
 
 class App extends React.Component {
    render() {

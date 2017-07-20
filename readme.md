@@ -381,7 +381,9 @@ Helper function to generate an object of fields.
 
 ### `Form.defaultComponentLibrary`
 
-Object of default field components. [View Source](src/Formy/FormDefaultComponentLibrary.js)
+Object of default field components. [View Source](src/Formy/FormDefaultComponentLibrary.js).
+
+A component from the library rendered in [`Form.Field.Component`](#formfieldcomponent),by accessing a field's `componentLibrary` property and retrieving the component associated with the field's `type` property.
 
 ##
 

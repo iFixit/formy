@@ -1,76 +1,77 @@
 import React from 'react';
-import FormFieldComponentLibrary from './FormyFieldComponentLibrary';
 
 let FormField = {};
 
-FormField.ComponentLibrary = FormFieldComponentLibrary;
+FormField.Component = ({ type, ...props }) => {
+   const Component = props.componentLibrary[type];
+
+   return (
+      <Component {...props}/>
+   );
+};
 
 FormField.FieldFactory = typeDefaults => instanceDefaults => ({
-   ...FormField.Default,
+   ...FormField.DEFAULT,
    ...typeDefaults,
    ...instanceDefaults,
 });
 
-FormField.Default = {
+FormField.DEFAULT = {
    value: '',
    label: '',
    disabled: false,
-   component: FormField.ComponentLibrary.Default,
+   type: 'Default',
 };
 
 FormField.Text = FormField.FieldFactory({
   placeholder: '',
   required: false,
-  component: FormField.ComponentLibrary.Text,
+  type: 'Text',
 });
 
 FormField.Email = FormField.FieldFactory({
    placeholder: '',
    required: false,
-   component: FormField.ComponentLibrary.Email,
+   type: 'Email',
 });
 
 FormField.Password = FormField.FieldFactory({
    placeholder: '',
    required: false,
-   component: FormField.ComponentLibrary.Password,
+   type: 'Password',
 });
 
 FormField.Number = FormField.FieldFactory({
    placeholder: '' ,
    required: false,
-   component: FormField.ComponentLibrary.Number,
+   type: 'Number',
 });
 
-FormField.TextArea = FormField.FieldFactory({
+FormField.Textarea = FormField.FieldFactory({
    placeholder: '',
    required: false,
-   component: FormField.ComponentLibrary.TextArea,
+   type: 'TextArea',
 });
 
 FormField.Checkbox = FormField.FieldFactory({
    value: 'on',
    checked: false,
    required: false,
-   component: FormField.ComponentLibrary.Checkbox,
+   type: 'Checkbox',
 });
 
 FormField.Radio = FormField.FieldFactory({
    value: 'on',
    checked: false,
    required: false,
-   component: FormField.ComponentLibrary.Radio,
+   type: 'Radio',
 });
 
-FormField.RadioGroup = FormField.FieldFactory({
+FormField.Radiogroup = FormField.FieldFactory({
    radios: [],
-   component: FormField.ComponentLibrary.RadioGroup,
+   type: 'RadioGroup',
 });
 
-FormField.Component = props => (
-   <props.component {...props}/>
-);
-
-FormField.NON_COMPUTED_PROPERTIES = ['component']
+FormField.NON_COMPUTED_PROPERTIES = ['component'];
 
 export default FormField;

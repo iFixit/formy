@@ -20,7 +20,7 @@ Create an object of your form's initial state.
 ``` jsx
 const form = {
    name: 'signupForm',
-   fields: Form.Fields({
+   fields: Form.fields({
       // Hook input onChange events to your own state control function.
       onChange: Form.onChangeFactory(form => this.setState({ form })),
    }, {
@@ -83,7 +83,7 @@ HTML output:
    ``` jsx
    const form = {
       name: 'signupForm',
-      fields: Form.Fields({
+      fields: Form.fields({
          onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
          newsletterSignup: Form.Field.Checkbox({label: 'Signup for our newsletter?'}),
@@ -109,7 +109,7 @@ HTML output:
    ``` jsx
    const form = {
       name: 'thingsYouLike',
-      fields: Form.Fields({
+      fields: Form.fields({
          onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
          faveFood: Form.Field.RadioGroup({
@@ -152,20 +152,92 @@ HTML output:
    ```
 </details>
 
+<details>
+   <summary><strong>Custom component library</strong></summary>
+
+   Custom components are a necessity for adding default styles and custom html to a form field.
+
+   When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property. Here's an example of a custom component library extending Formy's [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary):
+
+   ```jsx
+   const customComponentLibrary = {
+      ...Form.defaultComponentLibrary,
+      ...{
+         Text: props => (
+            <label>
+               <marquee>🌀🌐🌀{props.label}🌀🌐🌀</marquee>
+               <input
+                  type={props.type}
+                  checked={props.checked}
+                  value={props.value}
+                  name={props.name}
+                  disabled={props.disabled}
+                  required={props.required}
+                  placeholder={props.placeholder}
+                  onChange={props.onChange}
+               />
+            </label>
+         ),
+      },
+   };
+   ```
+
+   You can add a default `componentLibrary` property to every field in a form with the [`Form.fields`](#formfields) function:
+
+   ```jsx
+   const form = {
+      onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+      fields: Form.fields({
+         onChange: Form.onChangeFactory(form => this.setState({ form })),
+         componentLibrary: customComponentLibrary,
+      }, {
+         text: Form.Field.Text({
+            label: 'Whoah this is a seriously crazy custom component',
+         }),
+         checkbox: Form.Field.Checkbox({
+            label: 'This is a default component',
+         })
+      }),
+   };
+   ```
+
+   If a `componentLibrary` property isn't set in a `Form.fields` function, the [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary) is set as a default value.
+
+   If you have a super special field that you want to render with a custom component, while not setting a whole new component library for all fields, you can add the `componentLibrary` property to a specific field object in the [`Form.fields`](#formfields) function:
+
+   ```jsx
+   const form = {
+      onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+      fields: Form.fields({
+         onChange: Form.onChangeFactory(form => this.setState({ form })),
+      }, {
+         text: Form.Field.Text({
+            label: 'Whoah this is a seriously crazy custom component',
+            componentLibrary: customComponentLibrary,
+         }),
+         checkbox: Form.Field.Checkbox({
+            label: 'This is a default component',
+         })
+      }),
+   };
+   ```
+
+</details>
+
 ## API
 
 - [`Form`](#form)
+  - [`Component`](#formcomponent)
   - [`onChangeFactory`](#formonchangefactory)
   - [`onSubmitFactory`](#formonsubmitfactory)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
-  - [`Component`](#formcomponent)
-  - [`Fields`](#formfields)
+  - [`fields`](#formfields)
+  - [`defaultComponentLibrary`](#formdefaultcomponentlibrary)
   - [`Field`](#formfield)
     - [`Component`](#formfieldcomponent)
-    - [`ComponentLibrary`](#formfieldcomponentlibrary)
     - [`FieldFactory`](#formfieldfieldfactory)
-    - [`Default`](#formfielddefault)
+    - [`DEFAULT`](#formfielddefault)
     - [`[Field types]`](#formfieldfield-types)
 
 ##
@@ -173,6 +245,30 @@ HTML output:
 ### `Form`
 
 Library wrapper object.
+
+##
+
+### `Form.Component`
+
+Top level form component.
+
+<details>
+
+   #### Props
+
+   A [`Form.getProps`](#formgetprops) return value.
+
+   #### Returns
+
+   ```jsx
+   <form
+      name={props.name}
+      onSubmit={props.onSubmit}
+   >
+      {props.children}
+   </form>
+   ```
+</details>
 
 ##
 
@@ -236,31 +332,7 @@ Function to get a form state's props for rendering.
 
 ##
 
-### `Form.Component`
-
-Top level form component.
-
-<details>
-
-   #### Props
-
-   A [`Form.getProps`](#formgetprops) return value.
-
-   #### Returns
-
-   ```jsx
-   <form
-      name={props.name}
-      onSubmit={props.onSubmit}
-   >
-      {props.children}
-   </form>
-   ```
-</details>
-
-##
-
-### `Form.Fields`
+### `Form.fields`
 
 Helper function to generate an object of fields.
 
@@ -282,7 +354,7 @@ Helper function to generate an object of fields.
    #### Example
 
    ``` jsx
-   Form.Fields({
+   Form.fields({
       onChange: event => {},
    }, {
       phone: {},
@@ -307,6 +379,17 @@ Helper function to generate an object of fields.
 
 ##
 
+### `Form.defaultComponentLibrary`
+
+Object of default field components. [View Source](src/Formy/FormDefaultComponentLibrary.js).
+
+<details>
+
+A component from the library rendered in [`Form.Field.Component`](#formfieldcomponent),by accessing a field's `componentLibrary` property and retrieving the component associated with the field's `type` property.
+</details>
+
+##
+
 ### `Form.Field`
 
 Field wrapper object.
@@ -326,21 +409,15 @@ High order field element to structure a form.
    #### Returns
 
    ``` jsx
-   <props.component {...props}/>
+      <props.componentLibrary[props.type] {...props}/>
    ```
 </details>
 
 ##
 
-### `Form.Field.ComponentLibrary`
-
-Object of default field components assigned as [`Form.Field.[Field types].Component`](#formfieldfield-types).
-
-##
-
 ### `Form.Field.FieldFactory`
 
-Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending [`Form.Field.Default`](#formfielddefault).
+Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), extending [`Form.Field.DEFAULT`](#formfielddefault).
 
 <details>
 
@@ -348,12 +425,12 @@ Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), 
 
    | Name | Type | Description |
    | - | - | - |
-   | typeDefaults | Object | Object to extend `Form.Field.Default` with
+   | typeDefaults | Object | Object to extend `Form.Field.DEFAULT` with
 </details>
 
 ##
 
-### `Form.Field.Default`
+### `Form.Field.DEFAULT`
 
 Default field object.
 
@@ -364,7 +441,7 @@ Default field object.
       value: '',
       label: '',
       disabled: false,
-      component: FormField.ComponentLibrary.Default,
+      type: 'Default',
    }
    ```
 </details>
@@ -389,50 +466,50 @@ Function that returns a field object.
    FormField.Text = FormField.FieldFactory({
      placeHolder: '',
      required: false,
-     component: FormField.ComponentLibrary.Text,
+     type: 'Text',
    });
 
    FormField.Email = FormField.FieldFactory({
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Email,
+      type: 'Email',
    });
 
    FormField.Password = FormField.FieldFactory({
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Password,
+      type: 'Password',
    });
 
    FormField.Number = FormField.FieldFactory({
       placeHolder: '' ,
       required: false,
-      component: FormField.ComponentLibrary.Number,
+      type: 'Number',
    });
 
    FormField.TextArea = FormField.FieldFactory({
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.TextArea,
+      type: 'TextArea',
    });
 
    FormField.Checkbox = FormField.FieldFactory({
       value: 'on',
       checked: false,
       required: false,
-      component: FormField.ComponentLibrary.Checkbox,
+      type: 'Checkbox',
    });
 
    FormField.Radio = FormField.FieldFactory({
       value: 'on',
       checked: false,
       required: false,
-      component: FormField.ComponentLibrary.Radio,
+      type: 'Radio',
    });
 
-   FormField.RadioGroup = FormField.FieldFactory({
+   FormField.Radiogroup = FormField.FieldFactory({
       radios: [],
-      component: FormField.ComponentLibrary.RadioGroup,
+      type: 'Radiogroup',
    });
    ```
 
@@ -448,7 +525,7 @@ Function that returns a field object.
       disabled: false,
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Text,
+      type: 'Text',
    }
    */
 
@@ -461,7 +538,7 @@ Function that returns a field object.
       disabled: false,
       placeHolder: '',
       required: false,
-      component: FormField.ComponentLibrary.Text,
+      type: 'Text',
    }
    */
    ```

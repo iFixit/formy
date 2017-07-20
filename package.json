@@ -15,5 +15,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
    },
-   "main": "src/Formy/Formy.js"
+   "main": "src/Formy/Form.js"
 }

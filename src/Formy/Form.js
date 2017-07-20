@@ -1,25 +1,28 @@
 import React from 'react';
-import FormField from './FormyField';
+import FormField from './FormField';
+import FormDefaultComponentLibrary from './FormDefaultComponentLibrary';
 
 let Form = {};
 
 Form.Field = FormField;
 
-Form.Component = props => (
+Form.defaultComponentLibrary = FormDefaultComponentLibrary;
+
+Form.Component = ({ name, onSubmit, children }) => (
    <form
-      name={props.name}
-      onSubmit={props.onSubmit}
+      name={name}
+      onSubmit={onSubmit}
    >
-      {props.children}
+      {children}
    </form>
 );
 
-Form.Fields = (defaults = {}, fields) => {
+Form.fields = (defaults = {}, fields) => {
    let computedFields = {};
 
    Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
+      ...{ name: fieldKey, componentLibrary: Form.defaultComponentLibrary },
       ...defaults,
-      ...{ name: fieldKey },
       ...fields[fieldKey],
    });
 

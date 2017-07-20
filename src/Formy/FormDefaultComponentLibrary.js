@@ -2,13 +2,7 @@ import React from 'react';
 
 let FormFieldComponentLibrary = {};
 
-FormFieldComponentLibrary.Default = props => (
-   <label>
-      {props.label}
-   </label>
-);
-
-FormFieldComponentLibrary.InputElement = props => (
+const InputElement = props => (
    <input
       type={props.type}
       checked={props.checked}
@@ -21,45 +15,51 @@ FormFieldComponentLibrary.InputElement = props => (
    />
 );
 
+FormFieldComponentLibrary.Default = props => (
+   <label>
+      {props.label}
+   </label>
+);
+
 FormFieldComponentLibrary.Text = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="text"/>
+      <InputElement {...props} type="text"/>
    </label>
 );
 
 FormFieldComponentLibrary.Email = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="email"/>
+      <InputElement {...props} type="email"/>
    </label>
 );
 
 FormFieldComponentLibrary.Password = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="password"/>
+      <InputElement {...props} type="password"/>
    </label>
 );
 
 FormFieldComponentLibrary.Number = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="number"/>
+      <InputElement {...props} type="number"/>
    </label>
 );
 
 FormFieldComponentLibrary.Checkbox = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="checkbox"/>
+      <InputElement {...props} type="checkbox"/>
    </label>
 );
 
 FormFieldComponentLibrary.Radio = props => (
    <label>
       {props.label}
-      <FormFieldComponentLibrary.InputElement {...props} type="radio"/>
+      <InputElement {...props} type="radio"/>
    </label>
 );
 
@@ -79,12 +79,15 @@ FormFieldComponentLibrary.TextArea = props => (
 
 FormFieldComponentLibrary.RadioGroup = props => (
    <fieldSet disabled={props.disabled}>
-      {props.radios.map(radio => <radio.component {...radio}
-         key={radio.value}
-         name={props.name}
-         onChange={props.onChange}
-         checked={props.value === radio.value}
-      />)}
+      {props.radios.map(radio => {
+         const Component = props.componentLibrary[radio.type];
+         return <Component {...radio}
+            key={radio.value}
+            name={props.name}
+            onChange={props.onChange}
+            checked={props.value === radio.value}
+         />;
+      })}
    </fieldSet>
 );
 

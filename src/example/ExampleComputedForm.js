@@ -1,14 +1,13 @@
 import React from 'react';
-import Form from '../Formy/Formy';
+import Form from '../Formy/Form';
 
 class ExampleComputedForm extends React.Component {
    constructor(props) {
       super(props);
 
       const form = {
-         name: 'text',
          onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
-         fields: Form.Fields({
+         fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
          }, {
             disable: Form.Field.Checkbox({ label: 'Disable Text Input?' }),

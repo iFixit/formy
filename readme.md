@@ -152,6 +152,57 @@ HTML output:
    ```
 </details>
 
+<details>
+   <summary><strong>Custom component library</strong></summary>
+
+   Custom components are a necessity for adding default styles and custom html to a form field.
+
+   When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property.
+
+   ```jsx
+   const customComponentLibrary = {
+      ...Form.defaultComponentLibrary,
+      ...{
+         Text: props => (
+            <label>
+               <marquee>🌀🌐🌀{props.label}🌀🌐🌀</marquee>
+               <input
+                  type={props.type}
+                  checked={props.checked}
+                  value={props.value}
+                  name={props.name}
+                  disabled={props.disabled}
+                  required={props.required}
+                  placeholder={props.placeholder}
+                  onChange={props.onChange}
+               />
+            </label>
+         ),
+      },
+   };
+   ```
+
+   You can add a default `componentLibrary` property to every field in a form with the `Form.fields` function:
+
+   ```jsx
+   const form = {
+      onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+      fields: Form.fields({
+         onChange: Form.onChangeFactory(form => this.setState({ form })),
+         componentLibrary: { ...Form.defaultComponentLibrary, ...customComponentLibrary },
+      }, {
+         text: Form.Field.Text({
+            label: 'Whoah this is a seriously crazy custom component',
+         }),
+         checkbox: Form.Field.Checkbox({
+            label: 'This is a default component',
+         })
+      }),
+   };
+   ```
+
+</details>
+
 ## API
 
 - [`Form`](#form)

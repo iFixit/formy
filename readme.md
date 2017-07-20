@@ -155,15 +155,15 @@ HTML output:
 ## API
 
 - [`Form`](#form)
+  - [`Component`](#formcomponent)
   - [`onChangeFactory`](#formonchangefactory)
   - [`onSubmitFactory`](#formonsubmitfactory)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
-  - [`Component`](#formcomponent)
-  - [`Fields`](#formfields)
+  - [`fields`](#formfields)
+  - [`defaultComponentLibrary`](#)
   - [`Field`](#formfield)
     - [`Component`](#formfieldcomponent)
-    - [`ComponentLibrary`](#formfieldcomponentlibrary)
     - [`FieldFactory`](#formfieldfieldfactory)
     - [`Default`](#formfielddefault)
     - [`[Field types]`](#formfieldfield-types)
@@ -173,6 +173,30 @@ HTML output:
 ### `Form`
 
 Library wrapper object.
+
+##
+
+### `Form.Component`
+
+Top level form component.
+
+<details>
+
+   #### Props
+
+   A [`Form.getProps`](#formgetprops) return value.
+
+   #### Returns
+
+   ```jsx
+   <form
+      name={props.name}
+      onSubmit={props.onSubmit}
+   >
+      {props.children}
+   </form>
+   ```
+</details>
 
 ##
 
@@ -236,31 +260,7 @@ Function to get a form state's props for rendering.
 
 ##
 
-### `Form.Component`
-
-Top level form component.
-
-<details>
-
-   #### Props
-
-   A [`Form.getProps`](#formgetprops) return value.
-
-   #### Returns
-
-   ```jsx
-   <form
-      name={props.name}
-      onSubmit={props.onSubmit}
-   >
-      {props.children}
-   </form>
-   ```
-</details>
-
-##
-
-### `Form.Fields`
+### `Form.fields`
 
 Helper function to generate an object of fields.
 
@@ -307,6 +307,12 @@ Helper function to generate an object of fields.
 
 ##
 
+### `Form.defaultComponentLibrary`
+
+Object of default field components assigned as [`Form.Field.[Field types].Component`](#formfieldfield-types).
+
+##
+
 ### `Form.Field`
 
 Field wrapper object.
@@ -329,12 +335,6 @@ High order field element to structure a form.
    <props.component {...props}/>
    ```
 </details>
-
-##
-
-### `Form.Field.ComponentLibrary`
-
-Object of default field components assigned as [`Form.Field.[Field types].Component`](#formfieldfield-types).
 
 ##
 

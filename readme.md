@@ -20,7 +20,7 @@ Create an object of your form's initial state.
 ``` jsx
 const form = {
    name: 'signupForm',
-   fields: Form.Fields({
+   fields: Form.fields({
       // Hook input onChange events to your own state control function.
       onChange: Form.onChangeFactory(form => this.setState({ form })),
    }, {
@@ -83,7 +83,7 @@ HTML output:
    ``` jsx
    const form = {
       name: 'signupForm',
-      fields: Form.Fields({
+      fields: Form.fields({
          onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
          newsletterSignup: Form.Field.Checkbox({label: 'Signup for our newsletter?'}),
@@ -109,7 +109,7 @@ HTML output:
    ``` jsx
    const form = {
       name: 'thingsYouLike',
-      fields: Form.Fields({
+      fields: Form.fields({
          onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
          faveFood: Form.Field.RadioGroup({
@@ -282,7 +282,7 @@ Helper function to generate an object of fields.
    #### Example
 
    ``` jsx
-   Form.Fields({
+   Form.fields({
       onChange: event => {},
    }, {
       phone: {},

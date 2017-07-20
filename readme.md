@@ -425,7 +425,7 @@ Factory function to create [`Form.Field.[Field types]`](#formfieldfield-types), 
 
 ##
 
-### `Form.Field.Default`
+### `Form.Field.DEFAULT`
 
 Default field object.
 

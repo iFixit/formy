@@ -1,6 +1,7 @@
 import React from 'react';
 import ExampleForm from './ExampleForm';
 import ExampleComputedForm from './ExampleComputedForm';
+import ExampleCustomComponentLibrary from './ExampleCustomComponentLibrary';
 import Form from '../Formy/Form';
 
 class App extends React.Component {
@@ -31,7 +32,7 @@ class App extends React.Component {
       };
 
       return(
-         <section>
+         <div>
             {Object.keys(exampleFields).map(field => (
                <section key={field}>
                   <h1>{field}</h1>
@@ -56,7 +57,12 @@ class App extends React.Component {
                <h1>Computed Form</h1>
                <ExampleComputedForm/>
             </section>
-         </section>
+
+            <section>
+               <h1>Custom componentLibrary</h1>
+               <ExampleCustomComponentLibrary/>
+            </section>
+         </div>
       );
    }
 };

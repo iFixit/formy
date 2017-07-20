@@ -16,7 +16,7 @@ FormField.FieldFactory = typeDefaults => instanceDefaults => ({
    ...instanceDefaults,
 });
 
-FormField.Default = {
+FormField.default = {
    value: '',
    label: '',
    disabled: false,

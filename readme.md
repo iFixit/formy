@@ -157,7 +157,7 @@ HTML output:
 
    Custom components are a necessity for adding default styles and custom html to a form field.
 
-   When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property.
+   When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property. Here's an example of a custom component library extending Formy's [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary):
 
    ```jsx
    const customComponentLibrary = {
@@ -200,6 +200,8 @@ HTML output:
       }),
    };
    ```
+
+   If a `componentLibrary` property isn't set in a `Form.fields` function, the [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary) is set as a default value.
 
 </details>
 

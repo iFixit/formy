@@ -182,7 +182,7 @@ HTML output:
    };
    ```
 
-   You can add a default `componentLibrary` property to every field in a form with the `Form.fields` function:
+   You can add a default `componentLibrary` property to every field in a form with the [`Form.fields`](#formfields) function:
 
    ```jsx
    const form = {
@@ -202,6 +202,25 @@ HTML output:
    ```
 
    If a `componentLibrary` property isn't set in a `Form.fields` function, the [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary) is set as a default value.
+
+   If you have a super special field that you want to render with a custom component, while not setting a whole new component library for all fields, you can add the `componentLibrary` property to a specific field object in the [`Form.fields`](#formfields) function:
+
+   ```jsx
+   const form = {
+      onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+      fields: Form.fields({
+         onChange: Form.onChangeFactory(form => this.setState({ form })),
+      }, {
+         text: Form.Field.Text({
+            label: 'Whoah this is a seriously crazy custom component',
+            componentLibrary: customComponentLibrary,
+         }),
+         checkbox: Form.Field.Checkbox({
+            label: 'This is a default component',
+         })
+      }),
+   };
+   ```
 
 </details>
 

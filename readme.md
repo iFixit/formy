@@ -189,7 +189,7 @@ HTML output:
       onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
       fields: Form.fields({
          onChange: Form.onChangeFactory(form => this.setState({ form })),
-         componentLibrary: { ...Form.defaultComponentLibrary, ...customComponentLibrary },
+         componentLibrary: customComponentLibrary,
       }, {
          text: Form.Field.Text({
             label: 'Whoah this is a seriously crazy custom component',

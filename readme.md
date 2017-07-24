@@ -24,7 +24,7 @@ const form = {
       // Hook input onChange events to your own state control function.
       onChange: Form.onChangeFactory(form => this.setState({ form })),
    }, {
-      name: Form.Field.Text({ label: 'Name' }),
+      name: Form.Field.Text({ label: 'Name', autocomplete: 'name' }),
       email: Form.Field.Email({ label: 'Email' }),
       password: Form.Field.Password({ label: 'Password' }),
       newsletterSignup: Form.Field.Checkbox({ label: 'Signup for our newsletter?' }),
@@ -53,12 +53,12 @@ HTML output:
 <form name="signupForm">
    <label>
       Name
-      <input type="text" value="" name="name">
+      <input type="text" value="" name="name" autocomplete="name">
    </label>
 
    <label>
       Email
-      <input type="email" value="" name="email">
+      <input type="email" value="" name="email" autocomplete="email">
    </label>
 
    <label>
@@ -174,6 +174,7 @@ HTML output:
                   disabled={props.disabled}
                   required={props.required}
                   placeholder={props.placeholder}
+                  autoComplete={props.autocomplete}
                   onChange={props.onChange}
                />
             </label>
@@ -465,24 +466,28 @@ Function that returns a field object.
    ``` jsx
    FormField.Text = FormField.FieldFactory({
      placeHolder: '',
+     autocomplete: '',
      required: false,
      type: 'Text',
    });
 
    FormField.Email = FormField.FieldFactory({
       placeHolder: '',
+      autocomplete: 'email',
       required: false,
       type: 'Email',
    });
 
    FormField.Password = FormField.FieldFactory({
       placeHolder: '',
+      autocomplete: '',
       required: false,
       type: 'Password',
    });
 
    FormField.Number = FormField.FieldFactory({
       placeHolder: '' ,
+      autocomplete: '',
       required: false,
       type: 'Number',
    });
@@ -524,6 +529,7 @@ Function that returns a field object.
       label: '',
       disabled: false,
       placeHolder: '',
+      autocomplete: '',
       required: false,
       type: 'Text',
    }

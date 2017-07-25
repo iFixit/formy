@@ -112,7 +112,7 @@ HTML output:
       fields: Form.fields({
          onChange: Form.onChangeFactory(form => this.updateForm(form)),
       }, {
-         faveFood: Form.Field.RadioGroup({
+         faveFood: Form.Field.Radiogroup({
             value: 'burrito',
             radios: [
                Form.Field.Radio({ label: 'Burrito', value: 'burrito' }),

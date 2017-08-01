@@ -8,19 +8,7 @@ FormField.Component = class FormField extends React.Component {
       this.setFieldRef = this.setFieldRef.bind(this);
       this.fieldRef = {
          validationMessage: '',
-         validity: {
-            valueMissing: false,
-            typeMismatch: false,
-            patternMismatch: false,
-            tooLong: false,
-            tooShort: false,
-            rangeUnderflow: false,
-            rangeOverflow: false,
-            stepMismatch: false,
-            badInput: false,
-            customError: false,
-            valid: true,
-         },
+         validity: { valid: true },
       };
    }
 
@@ -39,7 +27,7 @@ FormField.Component = class FormField extends React.Component {
       return (
          <Component
             {...this.props}
-            validity={this.fieldRef.validity}
+            valid={this.fieldRef.validity.valid}
             validationMessage={this.fieldRef.validationMessage}
             fieldRef={this.setFieldRef}
          />

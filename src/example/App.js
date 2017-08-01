@@ -8,10 +8,10 @@ class App extends React.Component {
    render() {
       return(
          <div>
-         <section>
-            <h1>Basic form (start here)</h1>
-            <ExampleBasicForm/>
-         </section>
+            <section>
+               <h1>Basic form (start here)</h1>
+               <ExampleBasicForm/>
+            </section>
 
             <section>
                <h1>Setting Form Properties</h1>

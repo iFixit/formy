@@ -12,6 +12,7 @@ const InputElement = props => (
       required={props.required}
       placeholder={props.placeholder}
       onChange={props.onChange}
+      ref={props.fieldRef}
    />
 );
 

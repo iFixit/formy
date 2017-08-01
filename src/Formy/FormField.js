@@ -2,21 +2,58 @@ import React from 'react';
 
 let FormField = {};
 
-FormField.Component = ({ type, ...props }) => {
-   const Component = props.componentLibrary[type];
+FormField.Component = class FormField extends React.Component {
+   constructor(props) {
+      super(props);
+      this.setFieldRef = this.setFieldRef.bind(this);
+      this.fieldRef = {
+         validationMessage: '',
+         validity: {
+            valueMissing: false,
+            typeMismatch: false,
+            patternMismatch: false,
+            tooLong: false,
+            tooShort: false,
+            rangeUnderflow: false,
+            rangeOverflow: false,
+            stepMismatch: false,
+            badInput: false,
+            customError: false,
+            valid: true,
+         },
+      };
+   }
 
-   return (
-      <Component {...props}/>
-   );
-};
+   setFieldRef(fieldRef) {
+      this.fieldRef = fieldRef;
+   }
+
+   // Immediately re render when the validity state can be accessed
+   componentDidMount() {
+      this.forceUpdate();
+   }
+
+   render() {
+      const Component = this.props.componentLibrary[this.props.type];
+
+      return (
+         <Component
+            {...this.props}
+            validity={this.fieldRef.validity}
+            validationMessage={this.fieldRef.validationMessage}
+            fieldRef={this.setFieldRef}
+         />
+      );
+   }
+}
 
 FormField.FieldFactory = typeDefaults => instanceDefaults => ({
-   ...FormField.DEFAULT,
+   ...FormField.default,
    ...typeDefaults,
    ...instanceDefaults,
 });
 
-FormField.DEFAULT = {
+FormField.default = {
    value: '',
    label: '',
    disabled: false,

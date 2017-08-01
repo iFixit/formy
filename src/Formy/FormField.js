@@ -97,6 +97,4 @@ FormField.Radiogroup = FormField.FieldFactory({
    type: 'RadioGroup',
 });
 
-FormField.NON_COMPUTED_PROPERTIES = ['component'];
-
 export default FormField;

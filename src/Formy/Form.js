@@ -62,7 +62,6 @@ Form.getProps = form => {
 
    Object.keys(form)
     .filter(prop => form[prop] instanceof Function)
-    .filter(prop => !Form.Field.NON_COMPUTED_PROPERTIES.includes(prop))
     .forEach(prop => computedForm[prop] = form[prop](form));
 
    Object.keys(form.fields).forEach(fieldKey => {
@@ -70,7 +69,6 @@ Form.getProps = form => {
 
       Object.keys(computedField)
        .filter(prop => computedField[prop] instanceof Function)
-       .filter(prop => !Form.Field.NON_COMPUTED_PROPERTIES.includes(prop))
        .forEach(prop => computedField[prop] = computedField[prop](form, fieldKey));
 
       computedForm.fields[fieldKey] = computedField;

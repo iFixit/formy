@@ -1,6 +1,8 @@
 import React from 'react';
 import Toolbox from 'toolbox';
 
+console.log(Toolbox);
+
 let FormFieldComponentLibrary = {};
 
 const InputElement = props => (
@@ -23,47 +25,17 @@ FormFieldComponentLibrary.Default = props => (
    </label>
 );
 
-FormFieldComponentLibrary.Text = props => (
-   <label>
-      {props.label}
-      <InputElement {...props} type="text"/>
-   </label>
-);
+FormFieldComponentLibrary.Text = Toolbox.TextField;
 
-FormFieldComponentLibrary.Email = props => (
-   <label>
-      {props.label}
-      <InputElement {...props} type="email"/>
-   </label>
-);
+FormFieldComponentLibrary.Email = Toolbox.TextField;
 
-FormFieldComponentLibrary.Password = props => (
-   <label>
-      {props.label}
-      <InputElement {...props} type="password"/>
-   </label>
-);
+FormFieldComponentLibrary.Password = Toolbox.TextField;
 
-FormFieldComponentLibrary.Number = props => (
-   <label>
-      {props.label}
-      <InputElement {...props} type="number"/>
-   </label>
-);
+FormFieldComponentLibrary.Number = Toolbox.TextField;
 
-FormFieldComponentLibrary.Checkbox = props => (
-   <label>
-      {props.label}
-      <InputElement {...props} type="checkbox"/>
-   </label>
-);
+FormFieldComponentLibrary.Checkbox = Toolbox.Checkbox;
 
-FormFieldComponentLibrary.Radio = props => (
-   <label>
-      {props.label}
-      <InputElement {...props} type="radio"/>
-   </label>
-);
+FormFieldComponentLibrary.Radio = Toolbox.Radio;
 
 FormFieldComponentLibrary.TextArea = props => (
    <label>

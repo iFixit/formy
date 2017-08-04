@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "toolbox": "github:ifixit/toolbox#create-transpiled-build"
   },
   "devDependencies": {
     "react-scripts": "1.0.6"
@@ -14,6 +15,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-   },
-   "main": "src/Formy/Form.js"
+  },
+  "main": "src/Formy/Form.js"
 }

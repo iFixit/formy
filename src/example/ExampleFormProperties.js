@@ -4,19 +4,20 @@ import Form from '../Formy/Form';
 class ExampleFormProperties extends React.Component {
    render() {
       const exampleFields = {
-         text: Form.Field.Text(),
-         email: Form.Field.Email(),
-         password: Form.Field.Password(),
-         number: Form.Field.Number(),
-         textarea: Form.Field.Textarea(),
-         checkbox: Form.Field.Checkbox(),
-         radio: Form.Field.Radio(),
-         radiogroup: Form.Field.Radiogroup({
-            radios: [
-               Form.Field.Radio({ value: 'value' }),
-               Form.Field.Radio({ value: 'otherValue' }),
-            ],
-         }),
+         text: { type: 'text' },
+         email: { type: 'email' },
+         password: { type: 'password' },
+         number: { type: 'number' },
+         textarea: { type: 'textarea' },
+         checkbox: { type: 'checkbox' },
+         radio: { type: 'radio' },
+         // radiogroup: {
+         //    type: 'radiogroup',
+         //    radios: [
+         //       { type: 'radio', value: 'value' },
+         //       { type: 'radio', value: 'otherValue' },
+         //    ],
+         // },
       };
 
       const exampleProps = {
@@ -59,7 +60,7 @@ class ExampleFormProperty extends React.Component {
       super(props);
 
       const form = {
-         onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+         onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
          }, {
@@ -70,12 +71,9 @@ class ExampleFormProperty extends React.Component {
       this.state = { form };
    }
 
-   submitForm(data) {
-      console.log(data);
-   }
-
    render() {
       const form = Form.getProps(this.state.form);
+      console.log(form.fields.exampleField)
 
       return(
          <Form.Component {...form}>

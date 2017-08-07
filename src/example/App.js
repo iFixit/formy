@@ -13,12 +13,12 @@ class App extends React.Component {
                <ExampleBasicForm/>
             </section>
 
-            {/*<section>
+            <section>
                <h1>Setting Form Properties</h1>
                <ExampleFormProperties/>
             </section>
 
-            <section>
+            {/*<section>
                <h1>Computed Form</h1>
                <ExampleComputedForm/>
             </section>

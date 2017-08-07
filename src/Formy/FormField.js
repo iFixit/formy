@@ -1,4 +1,5 @@
 import React from 'react';
+import FormDefaultComponentLibrary from './FormDefaultComponentLibrary';
 
 let FormField = {};
 
@@ -44,6 +45,7 @@ FormField.Component.defaultProps = {
    required: false,
    checked: false,
    radios: [],
+   componentLibrary: FormDefaultComponentLibrary,
 };
 
 export default FormField;

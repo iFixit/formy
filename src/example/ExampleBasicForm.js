@@ -32,10 +32,6 @@ class ExampleBasicForm extends React.Component {
       };
    }
 
-   submitForm(data) {
-      console.log(data);
-   }
-
    render() {
       const form = Form.getProps(this.state.form);
 

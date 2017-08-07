@@ -23,19 +23,7 @@ FormFieldComponentLibrary.checkbox = Toolbox.Checkbox;
 
 FormFieldComponentLibrary.radio = Toolbox.Radio;
 
-FormFieldComponentLibrary.textArea = props => (
-   <label>
-      {props.label}
-      <textarea
-         value={props.value}
-         name={props.name}
-         disabled={props.disabled}
-         required={props.required}
-         placeholder={props.placeholder}
-         onChange={props.onChange}
-      ></textarea>
-   </label>
-);
+FormFieldComponentLibrary.textarea = Toolbox.Textarea;
 
 FormFieldComponentLibrary.RadioGroup = props => (
    <fieldSet disabled={props.disabled}>

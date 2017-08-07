@@ -2,22 +2,31 @@ import React from 'react';
 import Form from '../Formy/Form';
 
 class ExampleBasicForm extends React.Component {
-   constructor(props) {
-      super(props);
-
-      const form = {
+   state = {
+      form: {
          name: 'signupForm',
+         onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
          }, {
-            name: Form.Field.Text({ label: 'Name' }),
-            email: Form.Field.Email({ label: 'Email' }),
-            password: Form.Field.Password({ label: 'Password' }),
-            newsletterSignup: Form.Field.Checkbox({ label: 'Signup for our newsletter?' }),
+            name: {
+               type: 'text',
+               label: 'Name',
+            },
+            email: {
+               type: 'email',
+               label: 'Email',
+            },
+            password: {
+               type: 'password',
+               label: 'Password'
+            },
+            newsletterSignup: {
+               type: 'checkbox',
+               label: 'Signup for our newsletter?',
+            },
          }),
-      };
-
-      this.state = { form };
+      },
    }
 
    submitForm(data) {
@@ -33,6 +42,7 @@ class ExampleBasicForm extends React.Component {
             <Form.Field.Component {...form.fields.email}/>
             <Form.Field.Component {...form.fields.password}/>
             <Form.Field.Component {...form.fields.newsletterSignup}/>
+            <button type="submit"/>
          </Form.Component>
       );
    }

@@ -2,7 +2,7 @@ import React from 'react';
 
 let FormField = {};
 
-FormField.Component = class FormField extends React.Component {
+FormField.Component = class FormFieldComponent extends React.Component {
    constructor(props) {
       super(props);
       this.setFieldRef = this.setFieldRef.bind(this);
@@ -35,66 +35,14 @@ FormField.Component = class FormField extends React.Component {
    }
 }
 
-FormField.FieldFactory = typeDefaults => instanceDefaults => ({
-   ...FormField.default,
-   ...typeDefaults,
-   ...instanceDefaults,
-});
-
-FormField.default = {
+FormField.Component.defaultProps = {
    value: '',
    label: '',
+   placeholder: '',
    disabled: false,
-   type: 'Default',
-};
-
-FormField.Text = FormField.FieldFactory({
-  placeholder: '',
-  required: false,
-  type: 'Text',
-});
-
-FormField.Email = FormField.FieldFactory({
-   placeholder: '',
    required: false,
-   type: 'Email',
-});
-
-FormField.Password = FormField.FieldFactory({
-   placeholder: '',
-   required: false,
-   type: 'Password',
-});
-
-FormField.Number = FormField.FieldFactory({
-   placeholder: '' ,
-   required: false,
-   type: 'Number',
-});
-
-FormField.Textarea = FormField.FieldFactory({
-   placeholder: '',
-   required: false,
-   type: 'TextArea',
-});
-
-FormField.Checkbox = FormField.FieldFactory({
-   value: 'on',
    checked: false,
-   required: false,
-   type: 'Checkbox',
-});
-
-FormField.Radio = FormField.FieldFactory({
-   value: 'on',
-   checked: false,
-   required: false,
-   type: 'Radio',
-});
-
-FormField.Radiogroup = FormField.FieldFactory({
    radios: [],
-   type: 'RadioGroup',
-});
+};
 
 export default FormField;

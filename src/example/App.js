@@ -13,7 +13,7 @@ class App extends React.Component {
                <ExampleBasicForm/>
             </section>
 
-            <section>
+            {/*<section>
                <h1>Setting Form Properties</h1>
                <ExampleFormProperties/>
             </section>
@@ -26,7 +26,7 @@ class App extends React.Component {
             <section>
                <h1>Custom componentLibrary</h1>
                <ExampleCustomComponentLibrary/>
-            </section>
+            </section>*/}
          </div>
       );
    }

@@ -11,19 +11,19 @@ FormFieldComponentLibrary.Default = props => (
    </label>
 );
 
-FormFieldComponentLibrary.Text = Toolbox.TextField;
+FormFieldComponentLibrary.text = Toolbox.TextField;
 
-FormFieldComponentLibrary.Email = Toolbox.TextField;
+FormFieldComponentLibrary.email = Toolbox.TextField;
 
-FormFieldComponentLibrary.Password = Toolbox.TextField;
+FormFieldComponentLibrary.password = Toolbox.TextField;
 
-FormFieldComponentLibrary.Number = Toolbox.TextField;
+FormFieldComponentLibrary.number = Toolbox.TextField;
 
-FormFieldComponentLibrary.Checkbox = Toolbox.Checkbox;
+FormFieldComponentLibrary.checkbox = Toolbox.Checkbox;
 
-FormFieldComponentLibrary.Radio = Toolbox.Radio;
+FormFieldComponentLibrary.radio = Toolbox.Radio;
 
-FormFieldComponentLibrary.TextArea = props => (
+FormFieldComponentLibrary.textArea = props => (
    <label>
       {props.label}
       <textarea

@@ -17,12 +17,13 @@ Form.Component = ({ name, onSubmit, children }) => (
    </form>
 );
 
-Form.fields = (defaults = {}, fields) => {
+Form.fields = (globalProps = {}, fields) => {
    let computedFields = {};
 
    Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
       ...{ name: fieldKey, componentLibrary: Form.defaultComponentLibrary },
-      ...defaults,
+      ...Form.Field.Component.defaultProps,
+      ...globalProps,
       ...fields[fieldKey],
    });
 
@@ -46,8 +47,11 @@ Form.getData = form => {
    let data = {};
 
    Object.keys(form.fields)
-    .filter(fieldKey => form.fields[fieldKey].disabled !== true)
-    .filter(fieldKey => form.fields[fieldKey].checked !== false)
+    .filter(fieldKey => form.fields[fieldKey].disabled === false)
+    .filter(fieldKey =>
+      !['checkbox', 'radio'].includes(form.fields[fieldKey].type) ||
+      form.fields[fieldKey].checked === true
+    )
     .forEach(fieldKey => data[fieldKey] = form.fields[fieldKey].value);
 
    return data;

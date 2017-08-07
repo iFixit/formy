@@ -36,6 +36,7 @@ FormField.Component = class FormFieldComponent extends React.Component {
 }
 
 FormField.Component.defaultProps = {
+   type: 'text',
    value: '',
    label: '',
    placeholder: '',

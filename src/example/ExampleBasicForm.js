@@ -29,7 +29,7 @@ class ExampleBasicForm extends React.Component {
                },
             }),
          },
-      }
+      };
    }
 
    submitForm(data) {

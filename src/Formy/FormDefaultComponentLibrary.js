@@ -5,20 +5,6 @@ console.log(Toolbox);
 
 let FormFieldComponentLibrary = {};
 
-const InputElement = props => (
-   <input
-      type={props.type}
-      checked={props.checked}
-      value={props.value}
-      name={props.name}
-      disabled={props.disabled}
-      required={props.required}
-      placeholder={props.placeholder}
-      onChange={props.onChange}
-      ref={props.fieldRef}
-   />
-);
-
 FormFieldComponentLibrary.Default = props => (
    <label>
       {props.label}

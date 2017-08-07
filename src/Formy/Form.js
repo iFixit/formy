@@ -29,14 +29,10 @@ Form.fields = (defaults = {}, fields) => {
    return computedFields;
 };
 
-Form.onChangeFactory = fn => (form, fieldKey) => ev => {
-   const updatedProps = {
-      value: ev.target.value,
-      checked: form.fields[fieldKey].checked === undefined ? undefined : ev.target.checked,
-   };
-   const updatedFieldProps = { ...form.fields[fieldKey], ...updatedProps };
-   const updatedField = { ...form.fields, ...{ [fieldKey]: updatedFieldProps } };
-   const updatedForm = { ...form, ...{ fields: updatedField } };
+Form.onChangeFactory = fn => (form, fieldKey) => updatedProps => {
+   const updatedField = { ...form.fields[fieldKey], ...updatedProps };
+   const updatedFields = { ...form.fields, ...{ [fieldKey]: updatedField } };
+   const updatedForm = { ...form, ...{ fields: updatedFields } };
 
    fn(updatedForm);
 };

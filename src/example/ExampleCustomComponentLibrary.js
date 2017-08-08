@@ -30,7 +30,7 @@ class ExampleCustomComponentLibrary extends React.Component {
          onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
-            componentLibrary: { ...Form.defaultComponentLibrary, ...customComponentLibrary },
+            componentLibrary: customComponentLibrary,
          }, {
             text: { type: 'text', label: 'Whoah this is a seriously crazy custom component' },
             checkbox: { type: 'checkbox', label: 'This is a default component' },

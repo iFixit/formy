@@ -41,7 +41,7 @@ class ExampleBasicForm extends React.Component {
             <Form.Field.Component {...form.fields.email}/>
             <Form.Field.Component {...form.fields.password}/>
             <Form.Field.Component {...form.fields.newsletterSignup}/>
-            <button type="submit"/>
+            <button type="submit">Submit</button>
          </Form.Component>
       );
    }

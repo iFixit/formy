@@ -11,13 +11,13 @@ class ExampleFormProperties extends React.Component {
          textarea: { type: 'textarea' },
          checkbox: { type: 'checkbox' },
          radio: { type: 'radio' },
-         // radiogroup: {
-         //    type: 'radiogroup',
-         //    radios: [
-         //       { type: 'radio', value: 'value' },
-         //       { type: 'radio', value: 'otherValue' },
-         //    ],
-         // },
+         radiogroup: {
+            type: 'radiogroup',
+            radios: [
+               { type: 'radio', value: 'value' },
+               { type: 'radio', value: 'otherValue' },
+            ],
+         },
       };
 
       const exampleProps = {
@@ -32,23 +32,22 @@ class ExampleFormProperties extends React.Component {
       return(
          <div>
             {Object.keys(exampleFields).map(field => (
-               <section key={field}>
-                  <h1>{field}</h1>
+               <div key={field}>
+                  <h2>{field}</h2>
+                  <h3>Default</h3>
                   <ExampleFormProperty {...exampleFields[field]}/>
 
-                  {Object.keys(exampleFields[field])
-                   .filter(prop => !['componentLibrary', 'type', 'radios'].includes(prop))
-                   .map(prop => (
-                     <section key={`${field}${prop}`}>
+                  {Object.keys(exampleProps).map(prop => (
+                     <div key={`${field}${prop}`}>
                         <br/>
-                        <span>{prop}</span>
+                        <h3>{prop}</h3>
                         <ExampleFormProperty
                            {...exampleFields[field]}
                            {...{ [prop]: exampleProps[prop] }}
                         />
-                     </section>
+                     </div>
                   ))}
-               </section>
+               </div>
             ))}
          </div>
       );

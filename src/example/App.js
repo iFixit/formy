@@ -18,7 +18,7 @@ class App extends React.Component {
                <ExampleFormProperties/>
             </section>
 
-            {/*<section>
+            <section>
                <h1>Computed Form</h1>
                <ExampleComputedForm/>
             </section>
@@ -26,7 +26,7 @@ class App extends React.Component {
             <section>
                <h1>Custom componentLibrary</h1>
                <ExampleCustomComponentLibrary/>
-            </section>*/}
+            </section>
          </div>
       );
    }

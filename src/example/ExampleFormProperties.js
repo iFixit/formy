@@ -14,8 +14,8 @@ class ExampleFormProperties extends React.Component {
          radiogroup: {
             type: 'radiogroup',
             radios: [
-               { type: 'radio', value: 'value' },
-               { type: 'radio', value: 'otherValue' },
+               { label: 'value', value: 'value' },
+               { label: 'otherValue', value: 'otherValue' },
             ],
          },
       };
@@ -72,7 +72,6 @@ class ExampleFormProperty extends React.Component {
 
    render() {
       const form = Form.getProps(this.state.form);
-      console.log(form.fields.exampleField)
 
       return(
          <Form.Component {...form}>

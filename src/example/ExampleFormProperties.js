@@ -38,8 +38,8 @@ class ExampleFormProperties extends React.Component {
                   <ExampleFormProperty {...exampleFields[field]}/>
 
                   {Object.keys(exampleProps)
-                  .filter(prop => prop !== 'checked' || ['checkbox', 'radio'].includes(field))
-                  .map(prop => (
+                   .filter(prop => prop !== 'checked' || ['checkbox', 'radio'].includes(field))
+                   .map(prop => (
                      <div key={`${field}${prop}`}>
                         <br/>
                         <h3>{prop}</h3>

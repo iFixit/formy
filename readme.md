@@ -270,15 +270,15 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | Name | Type | Default | Description |
 | - | - | - | - |
 | autocomplete | String | `'off'` | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
-| checked | Boolean | `false` | The checked state of a field. |
+| checked | Boolean | `false` | The checked value of a field. |
 | componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
-| disabled | Boolean | `false` | The disabled state of a field. |
-| label | String | `''` | The label of a field. |
-| name | String | The field object's key | The name of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
+| disabled | Boolean | `false` | The disabled value of a field. |
+| label | String | `''` | The label value of a field. |
+| name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
 | onChange | function | no default | Function to hook to a field's onchange event. |
 | placeholder | String | `''` | An input's placeholder value. |
 | radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value doesn't need to be set since it will always be `'radio'`. |
-| required | Boolean | `false` | The required state of a field. Radiogroup fields can _only_ have a `false` value. |
+| required | Boolean | `false` | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String | `''` | The value of a field. |
 

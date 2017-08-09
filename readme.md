@@ -51,12 +51,12 @@ Render the form.
 const form = Form.getProps(this.state.form);
 
 return(
-<Form.Component {...form}>
-   <Form.Field.Component {...form.fields.name}/>
-   <Form.Field.Component {...form.fields.email}/>
-   <Form.Field.Component {...form.fields.password}/>
-   <Form.Field.Component {...form.fields.newsletterSignup}/>
-</Form.Component>
+   <Form.Component {...form}>
+      <Form.Field.Component {...form.fields.name}/>
+      <Form.Field.Component {...form.fields.email}/>
+      <Form.Field.Component {...form.fields.password}/>
+      <Form.Field.Component {...form.fields.newsletterSignup}/>
+   </Form.Component>
 );
 ```
 

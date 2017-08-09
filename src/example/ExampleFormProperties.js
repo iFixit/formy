@@ -78,7 +78,7 @@ class ExampleFormProperty extends React.Component {
 
       return(
          <Form.Component {...form}>
-            <Form.Field.Component {...form.fields.exampleField}/>
+            <Form.Field {...form.fields.exampleField}/>
             <button type="submit">Submit</button>
          </Form.Component>
       );

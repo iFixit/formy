@@ -38,10 +38,10 @@ class ExampleBasicForm extends React.Component {
 
       return(
          <Form.Component {...form}>
-            <Form.Field.Component {...form.fields.name}/>
-            <Form.Field.Component {...form.fields.email}/>
-            <Form.Field.Component {...form.fields.password}/>
-            <Form.Field.Component {...form.fields.newsletterSignup}/>
+            <Form.Field {...form.fields.name}/>
+            <Form.Field {...form.fields.email}/>
+            <Form.Field {...form.fields.password}/>
+            <Form.Field {...form.fields.newsletterSignup}/>
             <button type="submit">Submit</button>
          </Form.Component>
       );

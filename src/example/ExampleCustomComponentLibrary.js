@@ -2,7 +2,7 @@ import React from 'react';
 import Form from '../Formy/Form';
 
 const customComponentLibrary = {
-   ...Form.Field.Component.defaultProps.componentLibrary,
+   ...Form.Field.defaultProps.componentLibrary,
    ...{
       text: props => (
          <label>
@@ -45,9 +45,9 @@ class ExampleCustomComponentLibrary extends React.Component {
 
       return(
          <Form.Component {...form}>
-            <Form.Field.Component {...form.fields.text}/>
+            <Form.Field {...form.fields.text}/>
             <br/>
-            <Form.Field.Component {...form.fields.checkbox}/>
+            <Form.Field {...form.fields.checkbox}/>
          </Form.Component>
       );
    }

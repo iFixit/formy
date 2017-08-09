@@ -19,7 +19,7 @@ Form.fields = (globalProps = {}, fields) => {
 
    Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
       ...{ name: fieldKey },
-      ...Form.Field.Component.defaultProps,
+      ...Form.Field.defaultProps,
       ...globalProps,
       ...fields[fieldKey],
    });

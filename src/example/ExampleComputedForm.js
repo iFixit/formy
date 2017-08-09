@@ -27,8 +27,8 @@ class ExampleComputedForm extends React.Component {
 
       return(
          <Form.Component {...form}>
-            <Form.Field.Component {...form.fields.disable}/>
-            <Form.Field.Component {...form.fields.textInput}/>
+            <Form.Field {...form.fields.disable}/>
+            <Form.Field {...form.fields.textInput}/>
          </Form.Component>
       );
    }

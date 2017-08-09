@@ -12,7 +12,7 @@ We were tired of input attributes getting mixed in with the HTML markup of a for
 
 Declare an input's state as a simple JS object and free up your HTML for what it's best for: layout.
 
-A dropdown with a million options is now `<Form.Field.Component/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Field.Component/>`.
+A dropdown with a million options is now `<Form.Field/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Field/>`.
 
 ## Simple example
 
@@ -52,10 +52,10 @@ const form = Form.getProps(this.state.form);
 
 return(
    <Form.Component {...form}>
-      <Form.Field.Component {...form.fields.name}/>
-      <Form.Field.Component {...form.fields.email}/>
-      <Form.Field.Component {...form.fields.password}/>
-      <Form.Field.Component {...form.fields.newsletterSignup}/>
+      <Form.Field {...form.fields.name}/>
+      <Form.Field {...form.fields.email}/>
+      <Form.Field {...form.fields.password}/>
+      <Form.Field {...form.fields.newsletterSignup}/>
    </Form.Component>
 );
 ```
@@ -146,7 +146,7 @@ const form = Form.getProps(this.state.form);
 
 return(
    <Form.Component {...form}>
-      <Form.Field.Component {...form.fields.faveFood}/>
+      <Form.Field {...form.fields.faveFood}/>
    </Form.Component>
 );
 ```
@@ -175,17 +175,17 @@ Custom components are necessary for customizing a form beyond the default styles
 
 When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property.
 
-You can retrieve a [`Form.Field.Component`'s](#formfieldcomponent) default component library like this:
+You can retrieve a [`Form.Field`'s](#formfield) default component library like this:
 
 ```js
-Form.Field.Component.defaultProps.componentLibrary
+Form.Field.defaultProps.componentLibrary
 ```
 
 Here's an example of a custom component library extending Formy's default component library:
 
 ```jsx
 const customComponentLibrary = {
-   ...Form.Field.Component.defaultProps.componentLibrary,
+   ...Form.Field.defaultProps.componentLibrary,
    ...{
       text: props => (
          <label>
@@ -273,13 +273,12 @@ _Note: You can make any property a function that resolves to the appropiate type
 
 - [`Form`](#form)
   - [`Component`](#formcomponent)
+  - [`Field`](#formfield)
   - [`onChangeFactory`](#formonchangefactory)
   - [`onSubmitFactory`](#formonsubmitfactory)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
   - [`fields`](#formfields)
-  - [`Field`](#formfield)
-    - [`Component`](#formfieldcomponent)
 
 ##
 
@@ -421,12 +420,6 @@ Form.fields({
 ##
 
 ### `Form.Field`
-
-Field wrapper object.
-
-##
-
-### `Form.Field.Component`
 
 High order field element to structure a form.
 

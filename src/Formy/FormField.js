@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormDefaultComponentLibrary from './FormDefaultComponentLibrary';
 
-let FormField = {};
-
-FormField.Component = props => {
+const FormField = props => {
    const Component = props.componentLibrary[props.type];
    return <Component {...props} />;
 }
 
-FormField.Component.defaultProps = {
+FormField.defaultProps = {
    type: 'text',
    value: '',
    label: '',
@@ -22,7 +20,7 @@ FormField.Component.defaultProps = {
    componentLibrary: FormDefaultComponentLibrary,
 };
 
-FormField.Component.propTypes = {
+FormField.propTypes = {
    type: PropTypes.string.isRequired,
    value: PropTypes.string.isRequired,
    label: PropTypes.string.isRequired,

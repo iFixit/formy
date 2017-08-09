@@ -171,9 +171,17 @@ This groups the radio buttons in a `fieldset` element, rendering the radio butto
 
 <details><summary><strong>Custom component library</strong></summary>
 
-Custom components are a necessity for adding default styles and custom html to a form field.
+Custom components are necessary for customizing a form beyond the default styles.
 
-When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property. Here's an example of a custom component library extending Formy's [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary):
+When a field is rendered, it's component is retrieved by accessing its `componentLibrary` property and retrieving the component associated with its `type` property.
+
+You can retrieve a [`Form.Field.Component`'s](#formfieldcomponent) default component library like this:
+
+```js
+Form.Field.Component.defaultProps.componentLibrary
+```
+
+Here's an example of a custom component library extending Formy's default component library:
 
 ```jsx
 const customComponentLibrary = {

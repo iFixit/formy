@@ -4,8 +4,6 @@ import FormField from './FormField';
 
 let Form = {};
 
-Form.Field = FormField;
-
 Form.Component = ({ name, onSubmit, children }) => (
    <form
       name={name}
@@ -18,7 +16,9 @@ Form.Component = ({ name, onSubmit, children }) => (
 Form.Component.propTypes = {
    name: PropTypes.string,
    onSubmit: PropTypes.func,
-}
+};
+
+Form.Field = FormField;
 
 Form.fields = (globalProps = {}, fields) => {
    let computedFields = {};
@@ -31,19 +31,6 @@ Form.fields = (globalProps = {}, fields) => {
    });
 
    return computedFields;
-};
-
-Form.onChangeFactory = fn => (form, fieldKey) => updatedProps => {
-   const updatedField = { ...form.fields[fieldKey], ...updatedProps };
-   const updatedFields = { ...form.fields, ...{ [fieldKey]: updatedField } };
-   const updatedForm = { ...form, ...{ fields: updatedFields } };
-
-   fn(updatedForm);
-};
-
-Form.onSubmitFactory = fn => form => ev => {
-   ev.preventDefault();
-   fn(Form.getData(form));
 };
 
 Form.getData = form => {
@@ -78,6 +65,19 @@ Form.getProps = form => {
    });
 
    return { ...form, ...computedForm };
+};
+
+Form.onChangeFactory = fn => (form, fieldKey) => updatedProps => {
+   const updatedField = { ...form.fields[fieldKey], ...updatedProps };
+   const updatedFields = { ...form.fields, ...{ [fieldKey]: updatedField } };
+   const updatedForm = { ...form, ...{ fields: updatedFields } };
+
+   fn(updatedForm);
+};
+
+Form.onSubmitFactory = fn => form => ev => {
+   ev.preventDefault();
+   fn(Form.getData(form));
 };
 
 export default Form;

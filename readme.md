@@ -87,9 +87,9 @@ HTML output:
 
 ## Harder examples
 
-<details><summary><strong>Computed state</strong></summary>
+<details><summary><strong>Computed properties</strong></summary>
 
-In Formy you can define input state as relative values to other properties in a form.
+In Formy you can define a field property's value as a computed function to resolve on render.
 
 ``` jsx
 const form = {
@@ -112,9 +112,9 @@ const form = {
 
 In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. This is problematic though, since you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
 
-Formy combines computed state and static state all in the same initial `form` object, keeping your data contained and easy to understand.
+Formy combines computed values and static values all in the same initial `form` object, keeping your data contained and easy to understand.
 
-To create a computed state value, pass in a function as an input's property value. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string. This allows you to return a rendered value relative to all available data in the form.
+To create a computed value, pass in a function as a field property's value. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string. This allows you to return a rendered value relative to all available data in the form.
 </details>
 
 <details><summary><strong>Radio buttons</strong></summary>
@@ -251,7 +251,7 @@ const form = {
 
 ## Field properties
 
-A field accepts these properties:
+A field object can have these properties:
 
 | Name | Type | Default | Description |
 | - | - | - | - |

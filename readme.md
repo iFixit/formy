@@ -189,8 +189,7 @@ const customComponentLibrary = {
    ...{
       text: props => (
          <label>
-            <marquee>🌀🌐🌀{props.label}🌀🌐🌀</marquee>
-
+            <em>{props.label}</em>
             <input
                type={props.type}
                checked={props.checked}
@@ -227,8 +226,6 @@ const form = {
    }),
 };
 ```
-
-If a `componentLibrary` property isn't set in a `Form.fields` function, the [`Form.defaultComponentLibrary`](#formdefaultcomponentlibrary) is set as a default value.
 
 If you have a super special field that you want to render with a custom component, while not setting a whole new component library for all fields, you can add the `componentLibrary` property to a specific field object in the [`Form.fields`](#formfields) function:
 

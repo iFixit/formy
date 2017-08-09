@@ -254,7 +254,7 @@ const form = {
 A field accepts these properties:
 
 | Name | Type | Default | Description |
-| - | - | - |
+| - | - | - | - |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String | `''` | The value of a field. |
 | label | String | `''` | The label of a field. |

@@ -253,6 +253,8 @@ const form = {
 
 A field object can have these properties:
 
+_Note: You can make any property a function that resolves to the appropiate type on render. See the "Computed properties" example above._
+
 | Name | Type | Default | Description |
 | - | - | - | - |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |

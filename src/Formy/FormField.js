@@ -24,6 +24,8 @@ FormField.Component.defaultProps = {
 FormField.Component.propTypes = {
    type: PropTypes.string.isRequired,
    value: PropTypes.string.isRequired,
+   label: PropTypes.string.isRequired,
+   placeholder: PropTypes.string.isRequired,
    disabled: PropTypes.bool.isRequired,
    checked: PropTypes.bool.isRequired,
    radios: PropTypes.array.isRequired,

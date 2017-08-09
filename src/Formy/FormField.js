@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormDefaultComponentLibrary from './FormDefaultComponentLibrary';
 
-const FormField = props => {
-   const Component = props.componentLibrary[props.type];
+const FormField = ({componentLibrary, ...props}) => {
+   const Component = componentLibrary[props.type];
    return <Component {...props} />;
 }
 

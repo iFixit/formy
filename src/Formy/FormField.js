@@ -21,16 +21,15 @@ FormField.defaultProps = {
 };
 
 FormField.propTypes = {
-   type: PropTypes.string.isRequired,
-   value: PropTypes.string.isRequired,
-   label: PropTypes.string.isRequired,
-   placeholder: PropTypes.string.isRequired,
    autocomplete: PropTypes.string.isRequired,
-   disabled: PropTypes.bool.isRequired,
    checked: PropTypes.bool.isRequired,
-   radios: PropTypes.array.isRequired,
    componentLibrary: PropTypes.object.isRequired,
+   disabled: PropTypes.bool.isRequired,
+   label: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
    onChange: PropTypes.func.isRequired,
+   placeholder: PropTypes.string.isRequired,
+   radios: PropTypes.array.isRequired,
    required: (props, propName, componentName) => (
       typeof props[propName] === 'boolean' &&
       props[propName] &&
@@ -40,6 +39,8 @@ FormField.propTypes = {
          ' `' + componentName + '`. Validation failed.'
       ) : null
    ),
+   type: PropTypes.string.isRequired,
+   value: PropTypes.string.isRequired,
 };
 
 export default FormField;

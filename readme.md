@@ -65,12 +65,12 @@ HTML output:
 <form name="signupForm">
    <label>
       Name
-      <input type="text" value="" name="name">
+      <input type="text" value="" name="name" autocomplete="name">
    </label>
 
    <label>
       Email
-      <input type="email" value="" name="email">
+      <input type="email" value="" name="email" autocomplete="email">
    </label>
 
    <label>

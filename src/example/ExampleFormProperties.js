@@ -25,6 +25,7 @@ class ExampleFormProperties extends React.Component {
          label: 'label',
          disabled: true,
          placeholder: 'placeholder',
+         autocomplete: 'name',
          required: true,
          checked: true,
       };

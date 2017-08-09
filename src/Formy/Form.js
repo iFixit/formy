@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FormField from './FormField';
 
 let Form = {};
@@ -13,6 +14,11 @@ Form.Component = ({ name, onSubmit, children }) => (
       {children}
    </form>
 );
+
+Form.Component.propTypes = {
+   name: PropTypes.string,
+   onSubmit: PropTypes.func,
+}
 
 Form.fields = (globalProps = {}, fields) => {
    let computedFields = {};

@@ -287,11 +287,11 @@ _Note: You can make any property a function that resolves to the appropriate typ
 - [`Form`](#form)
   - [`Component`](#formcomponent)
   - [`Field`](#formfield)
-  - [`onChangeFactory`](#formonchangefactory)
-  - [`onSubmitFactory`](#formonsubmitfactory)
+  - [`fields`](#formfields)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
-  - [`fields`](#formfields)
+  - [`onChangeFactory`](#formonchangefactory)
+  - [`onSubmitFactory`](#formonsubmitfactory)
 
 ##
 
@@ -340,66 +340,6 @@ A `field` object of a [`Form.getProps`](#formgetprops) return value.
 ``` jsx
 <props.componentLibrary[props.type] {...props}/>
 ```
-</details>
-
-##
-
-### `Form.onChangeFactory`
-
-Factory function to hook into an input's `onChange` event.
-
-<details>
-
-#### Parameters
-
-| Name | Type | Description |
-| - | - | - |
-| callbackFn | Function | Function to call in an `onChange` event. When called, it passes in the new form state object as a parameter.
-</details>
-
-##
-
-### `Form.onSubmitFactory`
-
-Factory function to hook into a form's `submit` event. Cancels the native submit event.
-
-<details>
-
-#### Parameters
-
-| Name | Type | Description |
-| - | - | - |
-| callbackFn | Function | Function to call in a `submit` event. When called, it passes in the form's data object as a parameter.
-</details>
-
-##
-
-### `Form.getData`
-
-Function to get a form's data.
-
-<details>
-
-#### Parameters
-
-| Name | Type | Description |
-| - | - | - |
-| form | Object | Form props
-</details>
-
-##
-
-### `Form.getProps`
-
-Function to get a form state's props for rendering.
-
-<details>
-
-#### Parameters
-
-| Name | Type | Description |
-| - | - | - |
-| form | Object | Form state
 </details>
 
 ##
@@ -466,4 +406,64 @@ Form.fields({
 }
 */
 ```
+</details>
+
+##
+
+### `Form.getData`
+
+Function to get a form's data.
+
+<details>
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| form | Object | Form props
+</details>
+
+##
+
+### `Form.getProps`
+
+Function to get a form state's props for rendering.
+
+<details>
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| form | Object | Form state
+</details>
+
+##
+
+### `Form.onChangeFactory`
+
+Factory function to hook into an input's `onChange` event.
+
+<details>
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| callbackFn | Function | Function to call in an `onChange` event. When called, it passes in the new form state object as a parameter.
+</details>
+
+##
+
+### `Form.onSubmitFactory`
+
+Factory function to hook into a form's `submit` event. Cancels the native submit event.
+
+<details>
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| callbackFn | Function | Function to call in a `submit` event. When called, it passes in the form's data object as a parameter.
 </details>

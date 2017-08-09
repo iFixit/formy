@@ -312,6 +312,25 @@ onSubmit={props.onSubmit}
 
 ##
 
+### `Form.Field`
+
+High order field element to structure a form.
+
+<details>
+
+#### Props
+
+A `field` object of a [`Form.getProps`](#formgetprops) return value.
+
+#### Returns
+
+``` jsx
+<props.componentLibrary[props.type] {...props}/>
+```
+</details>
+
+##
+
 ### `Form.onChangeFactory`
 
 Factory function to hook into an input's `onChange` event.
@@ -414,24 +433,5 @@ Form.fields({
    },
 }
 */
-```
-</details>
-
-##
-
-### `Form.Field`
-
-High order field element to structure a form.
-
-<details>
-
-#### Props
-
-A `field` object of a [`Form.getProps`](#formgetprops) return value.
-
-#### Returns
-
-``` jsx
-<props.componentLibrary[props.type] {...props}/>
 ```
 </details>

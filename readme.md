@@ -256,6 +256,7 @@ A form object can have these properties:
 _Note: You can make any property a function that resolves to the appropriate type on render. See the "Computed properties" example above._
 
 | Name | Type | Default | Description |
+| - | - | - | - |
 | fields | Object | no default | An object of form fields |
 | name | String | no default | The name value of a form |
 | onSubmit | function | no default | Function to hook to a form's onsubmit event. |

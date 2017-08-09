@@ -266,7 +266,7 @@ _Note: You can make any property a function that resolves to the appropiate type
 | checked | Boolean | `false` | The checked state of a field. |
 | required | Boolean | `false` | The required state of a field. Radiogroup fields can _only_ have a `false` value.
 | radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value doesn't need to be set since it will always be `'radio'`. |
-| componentLibrary | Object | [FormDefaultComponentLibrary.js](src/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
+| componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
 | onChange | function | no default | Function to hook to a field's onchange event. |
 
 ## API

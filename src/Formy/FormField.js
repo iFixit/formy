@@ -32,6 +32,7 @@ FormField.Component.propTypes = {
    checked: PropTypes.bool.isRequired,
    radios: PropTypes.array.isRequired,
    componentLibrary: PropTypes.object.isRequired,
+   onChange: PropTypes.func.isRequired,
    required: (props, propName, componentName) => (
       typeof props[propName] === 'boolean' &&
       props[propName] &&

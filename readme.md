@@ -247,8 +247,44 @@ const form = {
    },
 };
 ```
-
 </details>
+
+## Field properties
+
+A field accepts these properties:
+
+| Name | Type | Default | Description |
+| - | - | - |
+| type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
+| value | String | `''` | The value of a field. |
+| label | String | `''` | The label of a field. |
+| placeholder | String | `''` | An input's placeholder value. |
+| autocomplete | String | `''` | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
+| disabled | Boolean | `false` | The disabled state of a field. |
+| checked | Boolean | `false` | The checked state of a field. |
+| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value doesn't need to be set since it will always be `'radio'`. |
+| componentLibrary | Object | [FormDefaultComponentLibrary.js](FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
+
+   type: PropTypes.string.isRequired,
+   value: PropTypes.string.isRequired,
+   label: PropTypes.string.isRequired,
+   placeholder: PropTypes.string.isRequired,
+   autocomplete: PropTypes.string.isRequired,
+   disabled: PropTypes.bool.isRequired,
+   checked: PropTypes.bool.isRequired,
+   radios: PropTypes.array.isRequired,
+   componentLibrary: PropTypes.object.isRequired,
+   onChange: PropTypes.func.isRequired,
+   required: (props, propName, componentName) => (
+      typeof props[propName] === 'boolean' &&
+      props[propName] &&
+      props.type === 'radiogroup' ?
+      new Error(
+         'Invalid prop `' + propName + '` supplied to' +
+         ' `' + componentName + '`. Validation failed.'
+      ) : null
+   ),
+}
 
 ## API
 

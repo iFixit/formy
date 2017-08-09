@@ -429,20 +429,39 @@ Helper function to generate an object of fields.
 Form.fields({
    onChange: event => {},
 }, {
-   phone: {},
-   email: {},
+   firstName: {},
+   lastName: {},
 })
 
 /*
 {
-   phone: {
-      name: phone,
+   firstName: {
+      autocomplete: 'off',
+      checked: false,
+      componentLibrary: {...},
+      disabled: false,
+      label: '',
+      name: 'firstName',
       onChange: event => {},
+      placeholder: '',
+      radios: [],
+      required: false,
+      type: 'text',
+      value: '',
    },
-
-   email: {
-      name: email,
+   lastName: {
+      autocomplete: 'off',
+      checked: false,
+      componentLibrary: {...},
+      disabled: false,
+      label: '',
+      name: 'lastName',
       onChange: event => {},
+      placeholder: '',
+      radios: [],
+      required: false,
+      type: 'text',
+      value: '',
    },
 }
 */

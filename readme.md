@@ -414,14 +414,14 @@ Helper function to generate an object of fields.
 
 | Name | Type | Description |
 | - | - | - |
-| defaults | Object | Object of values to assign to every field
+| globals | Object | Object of values to assign to every field
 | fields | Object | Object of fields
 
 #### Returns
 
 | Name | Type | Description |
 | - | - | - |
-| fields | Object | The fields object, with every field now containing all the `default` values as well a `name` property with the value being the field object's key.
+| fields | Object | The fields object, with every field now containing all the default field values, `globals` values, as well a `name` value with the value being the field object's key.
 
 #### Example
 

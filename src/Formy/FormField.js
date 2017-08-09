@@ -31,7 +31,8 @@ FormField.Component.propTypes = {
    required: (props, propName, componentName) => (
       typeof props[propName] === 'boolean' &&
       props[propName] &&
-      props.type === 'radiogroup' ? new Error(
+      props.type === 'radiogroup' ?
+      new Error(
          'Invalid prop `' + propName + '` supplied to' +
          ' `' + componentName + '`. Validation failed.'
       ) : null

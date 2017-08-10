@@ -15,7 +15,7 @@ const customComponentLibrary = {
                disabled={props.disabled}
                required={props.required}
                placeholder={props.placeholder}
-               onChange={props.onChange}
+               onChange={({ target: { value } }) => props.onChange({ value })}
             />
          </label>
       ),

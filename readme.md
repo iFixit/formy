@@ -110,7 +110,7 @@ const form = {
 };
 ```
 
-In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. This is problematic though, since you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
+In this example, the email address input is disabled _only_ if the checkbox isn't checked. Normally to achieve this you would need to add javascript outside of a form's HTML markup. However, you now have two sources of form state: your declarative form data written as HTML attributes and your imperative form data written in JS as hooks from input events.
 
 Formy combines computed values and static values all in the same initial `form` object, keeping your data contained and easy to understand.
 
@@ -277,7 +277,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
 | onChange | function | no default | Function to hook to a field's onchange event. |
 | placeholder | String | `''` | An input's placeholder value. |
-| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value doesn't need to be set since it will always be `'radio'`. |
+| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value of these radio objects don't need to be set since it's assumed to be `radio`. |
 | required | Boolean | `false` | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String | `''` | The value of a field. |
@@ -293,13 +293,13 @@ _Note: You can make any property a function that resolves to the appropriate typ
   - [`onChangeFactory`](#formonchangefactory)
   - [`onSubmitFactory`](#formonsubmitfactory)
 
-##
+---
 
 ### `Form`
 
 Library wrapper object.
 
-##
+---
 
 ### `Form.Component`
 
@@ -323,11 +323,11 @@ onSubmit={props.onSubmit}
 ```
 </details>
 
-##
+---
 
 ### `Form.Field`
 
-High order field element to structure a form.
+Container component used to structure a form.
 
 <details>
 
@@ -342,7 +342,7 @@ A `field` object of a [`Form.getProps`](#formgetprops) return value.
 ```
 </details>
 
-##
+---
 
 ### `Form.fields`
 
@@ -408,11 +408,11 @@ Form.fields({
 ```
 </details>
 
-##
+---
 
 ### `Form.getData`
 
-Function to get a form's data.
+Function to get a form's data to be submitted.
 
 <details>
 
@@ -420,14 +420,14 @@ Function to get a form's data.
 
 | Name | Type | Description |
 | - | - | - |
-| form | Object | Form props
+| form | Object | Form props from a [`Form.getProps`](#formgetprops) function call.
 </details>
 
-##
+---
 
 ### `Form.getProps`
 
-Function to get a form state's props for rendering.
+Function to get a form's props for rendering.
 
 <details>
 
@@ -438,7 +438,7 @@ Function to get a form state's props for rendering.
 | form | Object | Form state
 </details>
 
-##
+---
 
 ### `Form.onChangeFactory`
 
@@ -453,7 +453,7 @@ Factory function to hook into an input's `onChange` event.
 | callbackFn | Function | Function to call in an `onChange` event. When called, it passes in the new form state object as a parameter.
 </details>
 
-##
+---
 
 ### `Form.onSubmitFactory`
 

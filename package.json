@@ -1,21 +1,21 @@
 {
-  "name": "formy",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "toolbox": "github:ifixit/toolbox#create-transpiled-build"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.6"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "main": "src/Formy/Form.js"
+   "name": "formy",
+   "version": "1.0.0",
+   "private": true,
+   "dependencies": {
+      "prop-types": "^15.5.10",
+      "react": "^15.5.4",
+      "react-dom": "^15.5.4",
+      "toolbox": "github:ifixit/toolbox"
+   },
+   "devDependencies": {
+      "react-scripts": "1.0.6"
+   },
+   "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+   },
+   "main": "src/Formy/Form.js"
 }

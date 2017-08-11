@@ -1,14 +1,14 @@
-import Toolbox from 'toolbox';
+import { TextField, Checkbox, Radio, Textarea, RadioGroup } from 'toolbox';
 
 const FormFieldComponentLibrary = {
-   text: Toolbox.TextField,
-   email: Toolbox.TextField,
-   password: Toolbox.TextField,
-   number: Toolbox.TextField,
-   checkbox: Toolbox.Checkbox,
-   radio: Toolbox.Radio,
-   textarea: Toolbox.Textarea,
-   radiogroup: Toolbox.RadioGroup,
+   text: TextField,
+   email: TextField,
+   password: TextField,
+   number: TextField,
+   checkbox: Checkbox,
+   radio: Radio,
+   textarea: Textarea,
+   radiogroup: RadioGroup,
 };
 
 export default FormFieldComponentLibrary;

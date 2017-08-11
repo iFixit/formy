@@ -277,7 +277,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
 | onChange | function | no default | Function to hook to a field's onchange event. |
 | placeholder | String | `''` | An input's placeholder value. |
-| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value of these radio objects don't need to be set since it's assumed to be `radio`. |
+| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
 | required | Boolean | `false` | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String | `''` | The value of a field. |

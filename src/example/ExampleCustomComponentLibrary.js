@@ -2,11 +2,11 @@ import React from 'react';
 import Form from '../Formy/Form';
 
 const customComponentLibrary = {
-   ...Form.defaultComponentLibrary,
+   ...Form.Field.defaultProps.componentLibrary,
    ...{
-      Text: props => (
+      text: props => (
          <label>
-            <marquee>🌀🌐🌀{props.label}🌀🌐🌀</marquee>
+            <em>{props.label}</em>
             <input
                type={props.type}
                checked={props.checked}
@@ -15,7 +15,7 @@ const customComponentLibrary = {
                disabled={props.disabled}
                required={props.required}
                placeholder={props.placeholder}
-               onChange={props.onChange}
+               onChange={({ target: { value } }) => props.onChange({ value })}
             />
          </label>
       ),
@@ -27,25 +27,17 @@ class ExampleCustomComponentLibrary extends React.Component {
       super(props);
 
       const form = {
-         onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+         onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
-            componentLibrary: { ...Form.defaultComponentLibrary, ...customComponentLibrary },
+            componentLibrary: customComponentLibrary,
          }, {
-            text: Form.Field.Text({
-               label: 'Whoah this is a seriously crazy custom component',
-            }),
-            checkbox: Form.Field.Checkbox({
-               label: 'This is a default component',
-            })
+            text: { type: 'text', label: 'Whoah this is a seriously crazy custom component' },
+            checkbox: { type: 'checkbox', label: 'This is a default component' },
          }),
       };
 
       this.state = { form };
-   }
-
-   submitForm(data) {
-      console.log(data);
    }
 
    render() {
@@ -53,9 +45,9 @@ class ExampleCustomComponentLibrary extends React.Component {
 
       return(
          <Form.Component {...form}>
-            <Form.Field.Component {...form.fields.text}/>
+            <Form.Field {...form.fields.text}/>
             <br/>
-            <Form.Field.Component {...form.fields.checkbox}/>
+            <Form.Field {...form.fields.checkbox}/>
          </Form.Component>
       );
    }

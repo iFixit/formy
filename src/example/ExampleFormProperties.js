@@ -4,19 +4,20 @@ import Form from '../Formy/Form';
 class ExampleFormProperties extends React.Component {
    render() {
       const exampleFields = {
-         text: Form.Field.Text(),
-         email: Form.Field.Email(),
-         password: Form.Field.Password(),
-         number: Form.Field.Number(),
-         textarea: Form.Field.Textarea(),
-         checkbox: Form.Field.Checkbox(),
-         radio: Form.Field.Radio(),
-         radiogroup: Form.Field.Radiogroup({
+         text: { type: 'text' },
+         email: { type: 'email' },
+         password: { type: 'password' },
+         number: { type: 'number' },
+         textarea: { type: 'textarea' },
+         checkbox: { type: 'checkbox' },
+         radio: { type: 'radio' },
+         radiogroup: {
+            type: 'radiogroup',
             radios: [
-               Form.Field.Radio({ value: 'value' }),
-               Form.Field.Radio({ value: 'otherValue' }),
+               { label: 'value', value: 'value' },
+               { label: 'otherValue', value: 'otherValue' },
             ],
-         }),
+         },
       };
 
       const exampleProps = {
@@ -32,23 +33,26 @@ class ExampleFormProperties extends React.Component {
       return(
          <div>
             {Object.keys(exampleFields).map(field => (
-               <section key={field}>
-                  <h1>{field}</h1>
+               <div key={field}>
+                  <h2>{field}</h2>
+                  <h3>Default</h3>
                   <ExampleFormProperty {...exampleFields[field]}/>
 
-                  {Object.keys(exampleFields[field])
-                   .filter(prop => !['componentLibrary', 'type', 'radios'].includes(prop))
+                  {Object.keys(exampleProps)
+                   .filter(prop => prop !== 'checked' || ['checkbox', 'radio'].includes(field))
+                   .filter(prop => !(field === 'radiogroup' && prop === 'required'))
+                   .filter(prop => !(['checkbox', 'radio', 'radiogroup'].includes(field) && prop === 'placeholder'))
                    .map(prop => (
-                     <section key={`${field}${prop}`}>
+                     <div key={`${field}${prop}`}>
                         <br/>
-                        <span>{prop}</span>
+                        <h3>{prop}</h3>
                         <ExampleFormProperty
                            {...exampleFields[field]}
                            {...{ [prop]: exampleProps[prop] }}
                         />
-                     </section>
+                     </div>
                   ))}
-               </section>
+               </div>
             ))}
          </div>
       );
@@ -60,7 +64,7 @@ class ExampleFormProperty extends React.Component {
       super(props);
 
       const form = {
-         onSubmit: Form.onSubmitFactory(data => this.submitForm(data)),
+         onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
          }, {
@@ -71,16 +75,12 @@ class ExampleFormProperty extends React.Component {
       this.state = { form };
    }
 
-   submitForm(data) {
-      console.log(data);
-   }
-
    render() {
       const form = Form.getProps(this.state.form);
 
       return(
          <Form.Component {...form}>
-            <Form.Field.Component {...form.fields.exampleField}/>
+            <Form.Field {...form.fields.exampleField}/>
             <button type="submit">Submit</button>
          </Form.Component>
       );

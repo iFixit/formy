@@ -1,81 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import FormDefaultComponentLibrary from './FormDefaultComponentLibrary';
 
-let FormField = {};
+const FormField = ({componentLibrary, ...props}) => {
+   const Component = componentLibrary[props.type];
+   return <Component {...props} />;
+}
 
-FormField.Component = ({ type, ...props }) => {
-   const Component = props.componentLibrary[type];
-
-   return (
-      <Component {...props}/>
-   );
-};
-
-FormField.FieldFactory = typeDefaults => instanceDefaults => ({
-   ...FormField.DEFAULT,
-   ...typeDefaults,
-   ...instanceDefaults,
-});
-
-FormField.DEFAULT = {
+FormField.defaultProps = {
+   type: 'text',
    value: '',
    label: '',
+   placeholder: '',
+   autocomplete: 'off',
    disabled: false,
-   type: 'Default',
+   required: false,
+   checked: false,
+   radios: [],
+   componentLibrary: FormDefaultComponentLibrary,
 };
 
-FormField.Text = FormField.FieldFactory({
-  placeholder: '',
-  autocomplete: '',
-  required: false,
-  type: 'Text',
-});
-
-FormField.Email = FormField.FieldFactory({
-   placeholder: '',
-   autocomplete: 'email',
-   required: false,
-   type: 'Email',
-});
-
-FormField.Password = FormField.FieldFactory({
-   placeholder: '',
-   autocomplete: '',
-   required: false,
-   type: 'Password',
-});
-
-FormField.Number = FormField.FieldFactory({
-   placeholder: '' ,
-   autocomplete: '',
-   required: false,
-   type: 'Number',
-});
-
-FormField.Textarea = FormField.FieldFactory({
-   placeholder: '',
-   required: false,
-   type: 'TextArea',
-});
-
-FormField.Checkbox = FormField.FieldFactory({
-   value: 'on',
-   checked: false,
-   required: false,
-   type: 'Checkbox',
-});
-
-FormField.Radio = FormField.FieldFactory({
-   value: 'on',
-   checked: false,
-   required: false,
-   type: 'Radio',
-});
-
-FormField.Radiogroup = FormField.FieldFactory({
-   radios: [],
-   type: 'RadioGroup',
-});
-
-FormField.NON_COMPUTED_PROPERTIES = ['component'];
+FormField.propTypes = {
+   autocomplete: PropTypes.string.isRequired,
+   checked: PropTypes.bool.isRequired,
+   componentLibrary: PropTypes.object.isRequired,
+   disabled: PropTypes.bool.isRequired,
+   label: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
+   onChange: PropTypes.func.isRequired,
+   placeholder: PropTypes.string.isRequired,
+   radios: PropTypes.array.isRequired,
+   required: (props, propName, componentName) => (
+      typeof props[propName] === 'boolean' &&
+      props[propName] &&
+      props.type === 'radiogroup' ?
+      new Error(
+         'Invalid prop `' + propName + '` supplied to' +
+         ' `' + componentName + '`. Validation failed.'
+      ) : null
+   ),
+   type: PropTypes.string.isRequired,
+   value: PropTypes.string.isRequired,
+};
 
 export default FormField;

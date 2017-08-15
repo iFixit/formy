@@ -24,7 +24,17 @@ class ExampleHelpText extends React.Component {
             help: {
                type: 'text',
                label: 'HelpText',
-               value: form => form.fields.name.description
+               value: form => {
+                  for (const fieldKey in form.fields) {
+                     const field = form.fields[fieldKey];
+
+                     if (field.focused && field.description) {
+                        return field.description;
+                     }
+                  }
+
+                  return '';
+               }
             },
          }),
       };

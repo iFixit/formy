@@ -16,9 +16,12 @@ FormField.defaultProps = {
    disabled: false,
    required: false,
    checked: false,
+   focused: false,
    description: '',
    radios: [],
    componentLibrary: FormDefaultComponentLibrary,
+   onFocus: (form, fieldKey) => () => form.fields[fieldKey].onChange(form, fieldKey)({ focused: true }),
+   onBlur: (form, fieldKey) => () => form.fields[fieldKey].onChange(form, fieldKey)({ focused: false }),
 };
 
 FormField.propTypes = {
@@ -27,6 +30,7 @@ FormField.propTypes = {
    componentLibrary: PropTypes.object.isRequired,
    disabled: PropTypes.bool.isRequired,
    description: PropTypes.string.isRequired,
+   focused: PropTypes.bool.isRequired,
    label: PropTypes.string.isRequired,
    name: PropTypes.string.isRequired,
    onChange: PropTypes.func.isRequired,

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormField from './FormField';
+import FormUtils from './FormUtils';
 
 let Form = {};
 
@@ -106,5 +107,7 @@ Form.onSubmitFactory = fn => form => ev => {
    ev.preventDefault();
    fn(Form.getData(form));
 };
+
+Form.Utils = FormUtils;
 
 export default Form;

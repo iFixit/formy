@@ -15,38 +15,17 @@ class ExampleHelpText extends React.Component {
             name: {
                type: 'text',
                label: 'Name',
-               description: 'This is where you can type your name!'
+               description: 'This is where you can type your name!',
             },
             email: {
                type: 'email',
                label: 'Email',
-               description: 'This great form can also accept your email address.'
+               description: 'This great form can also accept your email address.',
             },
             help: {
                type: 'paragraph',
                label: 'HelpText',
-               value: form => {
-                  let maxTime = 0;
-                  let maxDescription = 'No help text';
-
-                  for (const fieldKey in form.fields) {
-                     const field = form.fields[fieldKey];
-
-                     if (field.focus && field.description &&
-                      maxTime < field.focusTime) {
-                        maxDescription = field.description;
-                        maxTime = field.focusTime;
-                     }
-
-                     if (field.hover && field.description &&
-                      maxTime < field.hoverTime) {
-                        maxDescription = field.description;
-                        maxTime = field.hoverTime;
-                     }
-                  }
-
-                  return maxDescription;
-               }
+               value: form => Form.Utils.getActiveFieldDescription(form, 'No help text'),
             },
          }),
       };

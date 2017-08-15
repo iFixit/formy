@@ -22,11 +22,11 @@ class ExampleHelpText extends React.Component {
                description: 'This great form can also accept your email address.'
             },
             help: {
-               type: 'text',
+               type: 'paragraph',
                label: 'HelpText',
                value: form => {
                   let maxTime = 0;
-                  let maxDescription = '';
+                  let maxDescription = 'No help text';
 
                   for (const fieldKey in form.fields) {
                      const field = form.fields[fieldKey];

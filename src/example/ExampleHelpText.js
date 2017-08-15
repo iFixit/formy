@@ -25,15 +25,26 @@ class ExampleHelpText extends React.Component {
                type: 'text',
                label: 'HelpText',
                value: form => {
+                  let maxTime = 0;
+                  let maxDescription = '';
+
                   for (const fieldKey in form.fields) {
                      const field = form.fields[fieldKey];
 
-                     if (field.focused && field.description) {
-                        return field.description;
+                     if (field.focus && field.description &&
+                      maxTime < field.focusTime) {
+                        maxDescription = field.description;
+                        maxTime = field.focusTime;
+                     }
+
+                     if (field.hover && field.description &&
+                      maxTime < field.hoverTime) {
+                        maxDescription = field.description;
+                        maxTime = field.hoverTime;
                      }
                   }
 
-                  return '';
+                  return maxDescription;
                }
             },
          }),

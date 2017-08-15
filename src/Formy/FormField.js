@@ -23,10 +23,6 @@ FormField.defaultProps = {
    hover: false,
    hoverTime: 0,
    componentLibrary: FormDefaultComponentLibrary,
-   onFocus: (form, fieldKey) => () => form.fields[fieldKey].onChange(form, fieldKey)({ focus: true, focusTime: Date.now() }),
-   onBlur: (form, fieldKey) => () => form.fields[fieldKey].onChange(form, fieldKey)({ focus: false }),
-   onMouseOver: (form, fieldKey) => () => form.fields[fieldKey].onChange(form, fieldKey)({ hover: true, hoverTime: Date.now() }),
-   onMouseOut: (form, fieldKey) => () => form.fields[fieldKey].onChange(form, fieldKey)({ hover: false }),
 };
 
 FormField.propTypes = {

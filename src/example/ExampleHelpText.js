@@ -10,6 +10,7 @@ class ExampleHelpText extends React.Component {
          onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),
+            ...Form.onActiveFactory(form => this.setState({ form })),
          }, {
             name: {
                type: 'text',

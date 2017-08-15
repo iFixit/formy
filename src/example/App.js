@@ -3,6 +3,7 @@ import ExampleBasicForm from './ExampleBasicForm';
 import ExampleFormProperties from './ExampleFormProperties';
 import ExampleComputedForm from './ExampleComputedForm';
 import ExampleCustomComponentLibrary from './ExampleCustomComponentLibrary';
+import ExampleHelpText from './ExampleHelpText';
 
 class App extends React.Component {
    render() {
@@ -26,6 +27,11 @@ class App extends React.Component {
             <section>
                <h1>Custom componentLibrary</h1>
                <ExampleCustomComponentLibrary/>
+            </section>
+
+            <section>
+               <h1>Help Text</h1>
+               <ExampleHelpText />
             </section>
          </div>
       );

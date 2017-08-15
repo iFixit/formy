@@ -75,6 +75,33 @@ Form.onChangeFactory = fn => (form, fieldKey) => updatedProps => {
    fn(updatedForm);
 };
 
+Form.onActiveFactory = fn => {
+   return {
+      onFocus: (form, fieldKey) => {
+         return () => Form.onChangeFactory(fn)(form, fieldKey)({
+            focus: true,
+            focusTime: Date.now()
+         });
+      },
+      onBlur: (form, fieldKey) => {
+         return () => Form.onChangeFactory(fn)(form, fieldKey)({
+            focus: false
+         });
+      },
+      onMouseOver: (form, fieldKey) => {
+         return () => Form.onChangeFactory(fn)(form, fieldKey)({
+            hover: true,
+            hoverTime: Date.now()
+         });
+      },
+      onMouseOut: (form, fieldKey) => {
+         return () => Form.onChangeFactory(fn)(form, fieldKey)({
+            hover: false
+         });
+      },
+   }
+};
+
 Form.onSubmitFactory = fn => form => ev => {
    ev.preventDefault();
    fn(Form.getData(form));

@@ -41,7 +41,7 @@ class ExampleFormProperties extends React.Component {
                   {Object.keys(exampleProps)
                    .filter(prop => prop !== 'checked' || ['checkbox', 'radio'].includes(field))
                    .filter(prop => !(field === 'radiogroup' && prop === 'required'))
-                   .filter(prop => !(['checkbox', 'radio', 'radiogroup'].includes(field) && prop === 'placeholder'))
+                   .filter(prop => !(['checkbox', 'radio', 'radiogroup'].includes(field) && ['placeholder', 'autocomplete'].includes(prop)))
                    .map(prop => (
                      <div key={`${field}${prop}`}>
                         <br/>

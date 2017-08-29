@@ -279,7 +279,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | componentLibrary | Object | [`FormDefaultComponentLibrary`](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
-| value | String OR Number | `''` | The value of a field. |
+| value | String | `''` | The value of a field. |
 
 ### Supported properties
 
@@ -289,7 +289,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | disabled | Boolean | The disabled value of a field. |
 | label | String | The label value of a field. |
 | onChange | function | Function to hook to a field's onchange event. |
-| placeholder | String OR Number | An input's placeholder value. |
+| placeholder | String | An input's placeholder value. |
 | radios | Array | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
 | max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
 | maxLength | Positive integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |

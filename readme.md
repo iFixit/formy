@@ -299,6 +299,10 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | required | Boolean | Constraint value for the [`required`](https://www.w3.org/TR/html5/forms.html#attr-input-required) attribute. Not applicable for a `radiogroup` field. |
 | step | Number or `'any'` | Constraint value for the [`step`](https://www.w3.org/TR/html5/forms.html#attr-input-step) attribute |
 
+### Other properties
+
+You are welcome to add any properties you want to a Form or Field property – they're just objects! The only downside is they won't be type checked like the core or supported properties. Functions will be executed just like all computed properties.
+
 ## API
 
 - [`Form`](#form)

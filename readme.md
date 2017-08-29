@@ -336,10 +336,10 @@ A [`Form.getProps`](#formgetprops) return value.
 
 ```jsx
 <form
-name={props.name}
-onSubmit={props.onSubmit}
+   name={props.name}
+   onSubmit={props.onSubmit}
 >
-{props.children}
+   {props.children}
 </form>
 ```
 </details>

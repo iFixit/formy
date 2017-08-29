@@ -37,7 +37,7 @@ Form.getData = form => {
    let data = {};
 
    Object.keys(form.fields)
-    .filter(fieldKey => form.fields[fieldKey].disabled === false)
+    .filter(fieldKey => form.fields[fieldKey].disabled !== true)
     .filter(fieldKey =>
       !['checkbox', 'radio'].includes(form.fields[fieldKey].type) ||
       form.fields[fieldKey].checked === true

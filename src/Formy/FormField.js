@@ -8,38 +8,34 @@ const FormField = ({componentLibrary, ...props}) => {
 }
 
 FormField.defaultProps = {
+   checked: false,
+   componentLibrary: FormDefaultComponentLibrary,
+   name: '',
+   onChange: () => {},
    type: 'text',
    value: '',
-   label: '',
-   placeholder: '',
-   autocomplete: 'off',
-   disabled: false,
-   checked: false,
-   radios: [],
-   componentLibrary: FormDefaultComponentLibrary,
 };
 
 FormField.propTypes = {
-   autocomplete: PropTypes.string.isRequired,
+   // Required
    checked: PropTypes.bool.isRequired,
    componentLibrary: PropTypes.object.isRequired,
-   disabled: PropTypes.bool.isRequired,
-   label: PropTypes.string.isRequired,
    name: PropTypes.string.isRequired,
    onChange: PropTypes.func.isRequired,
-   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-   radios: PropTypes.array.isRequired,
    type: PropTypes.string.isRequired,
    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 
-   // Constraint validation: https://www.w3.org/TR/html5/forms.html#candidate-for-constraint-validation
-
+   // Not required
+   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+   autocomplete: PropTypes.string,
+   disabled: PropTypes.bool,
+   radios: PropTypes.array,
+   label: PropTypes.string,
    // https://www.w3.org/TR/html5/forms.html#attr-input-max
    max: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
    ]),
-
    // https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength
    maxLength: (props, propName, componentName) => (
       props[propName] === undefined ||
@@ -52,13 +48,11 @@ FormField.propTypes = {
          ' `' + componentName + '`. Validation failed.'
       )
    ),
-
    // https://www.w3.org/TR/html5/forms.html#attr-input-min
    min: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
    ]),
-
    // https://www.w3.org/TR/html5/forms.html#attr-fe-minlength
    minLength: (props, propName, componentName) => (
       props[propName] === undefined ||
@@ -71,10 +65,8 @@ FormField.propTypes = {
          ' `' + componentName + '`. Validation failed.'
       )
    ),
-
    // https://www.w3.org/TR/html5/forms.html#attr-input-pattern
    pattern: PropTypes.string,
-
    // https://www.w3.org/TR/html5/forms.html#attr-input-required
    required: (props, propName, componentName) => (
       props[propName] === undefined ||
@@ -87,7 +79,6 @@ FormField.propTypes = {
          ' `' + componentName + '`. Validation failed.'
       )
    ),
-
    // https://www.w3.org/TR/html5/forms.html#attr-input-step
    step: (props, propName, componentName) => (
       props[propName] === undefined ||

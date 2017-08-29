@@ -271,20 +271,33 @@ A field object can have these properties:
 
 _Note: You can make any property a function that resolves to the appropriate type on render. See the "Computed properties" example above._
 
-| Name | Required | Type | Default | Description |
+### Core properties
+
+| Name | Type | Default | Description |
 | - | - | - | - | - |
-| checked | **true** | Boolean | `false` | The checked value of a field. |
-| componentLibrary | **true** | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
-| name | **true** | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
-| type | **true** | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
-| value | **true** | String OR Number | `''` | The value of a field. |
-| autocomplete | false | String | none | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
-| disabled | false | Boolean | none | The disabled value of a field. |
-| label | false | String | none | The label value of a field. |
-| onChange | false | function | none | Function to hook to a field's onchange event. |
-| placeholder | false | String OR Number | none | An input's placeholder value. |
-| radios | false | Array | none | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
-| required | false | Boolean | none | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
+| checked | Boolean | `false` | The checked value of a field. |
+| componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
+| name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
+| type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
+| value | String OR Number | `''` | The value of a field. |
+
+### Supported properties
+
+| Name | Type | Description |
+| - | - | - | - | - |
+| autocomplete | String | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
+| disabled | Boolean | The disabled value of a field. |
+| label | String | The label value of a field. |
+| onChange | function | Function to hook to a field's onchange event. |
+| placeholder | String OR Number | An input's placeholder value. |
+| radios | Array | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
+| max | String OR Number | Constraint value for the `max` attribute |
+| maxLength | Positive integer | Constraint value for the `maxlength` attribute |
+| min | String OR Number | Constraint value for the `min` attribute |
+| minLength | Positive integer | Constraint value for the `minlength` attribute |
+| pattern | String | Constraint value for the `pattern` attribute |
+| required | Boolean | Constraint value for the `required` attribute. Not applicable for a `radiogroup` field. |
+| step | Number or `'any'` | Constraint value for the `step` attribute |
 
 ## API
 

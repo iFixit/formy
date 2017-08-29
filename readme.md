@@ -12,7 +12,11 @@ We were tired of input attributes getting mixed in with the HTML markup of a for
 
 Declare an input's state as a simple JS object and free up your HTML for what it's best for: layout.
 
-A dropdown with a million options is now `<Form.Field/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Field/>`.
+A text input is now `<Form.Field/>`. A dropdown with a million options is now `<Form.Field/>`. Formy abstracts all markup differences, allowing you to write unified and simple templates.
+
+### ✅ Native validation
+
+We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and [standard validation constraint](https://www.w3.org/TR/html5/forms.html#constraints). Declare your constraints up front and let the browser do all the work.
 
 ## Simple example
 
@@ -267,21 +271,37 @@ A field object can have these properties:
 
 _Note: You can make any property a function that resolves to the appropriate type on render. See the "Computed properties" example above._
 
+### Core properties
+
 | Name | Type | Default | Description |
 | - | - | - | - |
-| autocomplete | String | `'off'` | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
 | checked | Boolean | `false` | The checked value of a field. |
-| componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
-| description | String | `''` | Description of the field. Unused, but can be used in other components for a "help text" display. |
-| disabled | Boolean | `false` | The disabled value of a field. |
-| label | String | `''` | The label value of a field. |
+| componentLibrary | Object | [`FormDefaultComponentLibrary`](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
-| onChange | function | no default | Function to hook to a field's onchange event. |
-| placeholder | String | `''` | An input's placeholder value. |
-| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
-| required | Boolean | `false` | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String | `''` | The value of a field. |
+
+### Supported properties
+
+| Name | Type | Description |
+| - | - | - |
+| autocomplete | String | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
+| disabled | Boolean | The disabled value of a field. |
+| label | String | The label value of a field. |
+| onChange | function | Function to hook to a field's onchange event. |
+| placeholder | String | An input's placeholder value. |
+| radios | Array | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
+| max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
+| maxLength | Positive integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |
+| min | String OR Number | Constraint value for the [`min`](https://www.w3.org/TR/html5/forms.html#attr-input-min) attribute |
+| minLength | Positive integer | Constraint value for the [`minlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-minlength) attribute |
+| pattern | String | Constraint value for the [`pattern`](https://www.w3.org/TR/html5/forms.html#attr-input-pattern) attribute |
+| required | Boolean | Constraint value for the [`required`](https://www.w3.org/TR/html5/forms.html#attr-input-required) attribute. Not applicable for a `radiogroup` field. |
+| step | Number or `'any'` | Constraint value for the [`step`](https://www.w3.org/TR/html5/forms.html#attr-input-step) attribute |
+
+### Other properties
+
+You are welcome to add any properties you want to a Form or Field object – they're just objects! The only downside is they won't be type checked like the core or supported properties. Functions will be executed just like all computed properties.
 
 ## API
 
@@ -316,10 +336,10 @@ A [`Form.getProps`](#formgetprops) return value.
 
 ```jsx
 <form
-name={props.name}
-onSubmit={props.onSubmit}
+   name={props.name}
+   onSubmit={props.onSubmit}
 >
-{props.children}
+   {props.children}
 </form>
 ```
 </details>
@@ -377,30 +397,18 @@ Form.fields({
 /*
 {
    firstName: {
-      autocomplete: 'off',
       checked: false,
       componentLibrary: {...},
-      disabled: false,
-      label: '',
       name: 'firstName',
       onChange: event => {},
-      placeholder: '',
-      radios: [],
-      required: false,
       type: 'text',
       value: '',
    },
    lastName: {
-      autocomplete: 'off',
       checked: false,
       componentLibrary: {...},
-      disabled: false,
-      label: '',
       name: 'lastName',
       onChange: event => {},
-      placeholder: '',
-      radios: [],
-      required: false,
       type: 'text',
       value: '',
    },

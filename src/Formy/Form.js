@@ -20,32 +20,28 @@ Form.Component.propTypes = {
 
 Form.Field = FormField;
 
-Form.fields = (globalProps = {}, fields) => {
-   let computedFields = {};
+Form.fields = (globalProps = {}, fields) => Object.assign({},
+   ...Object.keys(fields).map(fieldKey => ({
+      [fieldKey]: {
+         ...Form.Field.defaultProps,
+         ...{ name: fieldKey },
+         ...globalProps,
+         ...fields[fieldKey],
+      },
+   }))
+);
 
-   Object.keys(fields).forEach(fieldKey => computedFields[fieldKey] = {
-      ...{ name: fieldKey },
-      ...Form.Field.defaultProps,
-      ...globalProps,
-      ...fields[fieldKey],
-   });
-
-   return computedFields;
-};
-
-Form.getData = form => {
-   let data = {};
-
-   Object.keys(form.fields)
-    .filter(fieldKey => form.fields[fieldKey].disabled === false)
-    .filter(fieldKey =>
+Form.getData = form => Object.assign({},
+   ...Object.keys(form.fields)
+   .filter(fieldKey => form.fields[fieldKey].disabled !== true)
+   .filter(fieldKey =>
       !['checkbox', 'radio'].includes(form.fields[fieldKey].type) ||
       form.fields[fieldKey].checked === true
-    )
-    .forEach(fieldKey => data[fieldKey] = form.fields[fieldKey].value);
-
-   return data;
-}
+   )
+   .map(fieldKey => ({
+      [fieldKey]: form.fields[fieldKey].value
+   }))
+);
 
 Form.getProps = form => {
    let computedForm = { fields: {} };

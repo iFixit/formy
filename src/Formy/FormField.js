@@ -11,7 +11,6 @@ FormField.defaultProps = {
    checked: false,
    componentLibrary: FormDefaultComponentLibrary,
    name: '',
-   onChange: () => {},
    type: 'text',
    value: '',
 };
@@ -21,16 +20,18 @@ FormField.propTypes = {
    checked: PropTypes.bool.isRequired,
    componentLibrary: PropTypes.object.isRequired,
    name: PropTypes.string.isRequired,
-   onChange: PropTypes.func.isRequired,
    type: PropTypes.string.isRequired,
    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 
    // Not required
-   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
    autocomplete: PropTypes.string,
    disabled: PropTypes.bool,
-   radios: PropTypes.array,
    label: PropTypes.string,
+   onChange: PropTypes.func,
+   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+   radios: PropTypes.array,
+
+   // Constraint validation
    // https://www.w3.org/TR/html5/forms.html#attr-input-max
    max: PropTypes.oneOfType([
       PropTypes.string,

@@ -10,7 +10,6 @@ const FormField = ({componentLibrary, ...props}) => {
 FormField.defaultProps = {
    checked: false,
    componentLibrary: FormDefaultComponentLibrary,
-   name: '',
    type: 'text',
    value: '',
 };

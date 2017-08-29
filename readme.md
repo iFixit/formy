@@ -301,7 +301,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 
 ### Other properties
 
-You are welcome to add any properties you want to a Form or Field property – they're just objects! The only downside is they won't be type checked like the core or supported properties. Functions will be executed just like all computed properties.
+You are welcome to add any properties you want to a Form or Field object – they're just objects! The only downside is they won't be type checked like the core or supported properties. Functions will be executed just like all computed properties.
 
 ## API
 

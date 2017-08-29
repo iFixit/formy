@@ -31,17 +31,17 @@ Form.fields = (globalProps = {}, fields) => Object.assign({},
    }))
 );
 
-Form.getData = form => Object.assign({}, ...Object.keys(form.fields)
+Form.getData = form => Object.assign({},
+   ...Object.keys(form.fields)
    .filter(fieldKey => form.fields[fieldKey].disabled !== true)
    .filter(fieldKey =>
       !['checkbox', 'radio'].includes(form.fields[fieldKey].type) ||
       form.fields[fieldKey].checked === true
    )
    .map(fieldKey => ({
-      [fieldKey]: form.fields[fieldKey].value}
-   ))
+      [fieldKey]: form.fields[fieldKey].value
+   }))
 );
-
 
 Form.getProps = form => {
    let computedForm = { fields: {} };

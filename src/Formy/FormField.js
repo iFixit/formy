@@ -21,14 +21,14 @@ FormField.propTypes = {
    componentLibrary: PropTypes.object.isRequired,
    name: PropTypes.string.isRequired,
    type: PropTypes.string.isRequired,
-   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+   value: PropTypes.string.isRequired,
 
    // Not required
    autocomplete: PropTypes.string,
    disabled: PropTypes.bool,
    label: PropTypes.string,
    onChange: PropTypes.func,
-   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+   placeholder: PropTypes.string.isRequired,
    radios: PropTypes.array,
 
    // Constraint validation

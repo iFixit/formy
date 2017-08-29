@@ -276,7 +276,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | Name | Type | Default | Description |
 | - | - | - | - |
 | checked | Boolean | `false` | The checked value of a field. |
-| componentLibrary | Object | [`FormDefaultComponentLibrary.js`](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
+| componentLibrary | Object | [`FormDefaultComponentLibrary`](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String OR Number | `''` | The value of a field. |

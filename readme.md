@@ -12,7 +12,11 @@ We were tired of input attributes getting mixed in with the HTML markup of a for
 
 Declare an input's state as a simple JS object and free up your HTML for what it's best for: layout.
 
-A dropdown with a million options is now `<Form.Field/>`. A text input with some crazy pattern validation, a placeholder string, a required value, and an autofill value? `<Form.Field/>`.
+A text input is now `<Form.Field/>`. A dropdown with a million options is now `<Form.Field/>`. Formy abstracts all markup differences, allowing you to write unified and simple templates.
+
+### ✅ Native validation
+
+We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and [standard validation constraint](https://www.w3.org/TR/html5/forms.html#constraints). Declare your constraints up front and let the browser do all the work.
 
 ## Simple example
 
@@ -267,21 +271,20 @@ A field object can have these properties:
 
 _Note: You can make any property a function that resolves to the appropriate type on render. See the "Computed properties" example above._
 
-| Name | Type | Default | Description |
-| - | - | - | - |
-| autocomplete | String | `'off'` | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
-| checked | Boolean | `false` | The checked value of a field. |
-| componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
-| description | String | `''` | Description of the field. Unused, but can be used in other components for a "help text" display. |
-| disabled | Boolean | `false` | The disabled value of a field. |
-| label | String | `''` | The label value of a field. |
-| name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
-| onChange | function | no default | Function to hook to a field's onchange event. |
-| placeholder | String | `''` | An input's placeholder value. |
-| radios | Array | `[]` | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
-| required | Boolean | `false` | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
-| type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
-| value | String | `''` | The value of a field. |
+| Name | Required | Type | Default | Description |
+| - | - | - | - | - |
+| checked | **true** | Boolean | `false` | The checked value of a field. |
+| componentLibrary | **true** | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
+| name | **true** | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
+| type | **true** | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
+| value | **true** | String OR Number | `''` | The value of a field. |
+| autocomplete | false | String | none | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
+| disabled | false | Boolean | none | The disabled value of a field. |
+| label | false | String | none | The label value of a field. |
+| onChange | false | function | none | Function to hook to a field's onchange event. |
+| placeholder | false | String OR Number | none | An input's placeholder value. |
+| radios | false | Array | none | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
+| required | false | Boolean | none | The required value of a field. Radiogroup fields can _only_ have a `false` value. |
 
 ## API
 

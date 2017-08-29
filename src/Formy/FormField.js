@@ -43,6 +43,11 @@ FormField.propTypes = {
    ),
    type: PropTypes.string.isRequired,
    value: PropTypes.string.isRequired,
+   pattern: PropTypes.string,
+   min: PropTypes.string,
+   max: PropTypes.string,
+   step: PropTypes.string,
+   maxLength: PropTypes.string,
 };
 
 export default FormField;

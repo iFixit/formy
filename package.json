@@ -6,7 +6,7 @@
       "prop-types": "^15.5.10",
       "react": "^15.5.4",
       "react-dom": "^15.5.4",
-      "toolbox": "github:ifixit/toolbox#add-validity"
+      "toolbox": "github:ifixit/toolbox#89ae596a164b0b15c1ac82c491454291e5280e8a"
    },
    "devDependencies": {
       "react-scripts": "1.0.6"

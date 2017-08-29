@@ -4,8 +4,7 @@ const customValidity = (constraint, required = false) => (
    props,
    propName,
    componentName
-) => {
-   return (
+) => (
    (!required && typeof props[propName] === 'undefined') ||
    (
       typeof props[propName] !== 'undefined' &&
@@ -14,7 +13,7 @@ const customValidity = (constraint, required = false) => (
    null : new Error(
       `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`
    )
-)};
+);
 
 const FormFieldPropTypes = {
    // Required

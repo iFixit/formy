@@ -39,7 +39,7 @@ class App extends React.Component {
                <p>Expected UX:</p>
                <ul>
                   <li>Clicking submit displays a field's invalid state if it's invalid</li>
-                  <li>Focusing a field display's its validation message</li>
+                  <li>Focusing a field displays its validation message</li>
                   <li>Invalid state is removed when the value has been properly updated</li>
                   <li>The form isn't submitted (check the console.logs) if there's an invalid field</li>
                </ul>

@@ -276,7 +276,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | Name | Type | Default | Description |
 | - | - | - | - |
 | checked | Boolean | `false` | The checked value of a field. |
-| componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
+| componentLibrary | Object | [`FormDefaultComponentLibrary.js`](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
 | type | String | `'text'` | The type of field to render. Available default types: `'text'`, `'email'`, `'password'`, `'number'`, `'textarea'`, `'checkbox'`, `'radio'`, `'radiogroup'`. Soon to be added: `'select'`. |
 | value | String OR Number | `''` | The value of a field. |
@@ -291,13 +291,13 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | onChange | function | Function to hook to a field's onchange event. |
 | placeholder | String OR Number | An input's placeholder value. |
 | radios | Array | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
-| max | String OR Number | Constraint value for the `max` attribute |
-| maxLength | Positive integer | Constraint value for the `maxlength` attribute |
-| min | String OR Number | Constraint value for the `min` attribute |
-| minLength | Positive integer | Constraint value for the `minlength` attribute |
-| pattern | String | Constraint value for the `pattern` attribute |
-| required | Boolean | Constraint value for the `required` attribute. Not applicable for a `radiogroup` field. |
-| step | Number or `'any'` | Constraint value for the `step` attribute |
+| max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
+| maxLength | Positive integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |
+| min | String OR Number | Constraint value for the [`min`](https://www.w3.org/TR/html5/forms.html#attr-input-min) attribute |
+| minLength | Positive integer | Constraint value for the [`minlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-minlength) attribute |
+| pattern | String | Constraint value for the [`pattern`](https://www.w3.org/TR/html5/forms.html#attr-input-pattern) attribute |
+| required | Boolean | Constraint value for the [`required`](https://www.w3.org/TR/html5/forms.html#attr-input-required) attribute. Not applicable for a `radiogroup` field. |
+| step | Number or `'any'` | Constraint value for the [`step`](https://www.w3.org/TR/html5/forms.html#attr-input-step) attribute |
 
 ## API
 

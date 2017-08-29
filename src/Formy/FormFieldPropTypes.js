@@ -38,7 +38,7 @@ const FormFieldPropTypes = {
       PropTypes.number
    ]),
    // https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength
-   maxLength: customValidity((props, propName, componentName) => (
+   maxLength: customValidity((props, propName) => (
       Number.isInteger(props[propName]) &&
       (props[propName] >= 0)
    )),
@@ -48,19 +48,19 @@ const FormFieldPropTypes = {
       PropTypes.number
    ]),
    // https://www.w3.org/TR/html5/forms.html#attr-fe-minlength
-   minLength: customValidity((props, propName, componentName) => (
+   minLength: customValidity((props, propName) => (
       Number.isInteger(props[propName]) &&
       (props[propName] >= 0)
    )),
    // https://www.w3.org/TR/html5/forms.html#attr-input-pattern
    pattern: PropTypes.string,
    // https://www.w3.org/TR/html5/forms.html#attr-input-required
-   required: customValidity((props, propName, componentName) => (
+   required: customValidity((props, propName) => (
       typeof props[propName] === 'boolean' &&
       props.type !== 'radiogroup'
    )),
    // https://www.w3.org/TR/html5/forms.html#attr-input-step
-   step: customValidity((props, propName, componentName) => (
+   step: customValidity((props, propName) => (
       !Number.isNaN(props[propName]) ||
       (props[propName] === 'any')
    )),

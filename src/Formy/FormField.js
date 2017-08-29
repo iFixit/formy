@@ -28,7 +28,7 @@ FormField.propTypes = {
    disabled: PropTypes.bool,
    label: PropTypes.string,
    onChange: PropTypes.func,
-   placeholder: PropTypes.string.isRequired,
+   placeholder: PropTypes.string,
    radios: PropTypes.array,
 
    // Constraint validation

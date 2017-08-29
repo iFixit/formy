@@ -23,8 +23,8 @@ Form.Field = FormField;
 Form.fields = (globalProps = {}, fields) => Object.assign({},
    ...Object.keys(fields).map(fieldKey => ({
       [fieldKey]: {
-         ...{ name: fieldKey },
          ...Form.Field.defaultProps,
+         ...{ name: fieldKey },
          ...globalProps,
          ...fields[fieldKey],
       },

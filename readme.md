@@ -274,7 +274,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 ### Core properties
 
 | Name | Type | Default | Description |
-| - | - | - | - | - |
+| - | - | - | - |
 | checked | Boolean | `false` | The checked value of a field. |
 | componentLibrary | Object | [FormDefaultComponentLibrary.js](src/Formy/FormDefaultComponentLibrary.js) | Object of react components to render form fields, with properties corresponding to all available `type` values. |
 | name | String | The field object's key | The name value of a field. Defaults to the field object's key in the [`Form.fields`](#formfields) function. |
@@ -284,7 +284,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 ### Supported properties
 
 | Name | Type | Description |
-| - | - | - | - | - |
+| - | - | - |
 | autocomplete | String | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
 | disabled | Boolean | The disabled value of a field. |
 | label | String | The label value of a field. |

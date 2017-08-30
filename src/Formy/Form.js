@@ -4,8 +4,9 @@ import FormField from './FormField';
 
 let Form = {};
 
-Form.Component = ({ name, onSubmit, children }) => (
+Form.Component = ({ id, name, onSubmit, children }) => (
    <form
+      id={id}
       name={name}
       onSubmit={onSubmit}
    >
@@ -14,6 +15,7 @@ Form.Component = ({ name, onSubmit, children }) => (
 );
 
 Form.Component.propTypes = {
+   id: PropTypes.string,
    name: PropTypes.string,
    onSubmit: PropTypes.func,
 };

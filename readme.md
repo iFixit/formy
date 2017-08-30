@@ -23,7 +23,7 @@ We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any 
 Create an object of your form's initial state.
 ``` jsx
 const form = {
-   name: 'signupForm',
+   id: 'signupForm',
    onSubmit: Form.onSubmitFactory(data => console.log(data)),
    fields: Form.fields({
       onChange: Form.onChangeFactory(form => this.setState({ form })),
@@ -66,7 +66,7 @@ return(
 
 HTML output:
 ``` HTML
-<form name="signupForm">
+<form id="signupForm">
    <label>
       Name
       <input type="text" value="" name="name" autocomplete="name">
@@ -97,7 +97,6 @@ In Formy you can define a field property's value as a computed function to resol
 
 ``` jsx
 const form = {
-   name: 'signupForm',
    fields: Form.fields({
       onChange: Form.onChangeFactory(form => this.updateForm(form)),
    }, {
@@ -127,7 +126,7 @@ Group radio buttons as an array in the `radios` property of a `RadioGroup` objec
 
 ``` jsx
 const form = {
-   name: 'thingsYouLike',
+   id: 'thingsYouLike',
    fields: Form.fields({
       onChange: Form.onChangeFactory(form => this.updateForm(form)),
    }, {
@@ -259,11 +258,12 @@ A form object can have these properties:
 
 _Note: You can make any property a function that resolves to the appropriate type on render. See the "Computed properties" example above._
 
-| Name | Type | Default | Description |
-| - | - | - | - |
-| fields | Object | no default | An object of form fields |
-| name | String | no default | The name value of a form |
-| onSubmit | function | no default | Function to hook to a form's onsubmit event. |
+| Name | Type | Description |
+| - | - | - |
+| fields | Object | An object of form fields |
+| id | String | The `id` attribute of a form |
+| name | String | The `name` attribute of a form |
+| onSubmit | function | Function to hook to a form's onsubmit event. |
 
 ## Field properties
 

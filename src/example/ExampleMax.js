@@ -6,7 +6,6 @@ class ExampleMin extends React.Component {
       super(props);
 
       const form = {
-         name: 'signupForm',
          onSubmit: Form.onSubmitFactory(data => console.log(data)),
          fields: Form.fields({
             onChange: Form.onChangeFactory(form => this.setState({ form })),

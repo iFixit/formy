@@ -30,6 +30,10 @@ const FormFieldPropTypes = {
    onChange: PropTypes.func,
    placeholder: PropTypes.string,
    radios: PropTypes.array,
+   rows: customValidity((props, propName) => (
+      Number.isInteger(props[propName]) &&
+      (props[propName] > 0)
+   )),
 
    // Constraint validation
    // https://www.w3.org/TR/html5/forms.html#attr-input-max

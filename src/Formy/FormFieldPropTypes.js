@@ -21,7 +21,6 @@ const FormFieldPropTypes = {
    name: PropTypes.string.isRequired,
    type: PropTypes.string.isRequired,
    value: PropTypes.string.isRequired,
-
    autocomplete: PropTypes.string,
    disabled: PropTypes.bool,
    label: PropTypes.string,

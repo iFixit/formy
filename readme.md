@@ -69,12 +69,12 @@ HTML output:
 <form id="signupForm">
    <label>
       Name
-      <input type="text" value="" name="name" autocomplete="name">
+      <input type="text" value="" name="name">
    </label>
 
    <label>
       Email
-      <input type="email" value="" name="email" autocomplete="email">
+      <input type="email" value="" name="email">
    </label>
 
    <label>
@@ -84,7 +84,7 @@ HTML output:
 
    <label>
       Signup for our newsletter?
-      <input type="checkbox" value="on" name="newsletterSignup">
+      <input type="checkbox" value="" name="newsletterSignup">
    </label>
 </form>
 ```

@@ -16,31 +16,15 @@ const customValidity = (constraint, required = false) => (
 );
 
 const FormFieldPropTypes = {
-   // Required
    checked: PropTypes.bool.isRequired,
    componentLibrary: PropTypes.object.isRequired,
    name: PropTypes.string.isRequired,
    type: PropTypes.string.isRequired,
    value: PropTypes.string.isRequired,
 
-   // Not required
    autocomplete: PropTypes.string,
    disabled: PropTypes.bool,
    label: PropTypes.string,
-   onBlur: PropTypes.func,
-   onChange: PropTypes.func,
-   onFocus: PropTypes.func,
-   onInvalid: PropTypes.func,
-   onMouseEnter: PropTypes.func,
-   onMouseLeave: PropTypes.func,
-   placeholder: PropTypes.string,
-   radios: PropTypes.array,
-   rows: customValidity((props, propName) => (
-      Number.isInteger(props[propName]) &&
-      (props[propName] > 0)
-   )),
-
-   // Constraint validation
    // https://www.w3.org/TR/html5/forms.html#attr-input-max
    max: PropTypes.oneOfType([
       PropTypes.string,
@@ -61,12 +45,25 @@ const FormFieldPropTypes = {
       Number.isInteger(props[propName]) &&
       (props[propName] >= 0)
    )),
+   onBlur: PropTypes.func,
+   onChange: PropTypes.func,
+   onFocus: PropTypes.func,
+   onInvalid: PropTypes.func,
+   onMouseEnter: PropTypes.func,
+   onMouseLeave: PropTypes.func,
    // https://www.w3.org/TR/html5/forms.html#attr-input-pattern
    pattern: PropTypes.string,
+   placeholder: PropTypes.string,
+   radios: PropTypes.array,
    // https://www.w3.org/TR/html5/forms.html#attr-input-required
    required: customValidity((props, propName) => (
       typeof props[propName] === 'boolean' &&
       props.type !== 'radiogroup'
+   )),
+   rows: customValidity((props, propName) => (
+      props.type === 'textarea' &&
+      Number.isInteger(props[propName]) &&
+      (props[propName] > 0)
    )),
    // https://www.w3.org/TR/html5/forms.html#attr-input-step
    step: customValidity((props, propName) => (

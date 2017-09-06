@@ -288,15 +288,21 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | autocomplete | String | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
 | disabled | Boolean | The disabled value of a field. |
 | label | String | The label value of a field. |
-| onChange | function | Function to hook to a field's onchange event. |
+| max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
+| maxLength | Non-negative integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |
+| min | String OR Number | Constraint value for the [`min`](https://www.w3.org/TR/html5/forms.html#attr-input-min) attribute |
+| minLength | Non-negative integer | Constraint value for the [`minlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-minlength) attribute |
+| onBlur | Function | Function to hook to a field's `onBlur` event. |
+| onChange | Function | Function to hook to a field's `onChange` event. |
+| onFocus | Function | Function to hook to a field's `onFocus` event. |
+| onInvalid | Function | Function to hook to a field's `onInvalid` event. |
+| onMouseEnter | Function | Function to hook to a field's `onMouseEnter` event. |
+| onMouseLeave | Function | Function to hook to a field's `onMouseLeave` event. |
+| pattern | String | Constraint value for the [`pattern`](https://www.w3.org/TR/html5/forms.html#attr-input-pattern) attribute |
 | placeholder | String | An input's placeholder value. |
 | radios | Array | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
-| max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
-| maxLength | Positive integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |
-| min | String OR Number | Constraint value for the [`min`](https://www.w3.org/TR/html5/forms.html#attr-input-min) attribute |
-| minLength | Positive integer | Constraint value for the [`minlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-minlength) attribute |
-| pattern | String | Constraint value for the [`pattern`](https://www.w3.org/TR/html5/forms.html#attr-input-pattern) attribute |
 | required | Boolean | Constraint value for the [`required`](https://www.w3.org/TR/html5/forms.html#attr-input-required) attribute. Not applicable for a `radiogroup` field. |
+| rows | Positive integer | The [rows value](https://www.w3.org/TR/html51/sec-forms.html#dom-htmltextareaelement-rows) of a textarea. Not valid for any other field. |
 | step | Number or `'any'` | Constraint value for the [`step`](https://www.w3.org/TR/html5/forms.html#attr-input-step) attribute |
 
 ### Other properties

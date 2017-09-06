@@ -27,7 +27,12 @@ const FormFieldPropTypes = {
    autocomplete: PropTypes.string,
    disabled: PropTypes.bool,
    label: PropTypes.string,
+   onBlur: PropTypes.func,
    onChange: PropTypes.func,
+   onFocus: PropTypes.func,
+   onInvalid: PropTypes.func,
+   onMouseEnter: PropTypes.func,
+   onMouseLeave: PropTypes.func,
    placeholder: PropTypes.string,
    radios: PropTypes.array,
    rows: customValidity((props, propName) => (

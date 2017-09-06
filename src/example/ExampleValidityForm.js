@@ -19,6 +19,11 @@ class ExampleValidityForm extends React.Component {
                type: 'email',
                label: 'Email',
             },
+            bio: {
+               type: 'textarea',
+               label: 'Write a lil about yourself',
+               minLength: 88,
+            },
             password: {
                type: 'password',
                label: 'Password',
@@ -40,6 +45,7 @@ class ExampleValidityForm extends React.Component {
          <Form.Component {...form}>
             <Form.Field {...form.fields.name}/>
             <Form.Field {...form.fields.email}/>
+            <Form.Field {...form.fields.bio}/>
             <Form.Field {...form.fields.password}/>
             <Form.Field {...form.fields.newsletterSignup}/>
             <button type="submit">Submit</button>

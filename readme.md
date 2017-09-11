@@ -290,6 +290,20 @@ You can stack built-in constraints with your custom constraints, so a field can 
 }
 ```
 
+Formy uses the browser-native validation messages for its error states. If you want tighter control of your app's copy, you can override the standard validation messages by reimplementing native constraints as a `customValidity` function:
+
+```jsx
+{
+   type: 'text',
+   label: 'Enter your name',
+   // required: true, (reimplementing below)
+   customValidity: Form.customValidityFactory(
+      form => form.fields.name.value,
+      "This field is required",
+   ),
+}
+```
+
 </details>
 
 ## Form properties

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormField from './FormField';
 
-let Form = {};
+const Form = {};
 
 Form.Component = ({ id, name, onSubmit, children }) => (
    <form
@@ -22,56 +22,55 @@ Form.Component.propTypes = {
 
 Form.Field = FormField;
 
+Form.customValidityFactory = (constraint, validationMessage = 'Invalid') => (...args) => (
+   constraint(...args) ?  '' : validationMessage
+);
+
 Form.fields = (globalProps = {}, fields) => Object.assign({},
-   ...Object.keys(fields).map(fieldKey => ({
+   ...Object.entries(fields).map(([fieldKey, field]) => ({
       [fieldKey]: {
          ...Form.Field.defaultProps,
          ...{ name: fieldKey },
          ...globalProps,
-         ...fields[fieldKey],
+         ...field,
       },
-   }))
+   })),
 );
 
 Form.getData = form => Object.assign({},
-   ...Object.keys(form.fields)
-   .filter(fieldKey => form.fields[fieldKey].disabled !== true)
-   .filter(fieldKey =>
-      !['checkbox', 'radio'].includes(form.fields[fieldKey].type) ||
-      form.fields[fieldKey].checked === true
+   ...Object.entries(Form.getProps(form).fields)
+   .filter(([fieldKey, field]) => !field.disabled)
+   .filter(([fieldKey, field]) =>
+      !['checkbox', 'radio'].includes(field.type) || field.checked
    )
-   .map(fieldKey => ({
-      [fieldKey]: form.fields[fieldKey].value
-   }))
+   .map(([fieldKey, field]) => ({ [fieldKey]: field.value })),
 );
 
-Form.getProps = form => {
-   let computedForm = { fields: {} };
+Form.getProps = form => Object.assign({},
+   ...Object.entries(form)
+   .filter(([formPropKey, formProp]) => formPropKey !== 'fields')
+   .map(([formPropKey, formProp]) => ({
+      [formPropKey]: formProp instanceof Function ? formProp(form) : formProp,
+   })),
+   {
+      fields: Object.assign({}, ...Object.entries(form.fields).map(([fieldKey, field]) => ({
+         [fieldKey]: Object.assign({}, ...Object.entries(field).map(([fieldPropKey, fieldProp]) => ({
+            [fieldPropKey]: fieldProp instanceof Function ? fieldProp(form, fieldKey) : fieldProp,
+         }))),
+      }))),
+   },
+);
 
-   Object.keys(form)
-    .filter(prop => form[prop] instanceof Function)
-    .forEach(prop => computedForm[prop] = form[prop](form));
-
-   Object.keys(form.fields).forEach(fieldKey => {
-      let computedField = { ...form.fields[fieldKey] };
-
-      Object.keys(computedField)
-       .filter(prop => computedField[prop] instanceof Function)
-       .forEach(prop => computedField[prop] = computedField[prop](form, fieldKey));
-
-      computedForm.fields[fieldKey] = computedField;
-   });
-
-   return { ...form, ...computedForm };
-};
-
-Form.onChangeFactory = fn => (form, fieldKey) => updatedProps => {
-   const updatedField = { ...form.fields[fieldKey], ...updatedProps };
-   const updatedFields = { ...form.fields, ...{ [fieldKey]: updatedField } };
-   const updatedForm = { ...form, ...{ fields: updatedFields } };
-
-   fn(updatedForm);
-};
+Form.onChangeFactory = fn => (form, fieldKey) => updatedProps => fn({
+   ...form,
+   fields: {
+      ...form.fields,
+      [fieldKey]: {
+         ...form.fields[fieldKey],
+         ...updatedProps,
+      },
+   },
+});
 
 Form.onSubmitFactory = fn => form => ev => {
    ev.preventDefault();

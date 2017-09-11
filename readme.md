@@ -6,7 +6,7 @@ Comes with helper functions for input events to maintain internal state.
 
 ## Benefits
 
-### ⛓ Total separation of data and layout
+### ⛓ &nbsp; Total separation of data and layout
 
 We were tired of input attributes getting mixed in with the HTML markup of a form.
 
@@ -14,9 +14,13 @@ Declare an input's state as a simple JS object and free up your HTML for what it
 
 A text input is now `<Form.Field/>`. A dropdown with a million options is now `<Form.Field/>`. Formy abstracts all markup differences, allowing you to write unified and simple templates.
 
-### ✅ Native validation
+### ✅ &nbsp; Native validation
 
 We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and [standard validation constraint](https://www.w3.org/TR/html5/forms.html#constraints). Declare your constraints up front and let the browser do all the work.
+
+### 🔐 &nbsp; Custom validation
+
+Create your own form constraints and validation messages just as easily as the built-in ones, built off the standardized [setCustomValidity](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Constraint_API's_element.setCustomValidity()) api.
 
 ## Simple example
 
@@ -67,24 +71,15 @@ return(
 HTML output:
 ``` HTML
 <form id="signupForm">
-   <label>
-      Name
-      <input type="text" value="" name="name" autocomplete="name">
-   </label>
+   <label> Name <input type="text" name="name"> </label>
 
-   <label>
-      Email
-      <input type="email" value="" name="email" autocomplete="email">
-   </label>
+   <label> Email <input type="email" name="email"> </label>
 
-   <label>
-      Password
-      <input type="password" value="" name="password">
-   </label>
+   <label> Password <input type="password" name="password"> </label>
 
    <label>
       Signup for our newsletter?
-      <input type="checkbox" value="on" name="newsletterSignup">
+      <input type="checkbox" name="newsletterSignup">
    </label>
 </form>
 ```
@@ -252,6 +247,65 @@ const form = {
 ```
 </details>
 
+<details><summary><strong>Custom validation</strong></summary>
+
+Adding custom validation to your form fields follows this simple model:
+
+1. Declare your constraint. Ex: This input can't start with the letter 'z'.
+
+2. Add a validation message. Ex: "Names can't start with a 'z' sorry."
+
+In Formy, custom validation looks like this:
+
+```jsx
+const form = {
+   fields: Form.fields({
+      onChange: Form.onChangeFactory(form => this.setState({ form })),
+   }, {
+      name: {
+         type: 'text',
+         label: 'Enter your name',
+         customValidity: Form.customValidityFactory(
+            form => form.fields.name.value[0] !== 'z',
+            "Names can't start with a 'z' sorry.",
+         ),
+      },
+   }),
+};
+```
+
+Your constraint function is just like all other computed properties. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string, resolving to either an empty string (if valid) or the passed in validation message (if invalid).
+
+You can stack built-in constraints with your custom constraints, so a field can have both be `required` _and_ have to start with the letter 'z' like this:
+
+```jsx
+{
+   type: 'text',
+   label: 'Enter your name',
+   required: true,
+   customValidity: Form.customValidityFactory(
+      form => form.fields.name.value[0] !== 'z',
+      "Names can't start with a 'z' sorry.",
+   ),
+}
+```
+
+Formy uses browser-native validation messages for its error states. If you want tighter control of your app's copy, you can override the standard validation messages by reimplementing native constraints as a `customValidity` function:
+
+```jsx
+{
+   type: 'text',
+   label: 'Enter your name',
+   // required: true, (reimplementing below)
+   customValidity: Form.customValidityFactory(
+      form => form.fields.name.value,
+      "This field is required",
+   ),
+}
+```
+
+</details>
+
 ## Form properties
 
 A form object can have these properties:
@@ -286,17 +340,24 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | Name | Type | Description |
 | - | - | - |
 | autocomplete | String | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
+| customValidity | String | The custom validation message of a field. An empty string means it's valid. A non-empty string means it's invalid. |
 | disabled | Boolean | The disabled value of a field. |
 | label | String | The label value of a field. |
-| onChange | function | Function to hook to a field's onchange event. |
+| max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
+| maxLength | Non-negative integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |
+| min | String OR Number | Constraint value for the [`min`](https://www.w3.org/TR/html5/forms.html#attr-input-min) attribute |
+| minLength | Non-negative integer | Constraint value for the [`minlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-minlength) attribute |
+| onBlur | Function | Function to hook to a field's `onBlur` event. |
+| onChange | Function | Function to hook to a field's `onChange` event. |
+| onFocus | Function | Function to hook to a field's `onFocus` event. |
+| onInvalid | Function | Function to hook to a field's `onInvalid` event. |
+| onMouseEnter | Function | Function to hook to a field's `onMouseEnter` event. |
+| onMouseLeave | Function | Function to hook to a field's `onMouseLeave` event. |
+| pattern | String | Constraint value for the [`pattern`](https://www.w3.org/TR/html5/forms.html#attr-input-pattern) attribute |
 | placeholder | String | An input's placeholder value. |
 | radios | Array | An array of field objects to populate a radiogroup field. The `type` value of these radio objects doesn't need to be set since it's assumed to be `radio`. |
-| max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
-| maxLength | Positive integer | Constraint value for the [`maxlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-maxlength) attribute |
-| min | String OR Number | Constraint value for the [`min`](https://www.w3.org/TR/html5/forms.html#attr-input-min) attribute |
-| minLength | Positive integer | Constraint value for the [`minlength`](https://www.w3.org/TR/html5/forms.html#attr-fe-minlength) attribute |
-| pattern | String | Constraint value for the [`pattern`](https://www.w3.org/TR/html5/forms.html#attr-input-pattern) attribute |
 | required | Boolean | Constraint value for the [`required`](https://www.w3.org/TR/html5/forms.html#attr-input-required) attribute. Not applicable for a `radiogroup` field. |
+| rows | Positive integer | The [rows value](https://www.w3.org/TR/html51/sec-forms.html#dom-htmltextareaelement-rows) of a textarea. Not valid for any other field. |
 | step | Number or `'any'` | Constraint value for the [`step`](https://www.w3.org/TR/html5/forms.html#attr-input-step) attribute |
 
 ### Other properties
@@ -308,6 +369,7 @@ You are welcome to add any properties you want to a Form or Field object – the
 - [`Form`](#form)
   - [`Component`](#formcomponent)
   - [`Field`](#formfield)
+  - [`customValidityFactory`](#formcustomvalidityfactory)
   - [`fields`](#formfields)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
@@ -361,6 +423,28 @@ A `field` object of a [`Form.getProps`](#formgetprops) return value.
 ``` jsx
 <props.componentLibrary[props.type] {...props}/>
 ```
+</details>
+
+---
+
+### `Form.customValidityFactory`
+
+Factory function for creating a custom validation message.
+
+<details>
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| - | - | - | - |
+| constraint | Function | none | Your custom validation logic. Passes in the current `form` object and `fieldKey` string, and expects a Boolean return value. `true` means valid, `false` means invalid.
+| validationMessage | String | `'Invalid'` | The validation message to display if the custom validation is invalid.
+
+#### Returns
+
+| Name | Type | Description |
+| - | - | - |
+| customValidity | String | The custom validity message. An empty string if valid, and `validationMessage` if invalid.
 </details>
 
 ---
@@ -429,7 +513,7 @@ Function to get a form's data to be submitted.
 
 | Name | Type | Description |
 | - | - | - |
-| form | Object | Form props from a [`Form.getProps`](#formgetprops) function call.
+| form | Object | Form state
 </details>
 
 ---

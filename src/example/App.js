@@ -9,6 +9,7 @@ import ExampleMinLength from './ExampleMinLength';
 import ExamplePattern from './ExamplePattern';
 import ExampleMin from './ExampleMin';
 import ExampleMax from './ExampleMax';
+import ExampleCustomValidity from './ExampleCustomValidity';
 
 class App extends React.Component {
    render() {
@@ -74,6 +75,11 @@ class App extends React.Component {
                <h1>Pattern: abcdefg</h1>
                <a href="https://www.w3.org/TR/html5/forms.html#attr-input-pattern">Spec</a>
                <ExamplePattern/>
+            </section>
+
+            <section>
+               <h1>Custom Validity</h1>
+               <ExampleCustomValidity/>
             </section>
          </div>
       );

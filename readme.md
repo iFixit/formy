@@ -249,7 +249,7 @@ const form = {
 
 <details><summary><strong>Custom validation</strong></summary>
 
-Adding custom validation to your form fields works exactly as you expect.
+Adding custom validation to your form fields follows this simple model:
 
 1. Declare your constraint. Ex: This input can't start with the letter 'z'.
 
@@ -275,6 +275,20 @@ const form = {
 ```
 
 Your constraint function is just like all other computed properties. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string, resolving to either the passed in validation message (if invalid) or an empty string (if valid).
+
+You can stack built-in constraints with your custom constraints, so a field can have both be `required` _and_ have to start with the letter 'z' like this:
+
+```jsx
+{
+   type: 'text',
+   label: 'Enter your name',
+   required: true,
+   customValidity: Form.customValidityFactory(
+      form => form.fields.name.value[0] !== 'z',
+      "Names can't start with a 'z' sorry.",
+   ),
+}
+```
 
 </details>
 
@@ -416,7 +430,7 @@ Factory function for creating a custom validation message.
 
 | Name | Type | Description |
 | - | - | - |
-| customValidity | String | The custom validity message. And empty string if valid, and `validationMessage` if invalid.
+| customValidity | String | The custom validity message. An empty string if valid, and `validationMessage` if invalid.
 </details>
 
 ---
@@ -485,7 +499,7 @@ Function to get a form's data to be submitted.
 
 | Name | Type | Description |
 | - | - | - |
-| form | Object | Form props from a [`Form.getProps`](#formgetprops) function call.
+| form | Object | Form state
 </details>
 
 ---

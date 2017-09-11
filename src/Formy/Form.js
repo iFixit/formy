@@ -20,11 +20,11 @@ Form.Component.propTypes = {
    onSubmit: PropTypes.func,
 };
 
+Form.Field = FormField;
+
 Form.customValidityFactory = (constraint, validationMessage) => (...args) => (
    constraint(...args) ?  '' : validationMessage
 );
-
-Form.Field = FormField;
 
 Form.fields = (globalProps = {}, fields) => Object.assign({},
    ...Object.entries(fields).map(([fieldKey, field]) => ({

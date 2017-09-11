@@ -22,8 +22,8 @@ const FormFieldPropTypes = {
    type: PropTypes.string.isRequired,
    value: PropTypes.string.isRequired,
    autocomplete: PropTypes.string,
-   disabled: PropTypes.bool,
    customValidity: PropTypes.string,
+   disabled: PropTypes.bool,
    label: PropTypes.string,
    // https://www.w3.org/TR/html5/forms.html#attr-input-max
    max: PropTypes.oneOfType([

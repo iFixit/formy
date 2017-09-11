@@ -312,6 +312,7 @@ _Note: You can make any property a function that resolves to the appropriate typ
 | Name | Type | Description |
 | - | - | - |
 | autocomplete | String | The [autocomplete value](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute) of a field. |
+| customValidity | String | The custom validation message of a field. An empty string means it's valid. A non-empty string means it's invalid. |
 | disabled | Boolean | The disabled value of a field. |
 | label | String | The label value of a field. |
 | max | String OR Number | Constraint value for the [`max`](https://www.w3.org/TR/html5/forms.html#attr-input-max) attribute |
@@ -340,6 +341,7 @@ You are welcome to add any properties you want to a Form or Field object – the
 - [`Form`](#form)
   - [`Component`](#formcomponent)
   - [`Field`](#formfield)
+  - [`customValidityFactory`](#formcustomvalidityfactory)
   - [`fields`](#formfields)
   - [`getData`](#formgetdata)
   - [`getProps`](#formgetprops)
@@ -393,6 +395,28 @@ A `field` object of a [`Form.getProps`](#formgetprops) return value.
 ``` jsx
 <props.componentLibrary[props.type] {...props}/>
 ```
+</details>
+
+---
+
+### `Form.customValidityFactory`
+
+Factory function for creating a custom validation message.
+
+<details>
+
+#### Parameters
+
+| Name | Type | Description |
+| - | - | - |
+| constraint | Function | Your custom validation logic. Passes in the current `form` object and `fieldKey` string, and expects a Boolean return value. `true` means valid, `false` means invalid.
+| validationMessage | String | The validation message to display if the custom validation is invalid.
+
+#### Returns
+
+| Name | Type | Description |
+| - | - | - |
+| customValidity | String | The custom validity message. And empty string if valid, and `validationMessage` if invalid.
 </details>
 
 ---

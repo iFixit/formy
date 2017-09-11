@@ -6,7 +6,7 @@ Comes with helper functions for input events to maintain internal state.
 
 ## Benefits
 
-### ⛓ Total separation of data and layout
+### ⛓ &nbsp; Total separation of data and layout
 
 We were tired of input attributes getting mixed in with the HTML markup of a form.
 
@@ -14,9 +14,13 @@ Declare an input's state as a simple JS object and free up your HTML for what it
 
 A text input is now `<Form.Field/>`. A dropdown with a million options is now `<Form.Field/>`. Formy abstracts all markup differences, allowing you to write unified and simple templates.
 
-### ✅ Native validation
+### ✅ &nbsp; Native validation
 
 We didn't write a bunch of crappy regex. Browsers back to IE10 can validate any input type and [standard validation constraint](https://www.w3.org/TR/html5/forms.html#constraints). Declare your constraints up front and let the browser do all the work.
+
+### 🔐 &nbsp; Custom validation
+
+Create your own form constraints and validation messages just as easily as the built-in ones, built off the standardized [setCustomValidity](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Constraint_API's_element.setCustomValidity()) api.
 
 ## Simple example
 
@@ -241,6 +245,37 @@ const form = {
    },
 };
 ```
+</details>
+
+<details><summary><strong>Custom validation</strong></summary>
+
+Adding custom validation to your form fields works exactly as you expect.
+
+1. Declare your constraint. Ex: This input can't start with the letter 'z'.
+
+2. Add a validation message. Ex: "Names can't start with a 'z' sorry."
+
+In Formy, custom validation looks like this:
+
+```jsx
+const form = {
+   fields: Form.fields({
+      onChange: Form.onChangeFactory(form => this.setState({ form })),
+   }, {
+      name: {
+         type: 'text',
+         label: 'Enter your name',
+         customValidity: Form.customValidityFactory(
+            form => form.fields.name.value[0] !== 'z',
+            "Names can't start with a 'z' sorry.",
+         ),
+      },
+   }),
+};
+```
+
+Your constraint function is just like all other computed properties. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string, resolving to either the passed in validation message (if invalid) or an empty string (if valid).
+
 </details>
 
 ## Form properties

@@ -67,24 +67,15 @@ return(
 HTML output:
 ``` HTML
 <form id="signupForm">
-   <label>
-      Name
-      <input type="text" value="" name="name">
-   </label>
+   <label> Name <input type="text" name="name"> </label>
 
-   <label>
-      Email
-      <input type="email" value="" name="email">
-   </label>
+   <label> Email <input type="email" name="email"> </label>
 
-   <label>
-      Password
-      <input type="password" value="" name="password">
-   </label>
+   <label> Password <input type="password" name="password"> </label>
 
    <label>
       Signup for our newsletter?
-      <input type="checkbox" value="" name="newsletterSignup">
+      <input type="checkbox" name="newsletterSignup">
    </label>
 </form>
 ```

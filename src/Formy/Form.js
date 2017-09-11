@@ -39,9 +39,9 @@ Form.fields = (globalProps = {}, fields) => Object.assign({},
 
 Form.getData = form => Object.assign({},
    ...Object.entries(Form.getProps(form).fields)
-   .filter(([fieldKey, field]) => field.disabled !== true)
+   .filter(([fieldKey, field]) => !field.disabled)
    .filter(([fieldKey, field]) =>
-      !['checkbox', 'radio'].includes(field.type) || field.checked === true
+      !['checkbox', 'radio'].includes(field.type) || field.checked
    )
    .map(([fieldKey, field]) => ({ [fieldKey]: field.value })),
 );

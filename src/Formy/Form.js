@@ -22,7 +22,7 @@ Form.Component.propTypes = {
 
 Form.Field = FormField;
 
-Form.customValidityFactory = (constraint, validationMessage) => (...args) => (
+Form.customValidityFactory = (constraint, validationMessage = 'Invalid') => (...args) => (
    constraint(...args) ?  '' : validationMessage
 );
 

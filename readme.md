@@ -421,10 +421,10 @@ Factory function for creating a custom validation message.
 
 #### Parameters
 
-| Name | Type | Description |
-| - | - | - |
-| constraint | Function | Your custom validation logic. Passes in the current `form` object and `fieldKey` string, and expects a Boolean return value. `true` means valid, `false` means invalid.
-| validationMessage | String | The validation message to display if the custom validation is invalid.
+| Name | Type | Default value | Description |
+| - | - | - | - |
+| constraint | Function | none | Your custom validation logic. Passes in the current `form` object and `fieldKey` string, and expects a Boolean return value. `true` means valid, `false` means invalid.
+| validationMessage | String | `'Invalid'` | The validation message to display if the custom validation is invalid.
 
 #### Returns
 

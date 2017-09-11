@@ -274,7 +274,7 @@ const form = {
 };
 ```
 
-Your constraint function is just like all other computed properties. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string, resolving to either the passed in validation message (if invalid) or an empty string (if valid).
+Your constraint function is just like all other computed properties. On render, Formy calls the function and passes in the current `form` object and `fieldKey` string, resolving to either an empty string (if valid) or the passed in validation message (if invalid).
 
 You can stack built-in constraints with your custom constraints, so a field can have both be `required` _and_ have to start with the letter 'z' like this:
 

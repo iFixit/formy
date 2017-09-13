@@ -10,6 +10,7 @@ import ExamplePattern from './ExamplePattern';
 import ExampleMin from './ExampleMin';
 import ExampleMax from './ExampleMax';
 import ExampleCustomValidity from './ExampleCustomValidity';
+import ExampleSelect from './ExampleSelect';
 
 class App extends React.Component {
    render() {
@@ -80,6 +81,11 @@ class App extends React.Component {
             <section>
                <h1>Custom Validity</h1>
                <ExampleCustomValidity/>
+            </section>
+
+            <section>
+               <h1>Select</h1>
+               <ExampleSelect/>
             </section>
          </div>
       );

@@ -1,4 +1,11 @@
-import { TextField, Checkbox, Radio, Textarea, RadioGroup } from 'toolbox';
+import {
+   Checkbox,
+   Radio,
+   RadioGroup,
+   Select,
+   Textarea,
+   TextField,
+} from 'toolbox';
 
 const FormFieldComponentLibrary = {
    text: TextField,
@@ -9,6 +16,7 @@ const FormFieldComponentLibrary = {
    radio: Radio,
    textarea: Textarea,
    radiogroup: RadioGroup,
+   select: Select,
 };
 
 export default FormFieldComponentLibrary;

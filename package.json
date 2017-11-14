@@ -9,13 +9,18 @@
       "toolbox": "github:ifixit/toolbox#339aec5fa2f939f010a1284cc2a067905dc27929"
    },
    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-preset-env": "^1.6.1",
+      "babel-preset-react": "^6.24.1",
       "react-scripts": "1.0.6"
    },
    "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test --env=jsdom",
-      "eject": "react-scripts eject"
+      "eject": "react-scripts eject",
+      "prepare": "babel src -d dist"
    },
-   "main": "src/Formy/Form.js"
+   "main": "dist/Formy/Form.js"
 }

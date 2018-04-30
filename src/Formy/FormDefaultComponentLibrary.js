@@ -1,4 +1,4 @@
-import { TextField, Checkbox, Radio, Textarea, RadioGroup } from 'toolbox';
+import { TextField, Checkbox, Radio, Textarea, RadioGroup } from '@ifixit/toolbox';
 
 const FormFieldComponentLibrary = {
    text: TextField,

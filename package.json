@@ -1,19 +1,18 @@
 {
    "name": "formy",
-   "version": "1.0.2",
-   "private": true,
+   "version": "1.0.3",
    "dependencies": {
-      "prop-types": "^15.6.0",
+      "@ifixit/toolbox": "^0.10.1",
+      "prop-types": "^15.6.1",
       "react": "^15.6.2",
-      "react-dom": "^15.6.2",
-      "toolbox": "github:ifixit/toolbox#339aec5fa2f939f010a1284cc2a067905dc27929"
+      "react-dom": "^15.6.2"
    },
    "devDependencies": {
       "babel-cli": "^6.26.0",
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-preset-env": "^1.6.1",
       "babel-preset-react": "^6.24.1",
-      "react-scripts": "1.0.6"
+      "react-scripts": "^1.1.4"
    },
    "scripts": {
       "start": "react-scripts start",

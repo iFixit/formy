@@ -1,6 +1,6 @@
 {
    "name": "formy",
-   "version": "1.0.3",
+   "version": "1.0.4",
    "dependencies": {
       "@ifixit/toolbox": "^0.10.3",
       "enzyme": "^3.3.0",

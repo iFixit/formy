@@ -14,7 +14,7 @@ import ExampleCustomValidity from './ExampleCustomValidity';
 class App extends React.Component {
    render() {
       return(
-         <div>
+         <div data-reactroot>
             <section>
                <h1>Basic form (start here)</h1>
                <ExampleBasicForm/>

@@ -1,8 +1,8 @@
 {
    "name": "formy",
-   "version": "1.0.4",
+   "version": "1.0.5",
    "dependencies": {
-      "@ifixit/toolbox": "^0.10.3",
+      "@ifixit/toolbox": "^0.12.4",
       "enzyme": "^3.3.0",
       "enzyme-adapter-react-16": "^1.1.1",
       "prop-types": "^15.6.1",
@@ -14,14 +14,14 @@
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-preset-env": "^1.7.0",
       "babel-preset-react": "^6.24.1",
-      "react-scripts": "^1.1.4"
+      "react-scripts": "^1.1.4",
+      "styled-components": "^4.1.3"
    },
    "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test --env=jsdom",
-      "eject": "react-scripts eject",
-      "prepublishOnly": "babel src -d dist"
+      "eject": "react-scripts eject"
    },
-   "main": "dist/Formy/Form.js"
+   "main": "src/index.js"
 }

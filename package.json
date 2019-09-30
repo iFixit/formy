@@ -1,6 +1,6 @@
 {
    "name": "formy",
-   "version": "1.0.6",
+   "version": "1.0.7",
    "dependencies": {
       "@ifixit/toolbox": "^1.0.1",
       "enzyme": "^3.3.0",
@@ -23,5 +23,5 @@
       "test": "react-scripts test --env=jsdom",
       "eject": "react-scripts eject"
    },
-   "main": "src/index.js"
+   "main": "src/Formy/Form.js"
 }

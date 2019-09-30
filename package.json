@@ -19,9 +19,9 @@
    },
    "scripts": {
       "start": "react-scripts start",
-      "build": "react-scripts build",
+      "build": "babel src/Formy --out-dir dist --extensions \".js,.jsx\"",
       "test": "react-scripts test --env=jsdom",
       "eject": "react-scripts eject"
    },
-   "main": "src/Formy/Form.js"
+   "main": "dist/Form.js"
 }

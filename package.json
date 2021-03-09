@@ -1,6 +1,6 @@
 {
    "name": "formy",
-   "version": "1.0.13",
+   "version": "1.0.14",
    "dependencies": {
       "@ifixit/toolbox": "^1.0.1",
       "prop-types": "^15.6.1"

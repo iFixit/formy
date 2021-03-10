@@ -1,6 +1,10 @@
 {
    "name": "formy",
    "version": "1.0.14",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/iFixit/formy.git"
+   }
    "dependencies": {
       "@ifixit/toolbox": "^1.0.1",
       "prop-types": "^15.6.1"
